@@ -229,10 +229,10 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="L9k-6L-MD7" kind="show" id="iUf-ja-Wce"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9X8-b8-KxT">
-                                <rect key="frame" x="14" y="58" width="31" height="31"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -240,12 +240,10 @@
                             <constraint firstItem="sqe-pD-pVH" firstAttribute="trailing" secondItem="fGA-YI-g5H" secondAttribute="trailing" constant="37" id="QuO-g8-WIO"/>
                             <constraint firstItem="sqe-pD-pVH" firstAttribute="trailing" secondItem="pDC-qX-jjm" secondAttribute="trailing" constant="20" id="R4j-Le-yTz"/>
                             <constraint firstItem="fGA-YI-g5H" firstAttribute="leading" secondItem="sqe-pD-pVH" secondAttribute="leading" constant="37" id="ajo-Mt-qWc"/>
+                            <constraint firstItem="pDC-qX-jjm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sqe-pD-pVH" secondAttribute="leading" symbolic="YES" id="dAF-KY-luy"/>
                             <constraint firstItem="pDC-qX-jjm" firstAttribute="top" secondItem="sqe-pD-pVH" secondAttribute="top" constant="20" id="fPj-sV-79V"/>
                             <constraint firstItem="fGA-YI-g5H" firstAttribute="top" secondItem="pDC-qX-jjm" secondAttribute="bottom" constant="65" id="gHA-5t-VYP"/>
                             <constraint firstItem="sqe-pD-pVH" firstAttribute="trailing" secondItem="t4W-Nb-cPb" secondAttribute="trailing" constant="57.5" id="l6M-un-sSq"/>
-                            <constraint firstItem="9X8-b8-KxT" firstAttribute="leading" secondItem="sqe-pD-pVH" secondAttribute="leading" constant="14" id="nUS-0M-Guv"/>
-                            <constraint firstItem="pDC-qX-jjm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9X8-b8-KxT" secondAttribute="trailing" constant="8" symbolic="YES" id="piD-bq-zbA"/>
-                            <constraint firstItem="9X8-b8-KxT" firstAttribute="top" secondItem="sqe-pD-pVH" secondAttribute="top" constant="14" id="wen-PH-WfC"/>
                             <constraint firstItem="t4W-Nb-cPb" firstAttribute="leading" secondItem="sqe-pD-pVH" secondAttribute="leading" constant="57.5" id="x78-TI-kDf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sqe-pD-pVH"/>
@@ -253,12 +251,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYp-b6-rpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="153"/>
+            <point key="canvasLocation" x="631.8840579710145" y="152.67857142857142"/>
+        </scene>
+        <!--Location Permission View Controller-->
+        <scene sceneID="6nO-fL-e10">
+            <objects>
+                <viewController id="L9k-6L-MD7" customClass="LocationPermissionViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tLu-gB-7dA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Key Conservation uses your location to find projects near you, we only use location when you open the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwa-VY-1Qq">
+                                <rect key="frame" x="67" y="388" width="280" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="PnC-fa-Bbl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Black" family="Sofia Pro" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivg-NV-9Gg">
+                                <rect key="frame" x="57.5" y="766" width="299" height="60"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1JO-Mz-KIo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
+                                <state key="normal" title="Allow Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERT-cI-EEw">
+                                <rect key="frame" x="337" y="64" width="57" height="30"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ivg-NV-9Gg" firstAttribute="leading" secondItem="6mn-am-PXy" secondAttribute="leading" constant="57.5" id="aNO-vq-lOg"/>
+                            <constraint firstItem="6mn-am-PXy" firstAttribute="trailing" secondItem="Ivg-NV-9Gg" secondAttribute="trailing" constant="57.5" id="cP4-fu-SsL"/>
+                            <constraint firstItem="rwa-VY-1Qq" firstAttribute="centerX" secondItem="tLu-gB-7dA" secondAttribute="centerX" id="gqM-AS-ZFu"/>
+                            <constraint firstItem="ERT-cI-EEw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6mn-am-PXy" secondAttribute="leading" symbolic="YES" id="hgm-Em-r5r"/>
+                            <constraint firstItem="rwa-VY-1Qq" firstAttribute="centerY" secondItem="tLu-gB-7dA" secondAttribute="centerY" id="m6E-fY-Uys"/>
+                            <constraint firstItem="6mn-am-PXy" firstAttribute="trailing" secondItem="ERT-cI-EEw" secondAttribute="trailing" constant="20" id="uWF-Ka-O3B"/>
+                            <constraint firstItem="6mn-am-PXy" firstAttribute="bottom" secondItem="Ivg-NV-9Gg" secondAttribute="bottom" constant="36" id="vEn-vR-L0G"/>
+                            <constraint firstItem="ERT-cI-EEw" firstAttribute="top" secondItem="6mn-am-PXy" secondAttribute="top" constant="20" id="w9Z-fN-faZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6mn-am-PXy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8vM-Ti-RUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421.7391304347827" y="151.33928571428569"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera" width="37" height="35"/>
         <image name="LaunchLogo" width="200" height="200"/>
-        <image name="Logo" width="31" height="31"/>
     </resources>
 </document>
