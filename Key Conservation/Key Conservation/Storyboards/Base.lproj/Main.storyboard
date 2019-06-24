@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XaX-mF-8mx">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Sofia Pro Black.otf">
+            <string>SofiaPro-Black</string>
+        </array>
+        <array key="Sofia Pro Bold.otf">
+            <string>SofiaPro-Bold</string>
+        </array>
+        <array key="Sofia Pro Semi Bold.otf">
+            <string>SofiaPro-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Get Started View Controller-->
+        <scene sceneID="FY0-Ik-ygr">
+            <objects>
+                <viewController id="XaX-mF-8mx" customClass="GetStartedViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D6B-fx-6Lp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="nR8-nW-tZM">
+                                <rect key="frame" x="67" y="302" width="280" height="292"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ekN-Ri-bwR">
+                                        <rect key="frame" x="40" y="0.0" width="200" height="209"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Support local conservation projects" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-Ph-J41">
+                                        <rect key="frame" x="0.0" y="244" width="280" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="QkL-Ge-T0x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Black" family="Sofia Pro" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Yo-TA-ffO">
+                                <rect key="frame" x="57.5" y="766" width="299" height="60"/>
+                                <color key="backgroundColor" red="0.38039215686274508" green="0.90588235294117647" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="oxI-As-uV2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Yo-TA-ffO" firstAttribute="centerX" secondItem="D6B-fx-6Lp" secondAttribute="centerX" id="Dgh-8j-zhC"/>
+                            <constraint firstItem="cik-OL-VoW" firstAttribute="trailing" secondItem="5Yo-TA-ffO" secondAttribute="trailing" constant="57.5" id="JKg-OO-oy4"/>
+                            <constraint firstItem="nR8-nW-tZM" firstAttribute="centerY" secondItem="D6B-fx-6Lp" secondAttribute="centerY" id="OPV-sx-vgC"/>
+                            <constraint firstItem="nR8-nW-tZM" firstAttribute="centerX" secondItem="D6B-fx-6Lp" secondAttribute="centerX" id="aRu-cu-KRy"/>
+                            <constraint firstItem="5Yo-TA-ffO" firstAttribute="leading" secondItem="cik-OL-VoW" secondAttribute="leading" constant="57.5" id="lpR-Ar-FBH"/>
+                            <constraint firstItem="cik-OL-VoW" firstAttribute="bottom" secondItem="5Yo-TA-ffO" secondAttribute="bottom" constant="36" id="x5H-rU-9ba"/>
+                            <constraint firstItem="5Yo-TA-ffO" firstAttribute="top" secondItem="nR8-nW-tZM" secondAttribute="bottom" constant="172" id="xbh-fX-hzg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cik-OL-VoW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djE-Hp-RwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-142.02898550724638" y="153.34821428571428"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="KIe-3C-lQJ">
+            <objects>
+                <viewController id="nS4-bi-xB6" customClass="SignUpViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ODe-5Y-QgO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fGA-YI-g5H">
+                                <rect key="frame" x="37" y="159" width="340" height="443"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-mC-Cva">
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="68"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm a:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8k-Jw-QLN">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="18"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y9l-OX-GbT">
+                                                <rect key="frame" x="0.0" y="28" width="234" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-wJ-zh7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="40"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.30980392156862746" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                        <state key="normal" title="Supporter">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoL-w0-szx">
+                                                        <rect key="frame" x="123" y="0.0" width="111" height="40"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                        <state key="normal" title="Organization">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="UM3-Xa-6vw"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GSU-Sr-kBo">
+                                        <rect key="frame" x="0.0" y="108" width="300" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEu-bH-Amw">
+                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="18"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sean Acres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-Xd-qKz">
+                                                <rect key="frame" x="0.0" y="24" width="96" height="25"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jG0-LD-j3L">
+                                                <rect key="frame" x="0.0" y="55" width="300" height="5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="mVg-s2-NXB"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="8bF-yi-vrO">
+                                        <rect key="frame" x="0.0" y="208" width="300" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24U-3b-QsE">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.5" height="18"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sean Acres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="327-2R-pmw">
+                                                <rect key="frame" x="0.0" y="24" width="96" height="25"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zls-hV-JF9">
+                                                <rect key="frame" x="0.0" y="55" width="300" height="5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="R3z-VY-6Qz"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="h6R-Sa-utX">
+                                        <rect key="frame" x="0.0" y="308" width="300" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWt-YU-tDb">
+                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="18"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Sean Acres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5W-ZS-ZPf">
+                                                <rect key="frame" x="0.0" y="24" width="96" height="25"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agb-dO-inZ">
+                                                <rect key="frame" x="0.0" y="55" width="300" height="5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="5ls-cb-YYq"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="YPn-mA-dmw">
+                                        <rect key="frame" x="0.0" y="408" width="227" height="35"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr2-P5-nMM">
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="35"/>
+                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42y-ZB-7K1">
+                                                <rect key="frame" x="136" y="0.0" width="91" height="35"/>
+                                                <state key="normal" title="Button" image="Camera"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-qX-jjm">
+                                <rect key="frame" x="337" y="64" width="57" height="30"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4W-Nb-cPb">
+                                <rect key="frame" x="58" y="756" width="299" height="60"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ggb-X7-rtx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="9X8-b8-KxT">
+                                <rect key="frame" x="14" y="58" width="31" height="31"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sqe-pD-pVH" firstAttribute="trailing" secondItem="fGA-YI-g5H" secondAttribute="trailing" constant="37" id="QuO-g8-WIO"/>
+                            <constraint firstItem="sqe-pD-pVH" firstAttribute="trailing" secondItem="pDC-qX-jjm" secondAttribute="trailing" constant="20" id="R4j-Le-yTz"/>
+                            <constraint firstItem="fGA-YI-g5H" firstAttribute="leading" secondItem="sqe-pD-pVH" secondAttribute="leading" constant="37" id="ajo-Mt-qWc"/>
+                            <constraint firstItem="pDC-qX-jjm" firstAttribute="top" secondItem="sqe-pD-pVH" secondAttribute="top" constant="20" id="fPj-sV-79V"/>
+                            <constraint firstItem="fGA-YI-g5H" firstAttribute="top" secondItem="pDC-qX-jjm" secondAttribute="bottom" constant="65" id="gHA-5t-VYP"/>
+                            <constraint firstItem="9X8-b8-KxT" firstAttribute="leading" secondItem="sqe-pD-pVH" secondAttribute="leading" constant="14" id="nUS-0M-Guv"/>
+                            <constraint firstItem="9X8-b8-KxT" firstAttribute="top" secondItem="sqe-pD-pVH" secondAttribute="top" constant="14" id="wen-PH-WfC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sqe-pD-pVH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYp-b6-rpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694.20289855072474" y="155.35714285714286"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Camera" width="37" height="35"/>
+        <image name="LaunchLogo" width="200" height="200"/>
+        <image name="Logo" width="31" height="31"/>
+    </resources>
+</document>

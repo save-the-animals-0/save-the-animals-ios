@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		66048BA422C157A60053146F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66048BA322C157A60053146F /* AppDelegate.swift */; };
-		66048BA622C157A60053146F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66048BA522C157A60053146F /* ViewController.swift */; };
 		66048BA922C157A60053146F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66048BA722C157A60053146F /* Main.storyboard */; };
 		66048BAB22C157A60053146F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66048BAA22C157A60053146F /* Assets.xcassets */; };
 		66048BAE22C157A60053146F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66048BAC22C157A60053146F /* LaunchScreen.storyboard */; };
+		66048BB822C159CC0053146F /* Sofia Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66048BB722C159CC0053146F /* Sofia Pro Bold.otf */; };
+		66048BBA22C159DD0053146F /* Sofia Pro Semi Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66048BB922C159DD0053146F /* Sofia Pro Semi Bold.otf */; };
+		66048BBC22C159EA0053146F /* Sofia Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66048BBB22C159EA0053146F /* Sofia Pro Regular.otf */; };
+		66048BBE22C15A1E0053146F /* Sofia Pro Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66048BBD22C15A1E0053146F /* Sofia Pro Black.otf */; };
+		66048BC022C15FD70053146F /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66048BBF22C15FD70053146F /* GetStartedViewController.swift */; };
+		66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF222C16B5200D7BF9C /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66048BA022C157A60053146F /* Key Conservation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Key Conservation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66048BA322C157A60053146F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66048BA522C157A60053146F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66048BA822C157A60053146F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66048BAA22C157A60053146F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66048BAD22C157A60053146F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66048BAF22C157A60053146F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66048BB722C159CC0053146F /* Sofia Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Bold.otf"; sourceTree = "<group>"; };
+		66048BB922C159DD0053146F /* Sofia Pro Semi Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Semi Bold.otf"; sourceTree = "<group>"; };
+		66048BBB22C159EA0053146F /* Sofia Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Regular.otf"; sourceTree = "<group>"; };
+		66048BBD22C15A1E0053146F /* Sofia Pro Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Black.otf"; sourceTree = "<group>"; };
+		66048BBF22C15FD70053146F /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
+		66853CF222C16B5200D7BF9C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,43 @@
 		66048BA222C157A60053146F /* Key Conservation */ = {
 			isa = PBXGroup;
 			children = (
+				66853CF422C16B5600D7BF9C /* View Controllers */,
 				66048BA322C157A60053146F /* AppDelegate.swift */,
-				66048BA522C157A60053146F /* ViewController.swift */,
-				66048BA722C157A60053146F /* Main.storyboard */,
+				66048BB522C158650053146F /* Storyboards */,
 				66048BAA22C157A60053146F /* Assets.xcassets */,
-				66048BAC22C157A60053146F /* LaunchScreen.storyboard */,
 				66048BAF22C157A60053146F /* Info.plist */,
+				66048BB622C159B10053146F /* Fonts */,
 			);
 			path = "Key Conservation";
+			sourceTree = "<group>";
+		};
+		66048BB522C158650053146F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				66048BA722C157A60053146F /* Main.storyboard */,
+				66048BAC22C157A60053146F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		66048BB622C159B10053146F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				66048BBD22C15A1E0053146F /* Sofia Pro Black.otf */,
+				66048BBB22C159EA0053146F /* Sofia Pro Regular.otf */,
+				66048BB922C159DD0053146F /* Sofia Pro Semi Bold.otf */,
+				66048BB722C159CC0053146F /* Sofia Pro Bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		66853CF422C16B5600D7BF9C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66853CF222C16B5200D7BF9C /* SignUpViewController.swift */,
+				66048BBF22C15FD70053146F /* GetStartedViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +162,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				66048BAE22C157A60053146F /* LaunchScreen.storyboard in Resources */,
+				66048BB822C159CC0053146F /* Sofia Pro Bold.otf in Resources */,
+				66048BBE22C15A1E0053146F /* Sofia Pro Black.otf in Resources */,
 				66048BAB22C157A60053146F /* Assets.xcassets in Resources */,
 				66048BA922C157A60053146F /* Main.storyboard in Resources */,
+				66048BBA22C159DD0053146F /* Sofia Pro Semi Bold.otf in Resources */,
+				66048BBC22C159EA0053146F /* Sofia Pro Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66048BA622C157A60053146F /* ViewController.swift in Sources */,
+				66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */,
 				66048BA422C157A60053146F /* AppDelegate.swift in Sources */,
+				66048BC022C15FD70053146F /* GetStartedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
