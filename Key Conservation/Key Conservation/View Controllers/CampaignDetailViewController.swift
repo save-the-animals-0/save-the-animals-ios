@@ -10,6 +10,17 @@ import UIKit
 
 class CampaignDetailViewController: UIViewController {
 
+    @IBOutlet weak var organizationPhoto: UIImageView!
+    @IBOutlet weak var campaignTitle: UILabel!
+    @IBOutlet weak var campaignLocation: UILabel!
+    @IBOutlet weak var campaignPhoto: UIImageView!
+    @IBOutlet weak var campaignFundingAmount: UILabel!
+    @IBOutlet weak var campaignFundingGoal: UILabel!
+    @IBOutlet weak var campaignDeadline: UILabel!
+    @IBOutlet weak var campaignCategory: UILabel!
+    @IBOutlet weak var campaignDescription: UILabel!
+    @IBOutlet weak var donationAmountTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +38,6 @@ class CampaignDetailViewController: UIViewController {
     }
     */
 
+    @IBAction func donationButtonTapped(_ sender: Any) {
+    }
 }

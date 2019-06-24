@@ -26,5 +26,10 @@ class LocationPermissionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func signInButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func allowLocationButtonTapped(_ sender: Any) {
+    }
+    
 }
