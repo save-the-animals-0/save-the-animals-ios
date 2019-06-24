@@ -22,6 +22,10 @@
 		66853CFA22C1807200D7BF9C /* CampaignDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF922C1807200D7BF9C /* CampaignDetailViewController.swift */; };
 		66853CFC22C181D900D7BF9C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CFB22C181D900D7BF9C /* SignInViewController.swift */; };
 		66853CFE22C1855E00D7BF9C /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CFD22C1855E00D7BF9C /* CampaignTableViewCell.swift */; };
+		66853D0022C188B100D7BF9C /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CFF22C188B100D7BF9C /* Campaign.swift */; };
+		66853D0322C1898E00D7BF9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0222C1898E00D7BF9C /* User.swift */; };
+		66853D0522C18A7400D7BF9C /* CampaignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0422C18A7400D7BF9C /* CampaignController.swift */; };
+		66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0622C18A8E00D7BF9C /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		66853CF922C1807200D7BF9C /* CampaignDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignDetailViewController.swift; sourceTree = "<group>"; };
 		66853CFB22C181D900D7BF9C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		66853CFD22C1855E00D7BF9C /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
+		66853CFF22C188B100D7BF9C /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		66853D0222C1898E00D7BF9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		66853D0422C18A7400D7BF9C /* CampaignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignController.swift; sourceTree = "<group>"; };
+		66853D0622C18A8E00D7BF9C /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +82,8 @@
 		66048BA222C157A60053146F /* Key Conservation */ = {
 			isa = PBXGroup;
 			children = (
-				66853CFD22C1855E00D7BF9C /* CampaignTableViewCell.swift */,
 				66048BA322C157A60053146F /* AppDelegate.swift */,
+				66853D0122C188BE00D7BF9C /* Models */,
 				66853CF422C16B5600D7BF9C /* View Controllers */,
 				66048BB522C158650053146F /* Storyboards */,
 				66048BAA22C157A60053146F /* Assets.xcassets */,
@@ -113,9 +121,21 @@
 				66853CF222C16B5200D7BF9C /* SignUpViewController.swift */,
 				66853CF522C16E1000D7BF9C /* LocationPermissionViewController.swift */,
 				66853CF722C1764000D7BF9C /* CampaignTableViewController.swift */,
+				66853CFD22C1855E00D7BF9C /* CampaignTableViewCell.swift */,
 				66853CF922C1807200D7BF9C /* CampaignDetailViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		66853D0122C188BE00D7BF9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66853CFF22C188B100D7BF9C /* Campaign.swift */,
+				66853D0422C18A7400D7BF9C /* CampaignController.swift */,
+				66853D0222C1898E00D7BF9C /* User.swift */,
+				66853D0622C18A8E00D7BF9C /* UserController.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,12 +214,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				66853CFC22C181D900D7BF9C /* SignInViewController.swift in Sources */,
+				66853D0522C18A7400D7BF9C /* CampaignController.swift in Sources */,
 				66853CFE22C1855E00D7BF9C /* CampaignTableViewCell.swift in Sources */,
 				66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */,
 				66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */,
 				66048BA422C157A60053146F /* AppDelegate.swift in Sources */,
+				66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */,
 				66853CF622C16E1000D7BF9C /* LocationPermissionViewController.swift in Sources */,
 				66048BC022C15FD70053146F /* GetStartedViewController.swift in Sources */,
+				66853D0022C188B100D7BF9C /* Campaign.swift in Sources */,
+				66853D0322C1898E00D7BF9C /* User.swift in Sources */,
 				66853CFA22C1807200D7BF9C /* CampaignDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
