@@ -14,31 +14,51 @@ class CampaignDetailViewController: UIViewController {
     @IBOutlet weak var campaignTitle: UILabel!
     @IBOutlet weak var campaignLocation: UILabel!
     @IBOutlet weak var campaignPhoto: UIImageView!
-    @IBOutlet weak var campaignFundingAmount: UILabel!
-    @IBOutlet weak var campaignFundingGoal: UILabel!
+    @IBOutlet weak var campaignFundedAmount: UILabel!
+    @IBOutlet weak var campaignGoal: UILabel!
     @IBOutlet weak var campaignDeadline: UILabel!
     @IBOutlet weak var campaignCategory: UILabel!
     @IBOutlet weak var campaignDescription: UILabel!
     @IBOutlet weak var donationAmountTextField: UITextField!
     
+    var campaign: Campaign? {
+        didSet {
+            updateViews()
+        }
+    }
+    var campaignController: CampaignController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        campaignTitle.text = campaign?.title
+        campaignLocation.text = campaign?.location
+        campaignFundedAmount.text = campaign?.fundingRaised
+        campaignGoal.text = campaign?.fundingGoal
+        campaignDeadline.text = campaign?.deadline
+        campaignCategory.text = campaign?.category
+        campaignDescription.text = campaign?.description
+        fetchImage(for: campaign!)
     }
-    */
+    
+    func fetchImage(for campaign: Campaign) {
+        guard let campaignController = campaignController else { return }
+        campaignController.fetchImage(at: campaign.imageURL) { (result) in
+            if let image = try? result.get() {
+                DispatchQueue.main.async {
+                    self.campaignPhoto.image = image
+                }
+            } else {
+                print(result)
+            }
+        }
+    }
 
     @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func donationButtonTapped(_ sender: Any) {
