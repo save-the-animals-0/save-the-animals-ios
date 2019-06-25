@@ -58,10 +58,4 @@ class UserController {
             completion(nil)
             }.resume()
     }
-    
-    func updateInfo(for user: User, completion: @escaping (NetworkError?) -> ()) {
-        // Stub function
-    }
-    
-    
 }

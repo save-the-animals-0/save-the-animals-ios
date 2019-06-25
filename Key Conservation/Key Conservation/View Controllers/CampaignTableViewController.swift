@@ -25,6 +25,7 @@ class CampaignTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,7 +50,6 @@ class CampaignTableViewController: UITableViewController {
         return campaigns.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CampaignCell", for: indexPath) as? CampaignTableViewCell else {
             return UITableViewCell()
@@ -57,18 +57,6 @@ class CampaignTableViewController: UITableViewController {
         
         cell.campaign = campaigns[indexPath.row]
         return cell
-    }
-
-    func fetchCampaigns(search: String?) {
-        campaignController.fetchCampaigns(for: search) { (result) in
-            if let campaigns = try? result.get() {
-                DispatchQueue.main.async {
-                    self.campaigns = campaigns
-                }
-            } else {
-                print(result)
-            }
-        }
     }
 
     // MARK: - Navigation
@@ -85,6 +73,7 @@ class CampaignTableViewController: UITableViewController {
 
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func addCampaignButtonTapped(_ sender: Any) {
@@ -96,10 +85,32 @@ class CampaignTableViewController: UITableViewController {
     @IBAction func editCampaignButtonTapped(_ sender: Any) {
     }
     
+    private func filterCampaigns() {
+        var filteredCampaigns: [Campaign] = []
+        if let searchText = searchTextField.text {
+            filteredCampaigns = campaigns.filter({ $0.title.contains(searchText) || $0.category.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
+        }
+        
+        campaigns = filteredCampaigns
+    }
+    
+    func fetchCampaigns(search: String?) {
+        campaignController.fetchCampaigns(for: search) { (result) in
+            if let campaigns = try? result.get() {
+                DispatchQueue.main.async {
+                    self.campaigns = campaigns
+                }
+            } else {
+                print(result)
+            }
+        }
+    }
+    
 }
 
 extension CampaignTableViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-        
+        filterCampaigns()
+        tableView.reloadData()
     }
 }
