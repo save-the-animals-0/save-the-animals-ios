@@ -16,7 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    var isOrganization: Bool = true
+    var userType: String = ""
     let userController = UserController()
     var user: User?
     
@@ -35,7 +35,6 @@ class SignUpViewController: UIViewController {
         }
     }
 
-    
     @IBAction func signUpButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text,
             name != "",
@@ -43,7 +42,7 @@ class SignUpViewController: UIViewController {
             email != "",
             let password = passwordTextField.text, password != "" else { return }
         
-        user = User(name: name, password: password, email: email, imageURL: nil, imageData: nil)
+        user = User(name: name, password: password, email: email, imageURL: nil, imageData: nil, type: userType)
 //        userController.loginWith(user: user!, loginType: .signUp) { (error) in
 //            if let error = error {
 //                print(error)
@@ -54,6 +53,7 @@ class SignUpViewController: UIViewController {
 //                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
 //            }
 //        }
+        performSegue(withIdentifier: "LocationPermissionSegue", sender: self)
     }
     
     @IBAction func supporterButtonTapped(_ sender: Any) {
@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
         
         organizationButton.backgroundColor = .white
         organizationButton.titleLabel?.textColor = .black
-        isOrganization = false
+        userType = "supporter"
     }
     
     @IBAction func organizationButtonTapped(_ sender: Any) {
@@ -71,7 +71,7 @@ class SignUpViewController: UIViewController {
         
         supporterButton.backgroundColor = .white
         supporterButton.titleLabel?.textColor = .black
-        isOrganization = true
+        userType = "organization"
     }
     
     @IBAction func profilePhotoButtonTapped(_ sender: Any) {
