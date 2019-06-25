@@ -11,6 +11,9 @@ import UIKit
 class CampaignTableViewController: UITableViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var myCampaignsButton: UIButton!
+    @IBOutlet weak var addCampaignButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,7 +58,13 @@ class CampaignTableViewController: UITableViewController {
     }
     */
     
-
+    @IBAction func myCampaignsButtonTapped(_ sender: Any) {
+    }
     
-
+    @IBAction func addCampaignButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+    }
+    
 }

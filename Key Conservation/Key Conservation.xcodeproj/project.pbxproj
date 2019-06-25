@@ -27,6 +27,7 @@
 		66853D0522C18A7400D7BF9C /* CampaignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0422C18A7400D7BF9C /* CampaignController.swift */; };
 		66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0622C18A8E00D7BF9C /* UserController.swift */; };
 		66853D0A22C1ACEB00D7BF9C /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0922C1ACEB00D7BF9C /* NetworkHelpers.swift */; };
+		66E78F8222C27BA4004EBBD3 /* AddEditCampaignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E78F8122C27BA4004EBBD3 /* AddEditCampaignViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		66853D0422C18A7400D7BF9C /* CampaignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignController.swift; sourceTree = "<group>"; };
 		66853D0622C18A8E00D7BF9C /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		66853D0922C1ACEB00D7BF9C /* NetworkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
+		66E78F8122C27BA4004EBBD3 /* AddEditCampaignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCampaignViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		66853CF422C16B5600D7BF9C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				66E78F8122C27BA4004EBBD3 /* AddEditCampaignViewController.swift */,
 				66048BBF22C15FD70053146F /* GetStartedViewController.swift */,
 				66853CFB22C181D900D7BF9C /* SignInViewController.swift */,
 				66853CF222C16B5200D7BF9C /* SignUpViewController.swift */,
@@ -222,6 +225,7 @@
 				66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */,
 				66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */,
 				66853D0A22C1ACEB00D7BF9C /* NetworkHelpers.swift in Sources */,
+				66E78F8222C27BA4004EBBD3 /* AddEditCampaignViewController.swift in Sources */,
 				66048BA422C157A60053146F /* AppDelegate.swift in Sources */,
 				66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */,
 				66853CF622C16E1000D7BF9C /* LocationPermissionViewController.swift in Sources */,
