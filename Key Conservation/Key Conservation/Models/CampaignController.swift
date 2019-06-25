@@ -80,7 +80,7 @@ class CampaignController: Codable {
     
     func updateCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         // function stub
-        let updateURL = baseURL.appendingPathComponent("update/\(campaign.id)") //placeholder
+        let updateURL = baseURL.appendingPathComponent("update/\(campaign)") //placeholder
         
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue

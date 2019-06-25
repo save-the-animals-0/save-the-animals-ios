@@ -42,7 +42,8 @@ class CampaignTableViewCell: UITableViewCell {
     }
     
     func fetchImage(for campaign: Campaign) {
-        campaignController.fetchImage(at: campaign.imageURL) { (result) in
+        guard let imageURL = campaign.imageURL else { return }
+        campaignController.fetchImage(at: imageURL) { (result) in
             if let image = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaignPhoto.image = image

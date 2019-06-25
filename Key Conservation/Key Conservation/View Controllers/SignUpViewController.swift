@@ -75,5 +75,6 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func profilePhotoButtonTapped(_ sender: Any) {
+        // stub function for stretch goal
     }
 }

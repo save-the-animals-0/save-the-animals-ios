@@ -45,8 +45,8 @@ class CampaignDetailViewController: UIViewController {
     }
     
     func fetchImage(for campaign: Campaign) {
-        guard let campaignController = campaignController else { return }
-        campaignController.fetchImage(at: campaign.imageURL) { (result) in
+        guard let campaignController = campaignController, let imageURL = campaign.imageURL else { return }
+        campaignController.fetchImage(at: imageURL) { (result) in
             if let image = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaignPhoto.image = image

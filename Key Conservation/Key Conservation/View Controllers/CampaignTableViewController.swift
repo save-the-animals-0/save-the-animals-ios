@@ -68,30 +68,42 @@ class CampaignTableViewController: UITableViewController {
                 campaignDetailVC.campaign = campaigns[indexPath.row]
             }
             campaignDetailVC.campaignController = campaignController
+        } else if segue.identifier == "EditCampaignSegue",
+            let editCampaignVC = segue.destination as? AddEditCampaignViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                editCampaignVC.campaign = campaigns[indexPath.row]
+            }
+            editCampaignVC.campaignController = campaignController
         }
     }
 
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
-        
+        showMyCampaigns()
     }
     
     @IBAction func addCampaignButtonTapped(_ sender: Any) {
-    }
-    
-    @IBAction func settingsButtonTapped(_ sender: Any) {
+        // placeholder, might not need this
     }
     
     @IBAction func editCampaignButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "EditCampaignsegue", sender: self)
     }
     
-    private func filterCampaigns() {
+    private func searchCampaigns() {
         var filteredCampaigns: [Campaign] = []
         if let searchText = searchTextField.text {
             filteredCampaigns = campaigns.filter({ $0.title.contains(searchText) || $0.category.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
         }
         
         campaigns = filteredCampaigns
+    }
+    
+    private func showMyCampaigns() {
+//        var filteredCampaigns: [Campaign] = []
+//            filteredCampaigns = campaigns.filter({ $0.orgID })
+//
+//        campaigns = filteredCampaigns
     }
     
     func fetchCampaigns(search: String?) {
@@ -105,12 +117,11 @@ class CampaignTableViewController: UITableViewController {
             }
         }
     }
-    
 }
 
-extension CampaignTableViewController: UITextViewDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
-        filterCampaigns()
+extension CampaignTableViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        searchCampaigns()
         tableView.reloadData()
     }
 }
