@@ -20,15 +20,36 @@ class CampaignTableViewCell: UITableViewCell {
     @IBOutlet weak var campaignCategory: UILabel!
     @IBOutlet weak var campaignDescription: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    let campaignController = CampaignController()
+    var campaign: Campaign? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateViews() {
+        organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
+        organizationPhoto.clipsToBounds = true
+        
+        campaignTitle.text = campaign?.title
+        campaignLocation.text = campaign?.location
+        campaignFundedAmount.text = campaign?.fundingRaised
+        campaignGoal.text = campaign?.fundingGoal
+        campaignDeadline.text = campaign?.deadline
+        campaignCategory.text = campaign?.category
+        campaignDescription.text = campaign?.description
+        fetchImage(for: campaign!)
     }
-
+    
+    func fetchImage(for campaign: Campaign) {
+        campaignController.fetchImage(at: campaign.imageURL) { (result) in
+            if let image = try? result.get() {
+                DispatchQueue.main.async {
+                    self.campaignPhoto.image = image
+                }
+            } else {
+                print(result)
+            }
+        }
+    }
 }
