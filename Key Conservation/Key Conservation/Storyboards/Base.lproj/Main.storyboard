@@ -319,7 +319,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="hzb-Gt-gQz"/>
-                                    <segue destination="L9k-6L-MD7" kind="show" identifier="LocationPermissionSegue" id="iUf-ja-Wce"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -344,6 +343,7 @@
                         <outlet property="organizationButton" destination="zoL-w0-szx" id="Vxs-0S-1ss"/>
                         <outlet property="passwordTextField" destination="S5W-ZS-ZPf" id="K2z-pm-03L"/>
                         <outlet property="supporterButton" destination="dCb-wJ-zh7" id="CNt-Cy-NUP"/>
+                        <segue destination="L9k-6L-MD7" kind="show" identifier="LocationPermissionSegue" id="fww-uI-Rr2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYp-b6-rpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,7 +384,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="allowLocationButtonTapped:" destination="L9k-6L-MD7" eventType="touchUpInside" id="Wsd-WP-YC2"/>
-                                    <segue destination="P4F-tg-sxv" kind="show" identifier="ShowFeedView" id="rMV-Sp-F9J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERT-cI-EEw">
@@ -424,6 +423,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6mn-am-PXy"/>
                     </view>
+                    <connections>
+                        <segue destination="P4F-tg-sxv" kind="show" identifier="ShowFeedView" id="EnJ-fc-dDD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vM-Ti-RUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -524,7 +526,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eZO-ek-sYQ">
                                                     <rect key="frame" x="8" y="14" width="386" height="40"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z21-3V-Id1">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z21-3V-Id1">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="pfr-0u-XEH"/>
@@ -664,11 +666,12 @@
                     <connections>
                         <outlet property="addCampaignButton" destination="MHu-Pc-AV2" id="3nP-yp-ZLI"/>
                         <outlet property="myCampaignsButton" destination="17U-OS-Sys" id="tcC-k4-Tas"/>
+                        <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" id="0NY-5d-2Cu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtn-pl-BAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3116" y="151"/>
+            <point key="canvasLocation" x="3117" y="167"/>
         </scene>
         <!--Campaign Detail View Controller-->
         <scene sceneID="Ywh-7G-Lhl">
@@ -894,8 +897,8 @@
                         <outlet property="campaignCategory" destination="kjs-lT-Oij" id="K4Z-gb-r7h"/>
                         <outlet property="campaignDeadline" destination="V9u-k3-Fo3" id="Isv-vn-hI8"/>
                         <outlet property="campaignDescription" destination="T7Y-1K-NE0" id="9kj-BO-Elq"/>
-                        <outlet property="campaignFundingAmount" destination="Kcz-9Z-LQg" id="nXD-sC-BPs"/>
-                        <outlet property="campaignFundingGoal" destination="z52-2g-yyZ" id="0Q0-Mm-OsX"/>
+                        <outlet property="campaignFundedAmount" destination="Kcz-9Z-LQg" id="nXD-sC-BPs"/>
+                        <outlet property="campaignGoal" destination="z52-2g-yyZ" id="0Q0-Mm-OsX"/>
                         <outlet property="campaignLocation" destination="Mb7-DT-63T" id="9ou-we-NpU"/>
                         <outlet property="campaignPhoto" destination="FpT-0r-wEd" id="g2E-Cj-ASh"/>
                         <outlet property="campaignTitle" destination="xoc-ds-eu6" id="bfs-Ki-Ija"/>
@@ -1040,11 +1043,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="KN9-3P-THa" id="n8O-37-oFC"/>
                         <outlet property="passwordTextField" destination="sKl-cW-bz7" id="cxw-6S-ty8"/>
+                        <segue destination="P4F-tg-sxv" kind="show" identifier="ShowFeed" id="kR5-gW-z24"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhQ-sF-r2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3117" y="-544"/>
+            <point key="canvasLocation" x="3896" y="-562"/>
         </scene>
         <!--Add Edit Campaign View Controller-->
         <scene sceneID="6FR-8i-atH">
@@ -1442,6 +1446,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAn-Vn-0D0"/>
-        <segue reference="lc5-UO-29l"/>
+        <segue reference="0NY-5d-2Cu"/>
+        <segue reference="kR5-gW-z24"/>
     </inferredMetricsTieBreakers>
 </document>

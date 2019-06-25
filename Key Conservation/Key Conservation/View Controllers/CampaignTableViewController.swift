@@ -14,49 +14,75 @@ class CampaignTableViewController: UITableViewController {
     @IBOutlet weak var myCampaignsButton: UIButton!
     @IBOutlet weak var addCampaignButton: UIButton!
     
+    var userController: UserController?
+    var user: User?
+    private let campaignController = CampaignController()
+    private var campaigns: [Campaign] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard let userController = userController else { return }
+        if userController.bearer == nil {
+            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+        }
+        
+        if let user = user {
+            if user.type != "organization" {
+                addCampaignButton.isHidden = true
+                myCampaignsButton.isHidden = true
+            }
+        }
+        
+//        fetchCampaigns(search: nil)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return campaigns.count
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CampaignCell", for: indexPath) as? CampaignTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.campaign = campaigns[indexPath.row]
         return cell
     }
-    */
 
-    
+    func fetchCampaigns(search: String?) {
+        campaignController.fetchCampaigns(for: search) { (result) in
+            if let campaigns = try? result.get() {
+                DispatchQueue.main.async {
+                    self.campaigns = campaigns
+                }
+            } else {
+                print(result)
+            }
+        }
+    }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "CampaignDetailSegue",
+            let campaignDetailVC = segue.destination as? CampaignDetailViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                campaignDetailVC.campaign = campaigns[indexPath.row]
+            }
+            campaignDetailVC.campaignController = campaignController
+        }
     }
-    */
+
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
     }
@@ -70,4 +96,10 @@ class CampaignTableViewController: UITableViewController {
     @IBAction func editCampaignButtonTapped(_ sender: Any) {
     }
     
+}
+
+extension CampaignTableViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+    }
 }
