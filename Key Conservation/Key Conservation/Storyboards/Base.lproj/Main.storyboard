@@ -656,6 +656,7 @@
                     <connections>
                         <outlet property="addCampaignButton" destination="MHu-Pc-AV2" id="3nP-yp-ZLI"/>
                         <outlet property="myCampaignsButton" destination="17U-OS-Sys" id="tcC-k4-Tas"/>
+                        <outlet property="searchTextField" destination="Pwf-2B-cEK" id="ww7-Mc-Rec"/>
                         <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" id="0NY-5d-2Cu"/>
                     </connections>
                 </tableViewController>

@@ -36,13 +36,13 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        guard let name = nameTextField.text,
-            name != "",
-            let email = emailTextField.text,
-            email != "",
-            let password = passwordTextField.text, password != "" else { return }
-        
-        user = User(name: name, password: password, email: email, imageURL: nil, imageData: nil, type: userType)
+//        guard let name = nameTextField.text,
+//            name != "",
+//            let email = emailTextField.text,
+//            email != "",
+//            let password = passwordTextField.text, password != "" else { return }
+//
+//        user = User(name: name, password: password, email: email, imageURL: nil, imageData: nil, type: userType)
 //        userController.loginWith(user: user!, loginType: .signUp) { (error) in
 //            if let error = error {
 //                print(error)

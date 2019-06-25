@@ -28,7 +28,7 @@ class CampaignTableViewController: UITableViewController {
         searchTextField.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         guard let userController = userController else { return }
         if userController.bearer == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
@@ -41,9 +41,9 @@ class CampaignTableViewController: UITableViewController {
             }
         }
         
-//        fetchCampaigns(search: nil)
+        //        fetchCampaigns(search: nil)
     }
-
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
