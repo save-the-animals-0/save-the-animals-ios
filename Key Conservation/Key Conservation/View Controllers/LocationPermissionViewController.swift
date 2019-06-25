@@ -33,5 +33,6 @@ class LocationPermissionViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }

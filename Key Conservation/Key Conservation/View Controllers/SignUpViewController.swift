@@ -20,7 +20,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -42,9 +41,21 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func supporterButtonTapped(_ sender: Any) {
+        supporterButton.backgroundColor = .getBlueColor()
+        supporterButton.titleLabel?.textColor = .white
+        
+        organizationButton.backgroundColor = .white
+        organizationButton.titleLabel?.textColor = .black
+        isOrganization = false
     }
     
     @IBAction func organizationButtonTapped(_ sender: Any) {
+        organizationButton.backgroundColor = .getBlueColor()
+        organizationButton.titleLabel?.textColor = .white
+        
+        supporterButton.backgroundColor = .white
+        supporterButton.titleLabel?.textColor = .black
+        isOrganization = true
     }
     
     @IBAction func profilePhotoButtonTapped(_ sender: Any) {

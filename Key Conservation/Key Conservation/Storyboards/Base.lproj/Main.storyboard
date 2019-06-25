@@ -130,7 +130,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="supporterButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpOutside" id="Bhk-4d-K2s"/>
+                                                            <action selector="supporterButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="Spm-CT-7Xp"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoL-w0-szx">
@@ -149,7 +149,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="organizationButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="sqh-vA-8wY"/>
+                                                            <action selector="organizationButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="mMm-cl-tdc"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -342,7 +342,7 @@
                         <outlet property="emailTextField" destination="327-2R-pmw" id="PUn-Zb-32H"/>
                         <outlet property="nameLabel" destination="DEu-bH-Amw" id="FWq-gU-Lk1"/>
                         <outlet property="nameTextField" destination="BpF-Xd-qKz" id="vnk-yw-mAN"/>
-                        <outlet property="organizationButton" destination="zoL-w0-szx" id="meE-d1-Ai7"/>
+                        <outlet property="organizationButton" destination="zoL-w0-szx" id="Vxs-0S-1ss"/>
                         <outlet property="passwordTextField" destination="S5W-ZS-ZPf" id="K2z-pm-03L"/>
                         <outlet property="supporterButton" destination="dCb-wJ-zh7" id="CNt-Cy-NUP"/>
                     </connections>
@@ -1245,7 +1245,6 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="endangeredButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="4k5-JP-LBn"/>
-                                                                            <action selector="organizationButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="Gue-Hh-AZS"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1293,7 +1292,6 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="nearThreatenedButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="xXY-Zh-fHz"/>
-                                                                            <action selector="organizationButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="mAg-6z-JLi"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -1445,6 +1443,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAn-Vn-0D0"/>
-        <segue reference="lc5-UO-29l"/>
+        <segue reference="0aN-tB-UWd"/>
     </inferredMetricsTieBreakers>
 </document>
