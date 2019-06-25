@@ -12,27 +12,42 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    private let userController = UserController()
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowFeed" {
+            guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
+            campaignTableVC.userController = userController
+        }
     }
-    */
+    
     @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signInTapped(_ sender: Any) {
+        guard let email = emailTextField.text,
+            email != "",
+            let password = passwordTextField.text,
+            password != "" else { return }
+        user = User(name: nil, password: password, email: email, imageURL: nil, imageData: nil, type: nil)
+        performSegue(withIdentifier: "ShowFeed", sender: self)
+        //        userController.loginWith(user: user!, loginType: .signIn) { (error) in
+        //            if let error = error {
+        //                print(error)
+        //                return
+        //            }
+        //
+        //            DispatchQueue.main.async {
+        //                self.performSegue(withIdentifier: "ShowFeed", sender: self)
+        //            }
+        //        }
+        
     }
     
 }

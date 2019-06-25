@@ -8,18 +8,9 @@
 
 import Foundation
 
-struct Bearer: Codable {
-    let token: String
-}
-
-enum LoginType: String {
-    case signUp = "signup"
-    case signIn = "login"
-}
-
 class UserController {
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://lambdagigs.vapor.cloud/api")!
+    private let baseURL = URL(string: "https://")! //placeholder
     
     func loginWith(user: User, loginType: LoginType, completion: @escaping (Error?) -> ()) {
         let requestURL = baseURL.appendingPathComponent("users/\(loginType.rawValue)")
@@ -67,6 +58,4 @@ class UserController {
             completion(nil)
             }.resume()
     }
-    
-    
 }
