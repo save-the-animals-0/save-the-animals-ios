@@ -15,25 +15,23 @@ class LocationPermissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowFeedView" {
+            guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
+            campaignTableVC.userController = userController
+            campaignTableVC.user = user
+        }
     }
-    */
+
     
     @IBAction func allowLocationButtonTapped(_ sender: Any) {
         // Stub function for adding location (stretch)
         // need update user details function/api
-        //self.performSegue(withIdentifier: "ShowFeedView", sender: nil)
+        self.performSegue(withIdentifier: "ShowFeedView", sender: self)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
