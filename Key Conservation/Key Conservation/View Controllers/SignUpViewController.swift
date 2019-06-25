@@ -17,27 +17,43 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     var isOrganization: Bool = true
+    let userController = UserController()
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
 
-    /*
+    }
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LocationPermissionSegue" {
+            guard let locationVC = segue.destination as? LocationPermissionViewController else { return }
+            locationVC.user = user
+            locationVC.userController = userController
+        }
     }
-    */
-    
-    @IBAction func signInButtonTapped(_ sender: Any) {
-    }
+
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
+        guard let name = nameTextField.text,
+            name != "",
+            let email = emailTextField.text,
+            email != "",
+            let password = passwordTextField.text, password != "" else { return }
+        
+        user = User(name: name, password: password, email: email, imageURL: nil, imageData: nil)
+//        userController.loginWith(user: user!, loginType: .signUp) { (error) in
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
+//            }
+//        }
     }
     
     @IBAction func supporterButtonTapped(_ sender: Any) {

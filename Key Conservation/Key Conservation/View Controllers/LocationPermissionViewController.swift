@@ -9,7 +9,10 @@
 import UIKit
 
 class LocationPermissionViewController: UIViewController {
-
+    
+    var user: User?
+    var userController: UserController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +29,11 @@ class LocationPermissionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func signInButtonTapped(_ sender: Any) {
-    }
     
     @IBAction func allowLocationButtonTapped(_ sender: Any) {
+        // Stub function for adding location (stretch)
+        // need update user details function/api
+        //self.performSegue(withIdentifier: "ShowFeedView", sender: nil)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

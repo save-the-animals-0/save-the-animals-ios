@@ -12,6 +12,7 @@ struct User: Codable {
     let name: String
     let password: String
     let email: String
-    let imageURL: String
+    let imageURL: String?
+    let imageData: Data?
     // let campaignsSupported: [String]
 }

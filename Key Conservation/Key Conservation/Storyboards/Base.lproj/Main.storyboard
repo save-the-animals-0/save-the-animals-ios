@@ -299,7 +299,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="EWT-AB-0uh"/>
                                     <segue destination="gOz-Wm-NvE" kind="show" id="0aN-tB-UWd"/>
                                 </connections>
                             </button>
@@ -320,7 +319,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="hzb-Gt-gQz"/>
-                                    <segue destination="L9k-6L-MD7" kind="show" id="iUf-ja-Wce"/>
+                                    <segue destination="L9k-6L-MD7" kind="show" identifier="LocationPermissionSegue" id="iUf-ja-Wce"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1443,6 +1442,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAn-Vn-0D0"/>
-        <segue reference="0aN-tB-UWd"/>
+        <segue reference="lc5-UO-29l"/>
     </inferredMetricsTieBreakers>
 </document>
