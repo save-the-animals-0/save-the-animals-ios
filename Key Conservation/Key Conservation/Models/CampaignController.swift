@@ -9,21 +9,6 @@
 import Foundation
 import UIKit
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
-}
-
-enum NetworkError: Error {
-    case otherError
-    case badData
-    case noDecode
-    case noEncode
-    case badResponse
-}
-
 class CampaignController: Codable {
     // Add api base URL
     // Placeholder
@@ -121,7 +106,6 @@ class CampaignController: Codable {
             
             completion(nil)
             }.resume()
-        
     }
     
     func addCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {

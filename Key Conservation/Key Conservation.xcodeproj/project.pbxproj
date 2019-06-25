@@ -26,6 +26,7 @@
 		66853D0322C1898E00D7BF9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0222C1898E00D7BF9C /* User.swift */; };
 		66853D0522C18A7400D7BF9C /* CampaignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0422C18A7400D7BF9C /* CampaignController.swift */; };
 		66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0622C18A8E00D7BF9C /* UserController.swift */; };
+		66853D0A22C1ACEB00D7BF9C /* NetworkHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853D0922C1ACEB00D7BF9C /* NetworkHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		66853D0222C1898E00D7BF9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66853D0422C18A7400D7BF9C /* CampaignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignController.swift; sourceTree = "<group>"; };
 		66853D0622C18A8E00D7BF9C /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		66853D0922C1ACEB00D7BF9C /* NetworkHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		66853D0122C188BE00D7BF9C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				66853D0922C1ACEB00D7BF9C /* NetworkHelpers.swift */,
 				66853CFF22C188B100D7BF9C /* Campaign.swift */,
 				66853D0422C18A7400D7BF9C /* CampaignController.swift */,
 				66853D0222C1898E00D7BF9C /* User.swift */,
@@ -218,6 +221,7 @@
 				66853CFE22C1855E00D7BF9C /* CampaignTableViewCell.swift in Sources */,
 				66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */,
 				66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */,
+				66853D0A22C1ACEB00D7BF9C /* NetworkHelpers.swift in Sources */,
 				66048BA422C157A60053146F /* AppDelegate.swift in Sources */,
 				66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */,
 				66853CF622C16E1000D7BF9C /* LocationPermissionViewController.swift in Sources */,
