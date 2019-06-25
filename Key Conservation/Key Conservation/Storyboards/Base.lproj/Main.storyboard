@@ -130,7 +130,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="supporterButtonTapeed:" destination="nS4-bi-xB6" eventType="touchUpInside" id="nqs-cy-SQx"/>
+                                                            <action selector="supporterButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpOutside" id="Bhk-4d-K2s"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoL-w0-szx">
@@ -395,7 +395,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInButtonTapped:" destination="L9k-6L-MD7" eventType="touchUpInside" id="UxP-Hh-IIC"/>
                                     <segue destination="gOz-Wm-NvE" kind="show" id="lc5-UO-29l"/>
                                 </connections>
                             </button>
@@ -407,7 +406,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="L9k-6L-MD7" eventType="touchUpInside" id="R3H-Pf-B6E"/>
-                                    <action selector="backButtonTapped:" destination="gOz-Wm-NvE" eventType="touchUpInside" id="Tm9-ws-zIl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -480,7 +478,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="myCampaignsButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="S7z-SD-JwH"/>
-                                                <action selector="signInButtonTapped:" destination="L9k-6L-MD7" eventType="touchUpInside" id="6kE-w9-jR1"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-Pc-AV2">
@@ -559,7 +556,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="signInButtonTapped:" destination="L9k-6L-MD7" eventType="touchUpInside" id="b1a-lg-uLU"/>
+                                                                <action selector="editCampaignButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="ZEn-b3-ea8"/>
                                                                 <segue destination="8Gn-MN-QWt" kind="presentation" identifier="AddCampaignSegue" id="LAn-Vn-0D0"/>
                                                             </connections>
                                                         </button>
@@ -1229,7 +1226,6 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="criticallyEndangeredButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="79l-Ev-U8y"/>
-                                                                            <action selector="supporterButtonTapeed:" destination="nS4-bi-xB6" eventType="touchUpInside" id="9GQ-ee-fe7"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kad-7Y-Aae">
@@ -1277,7 +1273,6 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
-                                                                            <action selector="supporterButtonTapeed:" destination="nS4-bi-xB6" eventType="touchUpInside" id="5oK-XZ-buG"/>
                                                                             <action selector="vulnerableButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="tSB-EG-vkX"/>
                                                                         </connections>
                                                                     </button>
@@ -1437,7 +1432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9H-J6-TQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3115.9420289855075" y="845.75892857142856"/>
+            <point key="canvasLocation" x="3117" y="896"/>
         </scene>
     </scenes>
     <resources>
@@ -1450,6 +1445,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAn-Vn-0D0"/>
-        <segue reference="0aN-tB-UWd"/>
+        <segue reference="lc5-UO-29l"/>
     </inferredMetricsTieBreakers>
 </document>

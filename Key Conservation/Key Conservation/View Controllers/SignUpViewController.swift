@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var isOrganization: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpButtonTapped(_ sender: Any) {
     }
     
-    @IBAction func supporterButtonTapeed(_ sender: Any) {
+    @IBAction func supporterButtonTapped(_ sender: Any) {
     }
     
     @IBAction func organizationButtonTapped(_ sender: Any) {

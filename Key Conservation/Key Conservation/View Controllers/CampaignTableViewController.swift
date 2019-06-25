@@ -67,4 +67,7 @@ class CampaignTableViewController: UITableViewController {
     @IBAction func settingsButtonTapped(_ sender: Any) {
     }
     
+    @IBAction func editCampaignButtonTapped(_ sender: Any) {
+    }
+    
 }
