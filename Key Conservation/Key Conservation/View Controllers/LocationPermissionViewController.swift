@@ -32,4 +32,6 @@ class LocationPermissionViewController: UIViewController {
     @IBAction func allowLocationButtonTapped(_ sender: Any) {
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+    }
 }

@@ -99,10 +99,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="fGA-YI-g5H">
-                                <rect key="frame" x="37" y="159" width="340" height="443"/>
+                                <rect key="frame" x="37" y="159" width="340" height="464"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-mC-Cva">
-                                        <rect key="frame" x="0.0" y="0.0" width="234" height="68"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="68"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm a:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8k-Jw-QLN">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="18"/>
@@ -111,10 +111,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Y9l-OX-GbT">
-                                                <rect key="frame" x="0.0" y="28" width="234" height="40"/>
+                                                <rect key="frame" x="0.0" y="28" width="300" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-wJ-zh7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="40"/>
                                                         <color key="backgroundColor" red="0.0" green="0.30980392156862746" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
                                                         <state key="normal" title="Supporter">
@@ -124,13 +124,17 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="5"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="supporterButtonTapeed:" destination="nS4-bi-xB6" eventType="touchUpInside" id="nqs-cy-SQx"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoL-w0-szx">
-                                                        <rect key="frame" x="123" y="0.0" width="111" height="40"/>
+                                                        <rect key="frame" x="156" y="0.0" width="144" height="40"/>
                                                         <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
                                                         <state key="normal" title="Organization">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,6 +143,10 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="5"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="organizationButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="sqh-vA-8wY"/>
@@ -146,6 +154,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="EZN-GB-wWu"/>
                                                     <constraint firstAttribute="height" constant="40" id="UM3-Xa-6vw"/>
                                                 </constraints>
                                             </stackView>
@@ -178,7 +187,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="8bF-yi-vrO">
                                         <rect key="frame" x="0.0" y="208" width="300" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24U-3b-QsE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24U-3b-QsE">
                                                 <rect key="frame" x="0.0" y="0.0" width="46.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -190,7 +199,7 @@
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zls-hV-JF9">
+                                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="zls-hV-JF9">
                                                 <rect key="frame" x="0.0" y="55" width="300" height="5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -224,17 +233,30 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="YPn-mA-dmw">
-                                        <rect key="frame" x="0.0" y="408" width="227" height="35"/>
+                                        <rect key="frame" x="0.0" y="408" width="296" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cr2-P5-nMM">
-                                                <rect key="frame" x="0.0" y="0.0" width="108" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="56"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42y-ZB-7K1">
-                                                <rect key="frame" x="136" y="0.0" width="91" height="35"/>
-                                                <state key="normal" title="Button" image="Camera"/>
+                                                <rect key="frame" x="136" y="0.0" width="160" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="3EB-dL-Lig"/>
+                                                    <constraint firstAttribute="width" constant="160" id="iSD-2u-y9X"/>
+                                                </constraints>
+                                                <state key="normal" image="Camera"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="5"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="profilePhotoButtonTapped:" destination="nS4-bi-xB6" eventType="touchUpInside" id="fyU-zK-KM0"/>
                                                 </connections>
@@ -350,9 +372,23 @@
                                     <segue destination="gOz-Wm-NvE" kind="show" id="lc5-UO-29l"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSr-Rz-Zjn">
+                                <rect key="frame" x="20" y="64" width="42" height="30"/>
+                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="L9k-6L-MD7" eventType="touchUpInside" id="R3H-Pf-B6E"/>
+                                    <action selector="backButtonTapped:" destination="gOz-Wm-NvE" eventType="touchUpInside" id="Tm9-ws-zIl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uSr-Rz-Zjn" firstAttribute="leading" secondItem="6mn-am-PXy" secondAttribute="leading" constant="20" id="A3b-Ov-7RO"/>
+                            <constraint firstItem="uSr-Rz-Zjn" firstAttribute="top" secondItem="6mn-am-PXy" secondAttribute="top" constant="20" id="FIH-3D-ywy"/>
+                            <constraint firstItem="ERT-cI-EEw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uSr-Rz-Zjn" secondAttribute="trailing" constant="8" symbolic="YES" id="Tta-ix-ZA0"/>
                             <constraint firstItem="Ivg-NV-9Gg" firstAttribute="leading" secondItem="6mn-am-PXy" secondAttribute="leading" constant="57.5" id="aNO-vq-lOg"/>
                             <constraint firstItem="6mn-am-PXy" firstAttribute="trailing" secondItem="Ivg-NV-9Gg" secondAttribute="trailing" constant="57.5" id="cP4-fu-SsL"/>
                             <constraint firstItem="rwa-VY-1Qq" firstAttribute="centerX" secondItem="tLu-gB-7dA" secondAttribute="centerX" id="gqM-AS-ZFu"/>
@@ -886,6 +922,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rt2-Eb-dCC" firstAttribute="top" secondItem="8oC-qf-pR5" secondAttribute="top" constant="20" id="0di-zy-92w"/>
+                            <constraint firstItem="8oC-qf-pR5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rt2-Eb-dCC" secondAttribute="trailing" symbolic="YES" id="3ne-Sx-uaN"/>
                             <constraint firstItem="f3p-eg-pEo" firstAttribute="leading" secondItem="8oC-qf-pR5" secondAttribute="leading" constant="37" id="8qF-n8-uhT"/>
                             <constraint firstItem="8oC-qf-pR5" firstAttribute="bottom" secondItem="v5Z-0g-29f" secondAttribute="bottom" constant="36" id="B2F-C0-GwR"/>
                             <constraint firstItem="v5Z-0g-29f" firstAttribute="leading" secondItem="8oC-qf-pR5" secondAttribute="leading" constant="57.5" id="QvR-KI-Jyk"/>
@@ -912,6 +949,6 @@
         <image name="Settings" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lc5-UO-29l"/>
+        <segue reference="0aN-tB-UWd"/>
     </inferredMetricsTieBreakers>
 </document>
