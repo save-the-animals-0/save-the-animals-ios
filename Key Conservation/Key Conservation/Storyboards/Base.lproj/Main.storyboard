@@ -438,9 +438,13 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="1gc-US-QMl">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-Pc-AV2">
                                             <rect key="frame" x="346" y="0.0" width="28" height="28"/>
-                                        </imageView>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="28" id="PWm-US-D7A"/>
+                                            </constraints>
+                                            <state key="normal" image="Settings"/>
+                                        </button>
                                     </subviews>
                                 </stackView>
                             </subviews>
@@ -604,20 +608,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="ZZB-kh-uEo">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZZB-kh-uEo">
                                 <rect key="frame" x="20" y="70.5" width="374" height="28"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOg-iJ-3Yk">
+                                        <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="428-TE-mYg"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="FeM-Od-myx"/>
+                                            <constraint firstAttribute="height" constant="28" id="xrs-cS-HkY"/>
+                                        </constraints>
+                                        <state key="normal" image="Back"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="WNO-js-dS9" eventType="touchUpInside" id="bjK-rd-VhH"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-ah-Y8V">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
+                                        <rect key="frame" x="48" y="0.0" width="278" height="28"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLE-9K-tMe">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="20"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-KR-dp7">
-                                                <rect key="frame" x="0.0" y="25" width="300" height="3"/>
+                                                <rect key="frame" x="0.0" y="25" width="278" height="3"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="u9G-5e-pjw"/>
@@ -625,9 +641,13 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="K1K-KI-kuH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ep8-91-dx3">
                                         <rect key="frame" x="346" y="0.0" width="28" height="28"/>
-                                    </imageView>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="WeH-v2-JGP"/>
+                                        </constraints>
+                                        <state key="normal" image="Settings"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Eb-Lp-TWT">
@@ -944,6 +964,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back" width="14" height="23"/>
         <image name="Camera" width="37" height="35"/>
         <image name="LaunchLogo" width="200" height="200"/>
         <image name="Settings" width="28" height="28"/>

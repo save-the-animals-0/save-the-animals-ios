@@ -38,6 +38,9 @@ class CampaignDetailViewController: UIViewController {
     }
     */
 
+    @IBAction func backButtonTapped(_ sender: Any) {
+    }
+    
     @IBAction func donationButtonTapped(_ sender: Any) {
     }
 }
