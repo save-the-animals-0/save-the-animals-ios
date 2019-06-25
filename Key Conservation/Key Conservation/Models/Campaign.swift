@@ -9,6 +9,7 @@
 import Foundation
 
 struct Campaign: Codable {
+    let id: String
     let title: String
     let location: String
     let description: String
@@ -17,4 +18,5 @@ struct Campaign: Codable {
     let fundingGoal: String
     let deadline: String
     let category: String
+    let imageData: Data?
 }

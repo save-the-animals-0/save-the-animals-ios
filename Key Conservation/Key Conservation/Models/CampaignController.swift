@@ -21,6 +21,7 @@ enum NetworkError: Error {
     case badData
     case noDecode
     case noEncode
+    case badResponse
 }
 
 class CampaignController: Codable {
@@ -61,16 +62,97 @@ class CampaignController: Codable {
             }.resume()
     }
     
-    func deleteCampaign(campaign: Campaign) {
-        // function stub
+    func deleteCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
+        
+        let deleteURL = baseURL.appendingPathComponent("delete") //placeholder
+        
+        var request = URLRequest(url: deleteURL)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        let jsonEncoder = JSONEncoder()
+        do {
+            request.httpBody = try jsonEncoder.encode(campaign)
+        } catch {
+            print("error encoding: \(error)")
+            completion(.noEncode)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let _ = error {
+                completion(.otherError)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                completion(.badResponse)
+                return
+            }
+            
+            completion(nil)
+        }.resume()
+        
     }
     
-    func updateCampaign(campaign: Campaign) {
+    func updateCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         // function stub
+        let updateURL = baseURL.appendingPathComponent("update/\(campaign.id)") //placeholder
+        
+        var request = URLRequest(url: updateURL)
+        request.httpMethod = HTTPMethod.put.rawValue
+        let jsonEncoder = JSONEncoder()
+        do {
+            request.httpBody = try jsonEncoder.encode(campaign)
+        } catch {
+            print("error encoding: \(error)")
+            completion(.noEncode)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let _ = error {
+                completion(.otherError)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                completion(.badResponse)
+                return
+            }
+            
+            completion(nil)
+            }.resume()
+        
     }
     
-    func addCampaign(campaign: Campaign) {
+    func addCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         // function stub
+        
+        let updateURL = baseURL.appendingPathComponent("add") //placeholder
+        
+        var request = URLRequest(url: updateURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        let jsonEncoder = JSONEncoder()
+        do {
+            request.httpBody = try jsonEncoder.encode(campaign)
+        } catch {
+            print("error encoding: \(error)")
+            completion(.noEncode)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let _ = error {
+                completion(.otherError)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                completion(.badResponse)
+                return
+            }
+            
+            completion(nil)
+            }.resume()
     }
     
     // image fetch function
