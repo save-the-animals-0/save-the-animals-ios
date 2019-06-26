@@ -105,7 +105,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gOz-Wm-NvE" kind="show" id="0aN-tB-UWd"/>
+                                    <segue destination="gOz-Wm-NvE" kind="show" id="YhS-Ve-ej9"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJc-oG-6RV">
@@ -376,6 +376,7 @@
                         <outlet property="organizationButton" destination="zoL-w0-szx" id="Vxs-0S-1ss"/>
                         <outlet property="passwordTextField" destination="S5W-ZS-ZPf" id="K2z-pm-03L"/>
                         <outlet property="scrollView" destination="yJc-oG-6RV" id="EnS-2v-5c8"/>
+                        <outlet property="signUpButton" destination="t4W-Nb-cPb" id="N5t-DC-uG6"/>
                         <outlet property="supporterButton" destination="dCb-wJ-zh7" id="CNt-Cy-NUP"/>
                         <segue destination="L9k-6L-MD7" kind="show" identifier="LocationPermissionSegue" id="fww-uI-Rr2"/>
                     </connections>
@@ -988,7 +989,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5Z-0g-29f">
-                                <rect key="frame" x="57.5" y="766" width="299" height="60"/>
+                                <rect key="frame" x="57.5" y="349" width="299" height="60"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Lvm-Yh-MQx"/>
@@ -1022,9 +1023,9 @@
                             <constraint firstItem="rt2-Eb-dCC" firstAttribute="top" secondItem="8oC-qf-pR5" secondAttribute="top" constant="20" id="0di-zy-92w"/>
                             <constraint firstItem="8oC-qf-pR5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rt2-Eb-dCC" secondAttribute="trailing" symbolic="YES" id="3ne-Sx-uaN"/>
                             <constraint firstItem="f3p-eg-pEo" firstAttribute="leading" secondItem="8oC-qf-pR5" secondAttribute="leading" constant="37" id="8qF-n8-uhT"/>
-                            <constraint firstItem="8oC-qf-pR5" firstAttribute="bottom" secondItem="v5Z-0g-29f" secondAttribute="bottom" constant="36" id="B2F-C0-GwR"/>
                             <constraint firstItem="v5Z-0g-29f" firstAttribute="leading" secondItem="8oC-qf-pR5" secondAttribute="leading" constant="57.5" id="QvR-KI-Jyk"/>
                             <constraint firstItem="8oC-qf-pR5" firstAttribute="trailing" secondItem="f3p-eg-pEo" secondAttribute="trailing" constant="37" id="a4G-uL-PwO"/>
+                            <constraint firstItem="v5Z-0g-29f" firstAttribute="top" secondItem="f3p-eg-pEo" secondAttribute="bottom" constant="30" id="aPz-kh-nUK"/>
                             <constraint firstItem="rt2-Eb-dCC" firstAttribute="leading" secondItem="8oC-qf-pR5" secondAttribute="leading" constant="20" id="m1n-ak-H0Y"/>
                             <constraint firstItem="8oC-qf-pR5" firstAttribute="trailing" secondItem="v5Z-0g-29f" secondAttribute="trailing" constant="57.5" id="x66-tA-Tys"/>
                             <constraint firstItem="f3p-eg-pEo" firstAttribute="top" secondItem="rt2-Eb-dCC" secondAttribute="bottom" constant="65" id="xgY-gA-mir"/>
@@ -1408,7 +1409,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAn-Vn-0D0"/>
-        <segue reference="0aN-tB-UWd"/>
+        <segue reference="0NY-5d-2Cu"/>
         <segue reference="kR5-gW-z24"/>
     </inferredMetricsTieBreakers>
 </document>
