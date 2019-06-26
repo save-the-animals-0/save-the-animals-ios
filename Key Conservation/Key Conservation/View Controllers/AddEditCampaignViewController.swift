@@ -10,7 +10,6 @@ import UIKit
 
 class AddEditCampaignViewController: UIViewController {
 
-    @IBOutlet weak var campaignNameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var fundingGoalTextField: UITextField!
     @IBOutlet weak var deadlineTextField: UITextField!
@@ -20,6 +19,7 @@ class AddEditCampaignViewController: UIViewController {
     @IBOutlet weak var vulnerableButton: UIButton!
     @IBOutlet weak var nearThreatenedButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var campaign: Campaign? {
         didSet {
@@ -31,10 +31,11 @@ class AddEditCampaignViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     func updateViews() {
-        campaignNameTextField.text = campaign?.campaignName
         locationTextField.text = campaign?.location
         fundingGoalTextField.text = campaign?.fundingGoal
         deadlineTextField.text = campaign?.deadline
@@ -74,8 +75,7 @@ class AddEditCampaignViewController: UIViewController {
     
     @IBAction func saveCampaignButtonTapped(_ sender: Any) {
         guard let campaignController = campaignController else { return }
-        guard let name = campaignNameTextField.text, name != "",
-            let location = locationTextField.text, location != "",
+        guard let location = locationTextField.text, location != "",
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
             let deadline = deadlineTextField.text, deadline != "",
             let description = descriptionTextView.text, description != "" else { return }

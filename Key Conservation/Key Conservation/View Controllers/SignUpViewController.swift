@@ -126,8 +126,8 @@ extension SignUpViewController: UITextFieldDelegate {
         case emailTextField:
             activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
-//        case passwordTextField:
-//            activeTextField?.resignFirstResponder()
+        case passwordTextField:
+            activeTextField?.resignFirstResponder()
         default:
             activeTextField?.resignFirstResponder()
         }
