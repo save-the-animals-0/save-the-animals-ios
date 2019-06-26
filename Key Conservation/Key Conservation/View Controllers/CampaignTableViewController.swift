@@ -30,12 +30,12 @@ class CampaignTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         guard let userController = userController else { return }
-        if userController.bearer == nil {
-            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
-        }
+//        if userController.bearer == nil {
+//            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+//        }
         
         if let user = user {
-            if user.isOrg! {
+            if !user.isOrg! {
                 addCampaignButton.isHidden = true
                 myCampaignsButton.isHidden = true
             }
