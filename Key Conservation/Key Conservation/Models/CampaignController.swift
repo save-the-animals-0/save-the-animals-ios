@@ -30,7 +30,7 @@ class CampaignController {
             data.printJSON()
             
             let jsonDecoder = JSONDecoder()
-            jsonDecoder.dateDecodingStrategy = .iso8601
+            jsonDecoder.dateDecodingStrategy = .customISO8601
             do {
                 self.campaignList = try jsonDecoder.decode([Campaign].self, from: data)
                 completion(.success(self.campaignList))
@@ -85,7 +85,7 @@ class CampaignController {
         request.httpMethod = HTTPMethod.put.rawValue
         
         let jsonEncoder = JSONEncoder()
-        jsonEncoder.dateEncodingStrategy = .iso8601
+        jsonEncoder.dateEncodingStrategy = .customISO8601
         do {
             request.httpBody = try jsonEncoder.encode(updatedCampaign)
         } catch {
