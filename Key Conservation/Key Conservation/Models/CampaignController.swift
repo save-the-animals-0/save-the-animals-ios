@@ -73,15 +73,16 @@ class CampaignController: Codable {
     }
     
     // update a campaign
-    func updateCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
+    func updateCampaign(campaign: Campaign, fundingGoal: String, location: String, description: String, deadline: String, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
+        let updatedCampaign = Campaign(id: id, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         let updateURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
         let jsonEncoder = JSONEncoder()
         do {
-            request.httpBody = try jsonEncoder.encode(campaign)
+            request.httpBody = try jsonEncoder.encode(updatedCampaign)
         } catch {
             print("error encoding: \(error)")
             completion(.noEncode)

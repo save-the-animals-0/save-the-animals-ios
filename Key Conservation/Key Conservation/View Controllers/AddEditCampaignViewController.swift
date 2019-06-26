@@ -58,7 +58,7 @@ class AddEditCampaignViewController: UIViewController {
             criticallyEndangeredButtonTapped(self)
         }
     }
-
+    
     /*
     // MARK: - Navigation
 
@@ -85,7 +85,15 @@ class AddEditCampaignViewController: UIViewController {
             let deadline = deadlineTextField.text, deadline != "",
             let description = descriptionTextView.text, description != "" else { return }
         if let campaign = campaign {
-            // edit campaign function
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil) { (error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
         } else {
             campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
@@ -93,7 +101,7 @@ class AddEditCampaignViewController: UIViewController {
                     print(error)
                 } else {
                     DispatchQueue.main.async {
-                        self.navigationController?.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }

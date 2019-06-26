@@ -29,7 +29,7 @@ class CampaignTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard let userController = userController else { return }
+//        guard let userController = userController else { return }
 //        if userController.bearer == nil {
 //            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
 //        }
@@ -111,6 +111,7 @@ class CampaignTableViewController: UITableViewController {
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns
+                    print(campaigns)
                 }
             } else {
                 print(result)

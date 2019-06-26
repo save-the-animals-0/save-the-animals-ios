@@ -12,6 +12,7 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var supporterButton: UIButton!
     @IBOutlet weak var organizationButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -52,7 +53,7 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text,
             email != "",
             let password = passwordTextField.text, password != "" else { return }
-
+        signUpButton.backgroundColor = UIColor.getGreenColor()
         user = User(id: nil, name: name, password: password, email: email, imageURL: nil, imageData: nil, isOrg: isOrg)
         userController.loginWith(user: user!, loginType: .signUp) { (error) in
             if let error = error {
@@ -64,7 +65,7 @@ class SignUpViewController: UIViewController {
                 self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
             }
         }
-        performSegue(withIdentifier: "LocationPermissionSegue", sender: self)
+        print("sign up tapped")
     }
     
     @IBAction func supporterButtonTapped(_ sender: Any) {
