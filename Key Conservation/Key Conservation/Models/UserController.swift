@@ -10,10 +10,10 @@ import Foundation
 
 class UserController {
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://")! //placeholder
+    private let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/user")! //placeholder
     
     func loginWith(user: User, loginType: LoginType, completion: @escaping (Error?) -> ()) {
-        let requestURL = baseURL.appendingPathComponent("user/\(loginType.rawValue)")
+        let requestURL = baseURL.appendingPathComponent("\(loginType.rawValue)")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
