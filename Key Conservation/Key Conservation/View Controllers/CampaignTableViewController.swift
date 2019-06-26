@@ -74,16 +74,15 @@ class CampaignTableViewController: UITableViewController {
                 editCampaignVC.campaign = campaigns[indexPath.row]
             }
             editCampaignVC.campaignController = campaignController
+        } else if segue.identifier == "AddCampaignSegue",
+            let addCampaignVC = segue.destination as? AddEditCampaignViewController {
+            addCampaignVC.user = user
         }
     }
 
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
         showMyCampaigns()
-    }
-    
-    @IBAction func addCampaignButtonTapped(_ sender: Any) {
-        // placeholder, might not need this
     }
     
     @IBAction func editCampaignButtonTapped(_ sender: Any) {

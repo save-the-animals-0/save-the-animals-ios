@@ -49,7 +49,10 @@ class SignInViewController: UIViewController {
                     if let user = try? result.get() {
                         DispatchQueue.main.async {
                             self.user = user
+                            print(user)
                         }
+                    } else {
+                        print(result)
                     }
                 })
             }

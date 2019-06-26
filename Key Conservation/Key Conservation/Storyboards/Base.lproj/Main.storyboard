@@ -523,7 +523,6 @@
                                             </constraints>
                                             <state key="normal" image="Add"/>
                                             <connections>
-                                                <action selector="addCampaignButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="Jxk-H7-TpB"/>
                                                 <segue destination="8Gn-MN-QWt" kind="presentation" identifier="EditCampaignSegue" id="xfs-ZK-qoR"/>
                                             </connections>
                                         </button>

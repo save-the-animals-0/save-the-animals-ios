@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-class CampaignController: Codable {
-    // Add api base URL
-    // Placeholder
+class CampaignController {
     let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/campaigns")!
     var campaignList: [Campaign] = []
     
@@ -36,6 +34,7 @@ class CampaignController: Codable {
                 completion(.success(self.campaignList))
             } catch {
                 completion(.failure(.noDecode))
+                print("campaign decode failure")
             }
             }.resume()
     }
@@ -64,6 +63,7 @@ class CampaignController: Codable {
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
                 completion(.badResponse)
+                print(response.statusCode)
                 return
             }
             
@@ -73,7 +73,7 @@ class CampaignController: Codable {
     }
     
     // update a campaign
-    func updateCampaign(campaign: Campaign, fundingGoal: String, location: String, description: String, deadline: String, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
+    func updateCampaign(campaign: Campaign, fundingGoal: Int, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
         let updatedCampaign = Campaign(id: id, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         let updateURL = baseURL.appendingPathComponent(":\(id)")

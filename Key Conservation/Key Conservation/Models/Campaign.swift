@@ -11,10 +11,10 @@ import Foundation
 struct Campaign: Codable {
     let id: String?
     let campaignName: String
-    let fundingGoal: String
+    let fundingGoal: Int
     let location: String
     let description: String
-    let deadline: String
+    let deadline: Date
     let urgencyLevel: String
     let species: String?
     let imageData: Data?

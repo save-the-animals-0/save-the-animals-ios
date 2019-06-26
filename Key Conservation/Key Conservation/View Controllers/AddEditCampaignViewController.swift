@@ -29,6 +29,7 @@ class AddEditCampaignViewController: UIViewController {
     var campaignController: CampaignController?
     var category: String = "Critically Endangered"
     var activeTextField: UITextField?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +42,14 @@ class AddEditCampaignViewController: UIViewController {
     
     func updateViews() {
         locationTextField.text = campaign?.location
-        fundingGoalTextField.text = campaign?.fundingGoal
-        deadlineTextField.text = campaign?.deadline
+        fundingGoalTextField.text = "\(campaign?.fundingGoal ?? 0)"
         descriptionTextView.text = campaign?.description
+        
+        if let deadlineDate = campaign?.deadline {
+            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
+            let deadlineString = "\(diffInDays)"
+            deadlineTextField.text = deadlineString
+        }
         
         switch campaign?.urgencyLevel {
         case "Critically Endangered":
@@ -71,10 +77,15 @@ class AddEditCampaignViewController: UIViewController {
         guard let campaignController = campaignController else { return }
         guard let location = locationTextField.text, location != "",
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
-            let deadline = deadlineTextField.text, deadline != "",
-            let description = descriptionTextView.text, description != "" else { return }
+            let description = descriptionTextView.text, description != "",
+            let deadlineInt = Int(deadlineTextField.text!) else { return }
+
+        let today = Date()
+        let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
+        
+        
         if let campaign = campaign {
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil) { (error) in
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Int(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil) { (error) in
                 if let error = error {
                     print(error)
                 } else {
@@ -84,7 +95,7 @@ class AddEditCampaignViewController: UIViewController {
                 }
             }
         } else {
-            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
+            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: Int(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)

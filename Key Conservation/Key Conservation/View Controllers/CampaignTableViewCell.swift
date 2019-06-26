@@ -36,10 +36,15 @@ class CampaignTableViewCell: UITableViewCell {
         campaignTitle.text = campaign?.campaignName
         campaignLocation.text = campaign?.location
         campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = campaign?.fundingGoal
-        campaignDeadline.text = campaign?.deadline
+        campaignGoal.text = "\(campaign?.fundingGoal ?? 0)"
         campaignCategory.text = campaign?.urgencyLevel
         campaignDescription.text = campaign?.description
+        
+        if let deadlineDate = campaign?.deadline {
+            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
+            let deadlineString = "\(diffInDays)"
+            campaignDeadline.text = deadlineString
+        }
 //        fetchImage(for: campaign!) //stretch goal
         
         editCampaignButton.isHidden = true
