@@ -66,6 +66,7 @@ class CampaignTableViewController: UITableViewController {
             let campaignDetailVC = segue.destination as? CampaignDetailViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 campaignDetailVC.campaign = campaigns[indexPath.row]
+                print(campaigns[indexPath.row])
             }
             campaignDetailVC.campaignController = campaignController
         } else if segue.identifier == "EditCampaignSegue",
@@ -112,7 +113,6 @@ class CampaignTableViewController: UITableViewController {
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns
-                    print(campaigns)
                 }
             } else {
                 print(result)

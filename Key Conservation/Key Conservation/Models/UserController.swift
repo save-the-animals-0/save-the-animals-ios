@@ -64,15 +64,7 @@ class UserController {
         let currentUserURL = baseURL.appendingPathComponent("current")
         var request = URLRequest(url: currentUserURL)
         request.httpMethod = HTTPMethod.get.rawValue
-        
-        let jsonEncoder = JSONEncoder()
-        do {
-            request.httpBody = try jsonEncoder.encode(bearer)
-        } catch {
-            print("error encoding: \(error)")
-            completion(.failure(.noEncode))
-            return
-        }
+        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {

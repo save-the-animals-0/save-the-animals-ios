@@ -27,7 +27,6 @@ class CampaignController {
                 completion(.failure(.badData))
                 return
             }
-            data.printJSON()
             
             let jsonDecoder = JSONDecoder()
             jsonDecoder.dateDecodingStrategy = .customISO8601

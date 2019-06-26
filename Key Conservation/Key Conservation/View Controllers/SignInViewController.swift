@@ -45,23 +45,17 @@ class SignInViewController: UIViewController {
             }
             
             if let bearer = self.userController.bearer {
-                print(bearer)
                 self.userController.getCurrentUser(for: bearer, completion: { (result) in
                     if let user = try? result.get() {
                         DispatchQueue.main.async {
                             self.user = user
-                            print(user)
+                            self.performSegue(withIdentifier: "ShowFeed", sender: self)
                         }
                     } else {
-                        print(result)
+                        print("Result is: \(result)")
                     }
                 })
             }
-
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "ShowFeed", sender: self)
-            }
         }
     }
-    
 }
