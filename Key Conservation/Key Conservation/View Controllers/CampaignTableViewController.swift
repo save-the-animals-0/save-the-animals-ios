@@ -93,7 +93,7 @@ class CampaignTableViewController: UITableViewController {
     private func searchCampaigns() {
         var filteredCampaigns: [Campaign] = []
         if let searchText = searchTextField.text {
-            filteredCampaigns = campaigns.filter({ $0.title.contains(searchText) || $0.category.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
+            filteredCampaigns = campaigns.filter({ $0.campaignName.contains(searchText) || $0.urgencyLevel.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
         }
         
         campaigns = filteredCampaigns
@@ -107,7 +107,7 @@ class CampaignTableViewController: UITableViewController {
     }
     
     func fetchCampaigns(search: String?) {
-        campaignController.fetchCampaigns(for: search) { (result) in
+        campaignController.fetchCampaigns() { (result) in
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns

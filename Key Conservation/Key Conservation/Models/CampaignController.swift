@@ -12,19 +12,12 @@ import UIKit
 class CampaignController: Codable {
     // Add api base URL
     // Placeholder
-    let baseURL = URL(string: "https://")!
+    let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/campaigns")!
     var campaignList: [Campaign] = []
     
-    // fetch campaigns for all or search
-    func fetchCampaigns(for search: String?, completion: @escaping (Result<[Campaign], NetworkError>) -> ()) {
-        let searchURL: URL
-        
-        if let search = search {
-            searchURL = baseURL.appendingPathComponent("\(search)")
-        } else {
-            searchURL = baseURL
-        }
-        let request = URLRequest(url: searchURL)
+    // fetch campaigns for all
+    func fetchCampaigns(completion: @escaping (Result<[Campaign], NetworkError>) -> ()) {
+        let request = URLRequest(url: baseURL)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {
@@ -47,9 +40,10 @@ class CampaignController: Codable {
             }.resume()
     }
     
+    // delete a campaign
     func deleteCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
-        
-        let deleteURL = baseURL.appendingPathComponent("delete") //placeholder
+        guard let id = campaign.id else { return }
+        let deleteURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: deleteURL)
         request.httpMethod = HTTPMethod.delete.rawValue
@@ -78,9 +72,10 @@ class CampaignController: Codable {
         
     }
     
+    // update a campaign
     func updateCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
-        // function stub
-        let updateURL = baseURL.appendingPathComponent("update/\(campaign)") //placeholder
+        guard let id = campaign.id else { return }
+        let updateURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
@@ -108,12 +103,9 @@ class CampaignController: Codable {
             }.resume()
     }
     
+    // add a campaign
     func addCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
-        // function stub
-        
-        let updateURL = baseURL.appendingPathComponent("add") //placeholder
-        
-        var request = URLRequest(url: updateURL)
+        var request = URLRequest(url: baseURL)
         request.httpMethod = HTTPMethod.post.rawValue
         let jsonEncoder = JSONEncoder()
         do {

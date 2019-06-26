@@ -34,13 +34,13 @@ class AddEditCampaignViewController: UIViewController {
     }
     
     func updateViews() {
-        campaignNameTextField.text = campaign?.title
+        campaignNameTextField.text = campaign?.campaignName
         locationTextField.text = campaign?.location
         fundingGoalTextField.text = campaign?.fundingGoal
         deadlineTextField.text = campaign?.deadline
         descriptionTextView.text = campaign?.description
         
-        switch campaign?.category {
+        switch campaign?.urgencyLevel {
         case "Critically Endangered":
             criticallyEndangeredButtonTapped(self)
         case "Endangered":
@@ -82,7 +82,7 @@ class AddEditCampaignViewController: UIViewController {
         if let campaign = campaign {
             // edit campaign function
         } else {
-            campaign = Campaign(title: name, location: location, description: description, imageURL: nil, fundingRaised: nil, fundingGoal: fundingGoal, deadline: deadline, category: category, imageData: nil)
+            campaign = Campaign(id: nil, campaignName: name, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)

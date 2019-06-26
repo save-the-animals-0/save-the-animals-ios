@@ -34,12 +34,12 @@ class CampaignDetailViewController: UIViewController {
     }
     
     func updateViews() {
-        campaignTitle.text = campaign?.title
+        campaignTitle.text = campaign?.campaignName
         campaignLocation.text = campaign?.location
         campaignFundedAmount.text = campaign?.fundingRaised
         campaignGoal.text = campaign?.fundingGoal
         campaignDeadline.text = campaign?.deadline
-        campaignCategory.text = campaign?.category
+        campaignCategory.text = campaign?.urgencyLevel
         campaignDescription.text = campaign?.description
         fetchImage(for: campaign!)
     }
