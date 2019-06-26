@@ -27,6 +27,7 @@ class CampaignDetailViewController: UIViewController {
         }
     }
     var campaignController: CampaignController?
+    let df = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,12 @@ class CampaignDetailViewController: UIViewController {
         campaignTitle.text = campaign?.campaignName
         campaignLocation.text = campaign?.location
         campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = "\(campaign?.fundingGoal ?? 0)"
+        campaignGoal.text = "of $\(campaign?.fundingGoal ?? 0) goal"
         campaignCategory.text = campaign?.urgencyLevel
         campaignDescription.text = campaign?.description
         
         if let deadlineDate = campaign?.deadline {
+            
             let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
             let deadlineString = "\(diffInDays)"
             campaignDeadline.text = deadlineString

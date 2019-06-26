@@ -36,7 +36,7 @@ class CampaignTableViewCell: UITableViewCell {
         campaignTitle.text = campaign?.campaignName
         campaignLocation.text = campaign?.location
         campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = "\(campaign?.fundingGoal ?? 0)"
+        campaignGoal.text = "of $\(campaign?.fundingGoal ?? 0) goal"
         campaignCategory.text = campaign?.urgencyLevel
         campaignDescription.text = campaign?.description
         
