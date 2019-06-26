@@ -70,7 +70,8 @@ class AddEditCampaignViewController: UIViewController {
     */
     
     @IBAction func exitButtonTapped(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
+//        navigationController?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addCampaignPhotoButtonTapped(_ sender: Any) {
