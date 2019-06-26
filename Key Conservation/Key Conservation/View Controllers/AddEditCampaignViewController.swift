@@ -28,11 +28,15 @@ class AddEditCampaignViewController: UIViewController {
     }
     var campaignController: CampaignController?
     var category: String = "Critically Endangered"
+    var activeTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        locationTextField.delegate = self
+        fundingGoalTextField.delegate = self
+        deadlineTextField.delegate = self
+        descriptionTextView.delegate = self
     }
     
     func updateViews() {
@@ -82,7 +86,7 @@ class AddEditCampaignViewController: UIViewController {
         if let campaign = campaign {
             // edit campaign function
         } else {
-            campaign = Campaign(id: nil, campaignName: name, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
+            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)
@@ -145,5 +149,55 @@ class AddEditCampaignViewController: UIViewController {
         vulnerableButton.backgroundColor = .white
         vulnerableButton.titleLabel?.textColor = .black
         category = "Vulnerable"
+    }
+    
+    // keyboard handling
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+        let userInfo = notification.userInfo ?? [:]
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let adjustmentHeight = (keyboardFrame.height) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustInsetForKeyboardShow(true, notification: notification)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        adjustInsetForKeyboardShow(false, notification: notification)
+    }
+}
+
+extension AddEditCampaignViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeTextField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch activeTextField {
+        case locationTextField:
+            activeTextField?.resignFirstResponder()
+            fundingGoalTextField.becomeFirstResponder()
+        case fundingGoalTextField:
+            activeTextField?.resignFirstResponder()
+            deadlineTextField.becomeFirstResponder()
+        case deadlineTextField:
+            activeTextField?.resignFirstResponder()
+        default:
+            activeTextField?.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+extension AddEditCampaignViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
     }
 }
