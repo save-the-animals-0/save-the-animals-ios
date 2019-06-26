@@ -121,11 +121,15 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch activeTextField {
         case nameTextField:
+            activeTextField?.resignFirstResponder()
             emailTextField.becomeFirstResponder()
         case emailTextField:
+            activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
+//        case passwordTextField:
+//            activeTextField?.resignFirstResponder()
         default:
-            textField.resignFirstResponder()
+            activeTextField?.resignFirstResponder()
         }
         return true
     }
