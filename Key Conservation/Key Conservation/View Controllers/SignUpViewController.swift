@@ -128,6 +128,9 @@ extension SignUpViewController: UITextFieldDelegate {
             activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
+            if passwordTextField.text != nil && passwordTextField.text != "" {
+                signUpButton.backgroundColor = UIColor.getGreenColor()
+            }
             activeTextField?.resignFirstResponder()
         default:
             activeTextField?.resignFirstResponder()
