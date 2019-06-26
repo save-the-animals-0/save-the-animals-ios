@@ -23,6 +23,7 @@ class SignInViewController: UIViewController {
         if segue.identifier == "ShowFeed" {
             guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
             campaignTableVC.userController = userController
+            campaignTableVC.user = user
         }
     }
     
@@ -35,19 +36,26 @@ class SignInViewController: UIViewController {
             email != "",
             let password = passwordTextField.text,
             password != "" else { return }
-        user = User(name: nil, password: password, email: email, imageURL: nil, imageData: nil, type: nil)
-        performSegue(withIdentifier: "ShowFeed", sender: self)
-        //        userController.loginWith(user: user!, loginType: .signIn) { (error) in
-        //            if let error = error {
-        //                print(error)
-        //                return
-        //            }
-        //
-        //            DispatchQueue.main.async {
-        //                self.performSegue(withIdentifier: "ShowFeed", sender: self)
-        //            }
-        //        }
+        user = User(id: nil, name: nil, password: password, email: email, imageURL: nil, imageData: nil, isOrg: nil)
         
+        userController.loginWith(user: user!, loginType: .signIn) { (error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let bearer = self.userController.bearer {
+                self.userController.getCurrentUser(for: bearer, completion: { (result) in
+                    if let user = try? result.get() {
+                        DispatchQueue.main.async {
+                            self.user = user
+                            self.performSegue(withIdentifier: "ShowFeed", sender: self)
+                        }
+                    } else {
+                        print("Result is: \(result)")
+                    }
+                })
+            }
+        }
     }
-    
 }

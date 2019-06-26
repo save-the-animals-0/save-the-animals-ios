@@ -9,22 +9,13 @@
 import Foundation
 import UIKit
 
-class CampaignController: Codable {
-    // Add api base URL
-    // Placeholder
-    let baseURL = URL(string: "https://")!
+class CampaignController {
+    let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/campaigns")!
     var campaignList: [Campaign] = []
     
-    // fetch campaigns for all or search
-    func fetchCampaigns(for search: String?, completion: @escaping (Result<[Campaign], NetworkError>) -> ()) {
-        let searchURL: URL
-        
-        if let search = search {
-            searchURL = baseURL.appendingPathComponent("\(search)")
-        } else {
-            searchURL = baseURL
-        }
-        let request = URLRequest(url: searchURL)
+    // fetch campaigns for all
+    func fetchCampaigns(completion: @escaping (Result<[Campaign], NetworkError>) -> ()) {
+        let request = URLRequest(url: baseURL)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {
@@ -38,18 +29,22 @@ class CampaignController: Codable {
             }
             
             let jsonDecoder = JSONDecoder()
+            jsonDecoder.dateDecodingStrategy = .customISO8601
             do {
                 self.campaignList = try jsonDecoder.decode([Campaign].self, from: data)
                 completion(.success(self.campaignList))
             } catch {
+                print("\(error)")
                 completion(.failure(.noDecode))
+                print("campaign decode failure")
             }
             }.resume()
     }
     
+    // delete a campaign
     func deleteCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
-        
-        let deleteURL = baseURL.appendingPathComponent("delete") //placeholder
+        guard let id = campaign.id else { return }
+        let deleteURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: deleteURL)
         request.httpMethod = HTTPMethod.delete.rawValue
@@ -70,6 +65,7 @@ class CampaignController: Codable {
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
                 completion(.badResponse)
+                print(response.statusCode)
                 return
             }
             
@@ -78,15 +74,19 @@ class CampaignController: Codable {
         
     }
     
-    func updateCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
-        // function stub
-        let updateURL = baseURL.appendingPathComponent("update/\(campaign)") //placeholder
+    // update a campaign
+    func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
+        guard let id = campaign.id else { return }
+        let updatedCampaign = Campaign(id: id, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
+        let updateURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
+        
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.dateEncodingStrategy = .customISO8601
         do {
-            request.httpBody = try jsonEncoder.encode(campaign)
+            request.httpBody = try jsonEncoder.encode(updatedCampaign)
         } catch {
             print("error encoding: \(error)")
             completion(.noEncode)
@@ -108,12 +108,9 @@ class CampaignController: Codable {
             }.resume()
     }
     
+    // add a campaign
     func addCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
-        // function stub
-        
-        let updateURL = baseURL.appendingPathComponent("add") //placeholder
-        
-        var request = URLRequest(url: updateURL)
+        var request = URLRequest(url: baseURL)
         request.httpMethod = HTTPMethod.post.rawValue
         let jsonEncoder = JSONEncoder()
         do {
@@ -160,4 +157,15 @@ class CampaignController: Codable {
             }.resume()
     }
     
+}
+
+extension Data
+{
+    func printJSON()
+    {
+        if let JSONString = String(data: self, encoding: String.Encoding.utf8)
+        {
+            print(JSONString)
+        }
+    }
 }

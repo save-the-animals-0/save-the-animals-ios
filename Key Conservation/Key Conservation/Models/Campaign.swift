@@ -9,13 +9,15 @@
 import Foundation
 
 struct Campaign: Codable {
-    let title: String
+    let id: String?
+    let campaignName: String
+    let fundingGoal: Double
     let location: String
     let description: String
+    let deadline: Date
+    let urgencyLevel: String
+    let species: String?
+    let imageData: Data?
     let imageURL: String?
     let fundingRaised: String?
-    let fundingGoal: String
-    let deadline: String
-    let category: String
-    let imageData: Data?
 }

@@ -28,22 +28,22 @@ class CampaignTableViewController: UITableViewController {
         searchTextField.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        guard let userController = userController else { return }
-        if userController.bearer == nil {
-            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+//        guard let userController = userController else { return }
+//        if userController.bearer == nil {
+//            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+//        }
         
         if let user = user {
-            if user.type != "organization" {
+            if !user.isOrg! {
                 addCampaignButton.isHidden = true
                 myCampaignsButton.isHidden = true
             }
         }
         
-//        fetchCampaigns(search: nil)
+        fetchCampaigns()
     }
-
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +66,7 @@ class CampaignTableViewController: UITableViewController {
             let campaignDetailVC = segue.destination as? CampaignDetailViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 campaignDetailVC.campaign = campaigns[indexPath.row]
+                print(campaigns[indexPath.row])
             }
             campaignDetailVC.campaignController = campaignController
         } else if segue.identifier == "EditCampaignSegue",
@@ -74,16 +75,15 @@ class CampaignTableViewController: UITableViewController {
                 editCampaignVC.campaign = campaigns[indexPath.row]
             }
             editCampaignVC.campaignController = campaignController
+        } else if segue.identifier == "AddCampaignSegue",
+            let addCampaignVC = segue.destination as? AddEditCampaignViewController {
+            addCampaignVC.user = user
         }
     }
 
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
         showMyCampaigns()
-    }
-    
-    @IBAction func addCampaignButtonTapped(_ sender: Any) {
-        // placeholder, might not need this
     }
     
     @IBAction func editCampaignButtonTapped(_ sender: Any) {
@@ -93,21 +93,23 @@ class CampaignTableViewController: UITableViewController {
     private func searchCampaigns() {
         var filteredCampaigns: [Campaign] = []
         if let searchText = searchTextField.text {
-            filteredCampaigns = campaigns.filter({ $0.title.contains(searchText) || $0.category.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
+            filteredCampaigns = campaigns.filter({ $0.campaignName.contains(searchText) || $0.urgencyLevel.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
         }
         
         campaigns = filteredCampaigns
     }
     
     private func showMyCampaigns() {
-//        var filteredCampaigns: [Campaign] = []
-//            filteredCampaigns = campaigns.filter({ $0.orgID })
-//
-//        campaigns = filteredCampaigns
+        var filteredCampaigns: [Campaign] = []
+        if let name = user?.name {
+          filteredCampaigns = campaigns.filter({ $0.campaignName.contains(name) })
+        }
+        
+        campaigns = filteredCampaigns
     }
     
-    func fetchCampaigns(search: String?) {
-        campaignController.fetchCampaigns(for: search) { (result) in
+    func fetchCampaigns() {
+        campaignController.fetchCampaigns() { (result) in
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns

@@ -10,7 +10,6 @@ import UIKit
 
 class AddEditCampaignViewController: UIViewController {
 
-    @IBOutlet weak var campaignNameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var fundingGoalTextField: UITextField!
     @IBOutlet weak var deadlineTextField: UITextField!
@@ -20,6 +19,7 @@ class AddEditCampaignViewController: UIViewController {
     @IBOutlet weak var vulnerableButton: UIButton!
     @IBOutlet weak var nearThreatenedButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var campaign: Campaign? {
         didSet {
@@ -28,19 +28,30 @@ class AddEditCampaignViewController: UIViewController {
     }
     var campaignController: CampaignController?
     var category: String = "Critically Endangered"
+    var activeTextField: UITextField?
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationTextField.delegate = self
+        fundingGoalTextField.delegate = self
+        deadlineTextField.delegate = self
+        descriptionTextView.delegate = self
     }
     
     func updateViews() {
-        campaignNameTextField.text = campaign?.title
         locationTextField.text = campaign?.location
-        fundingGoalTextField.text = campaign?.fundingGoal
-        deadlineTextField.text = campaign?.deadline
+        fundingGoalTextField.text = "\(campaign?.fundingGoal ?? 0)"
         descriptionTextView.text = campaign?.description
         
-        switch campaign?.category {
+        if let deadlineDate = campaign?.deadline {
+            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
+            let deadlineString = "\(diffInDays)"
+            deadlineTextField.text = deadlineString
+        }
+        
+        switch campaign?.urgencyLevel {
         case "Critically Endangered":
             criticallyEndangeredButtonTapped(self)
         case "Endangered":
@@ -53,19 +64,9 @@ class AddEditCampaignViewController: UIViewController {
             criticallyEndangeredButtonTapped(self)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func exitButtonTapped(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addCampaignPhotoButtonTapped(_ sender: Any) {
@@ -74,21 +75,33 @@ class AddEditCampaignViewController: UIViewController {
     
     @IBAction func saveCampaignButtonTapped(_ sender: Any) {
         guard let campaignController = campaignController else { return }
-        guard let name = campaignNameTextField.text, name != "",
-            let location = locationTextField.text, location != "",
+        guard let location = locationTextField.text, location != "",
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
-            let deadline = deadlineTextField.text, deadline != "",
-            let description = descriptionTextView.text, description != "" else { return }
+            let description = descriptionTextView.text, description != "",
+            let deadlineInt = Int(deadlineTextField.text!) else { return }
+
+        let today = Date()
+        let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
+        
+        
         if let campaign = campaign {
-            // edit campaign function
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil) { (error) in
+                if let error = error {
+                    print(error)
+                } else {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
         } else {
-            campaign = Campaign(title: name, location: location, description: description, imageURL: nil, fundingRaised: nil, fundingGoal: fundingGoal, deadline: deadline, category: category, imageData: nil)
+            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)
                 } else {
                     DispatchQueue.main.async {
-                        self.navigationController?.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }
@@ -145,5 +158,55 @@ class AddEditCampaignViewController: UIViewController {
         vulnerableButton.backgroundColor = .white
         vulnerableButton.titleLabel?.textColor = .black
         category = "Vulnerable"
+    }
+    
+    // keyboard handling
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+        let userInfo = notification.userInfo ?? [:]
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let adjustmentHeight = (keyboardFrame.height) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustInsetForKeyboardShow(true, notification: notification)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        adjustInsetForKeyboardShow(false, notification: notification)
+    }
+}
+
+extension AddEditCampaignViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeTextField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch activeTextField {
+        case locationTextField:
+            activeTextField?.resignFirstResponder()
+            fundingGoalTextField.becomeFirstResponder()
+        case fundingGoalTextField:
+            activeTextField?.resignFirstResponder()
+            deadlineTextField.becomeFirstResponder()
+        case deadlineTextField:
+            activeTextField?.resignFirstResponder()
+        default:
+            activeTextField?.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+extension AddEditCampaignViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
     }
 }
