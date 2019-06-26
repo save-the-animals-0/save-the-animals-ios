@@ -10,7 +10,8 @@ import Foundation
 
 class UserController {
     var bearer: Bearer?
-    private let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/user")! //placeholder
+    var user: User?
+    private let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/users")!
     
     func loginWith(user: User, loginType: LoginType, completion: @escaping (Error?) -> ()) {
         let requestURL = baseURL.appendingPathComponent("\(loginType.rawValue)")
@@ -57,5 +58,9 @@ class UserController {
             
             completion(nil)
             }.resume()
+    }
+    
+    func getCurrentUser(for bearer: Bearer) {
+        
     }
 }
