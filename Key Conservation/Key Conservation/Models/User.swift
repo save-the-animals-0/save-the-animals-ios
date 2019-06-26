@@ -9,11 +9,12 @@
 import Foundation
 
 struct User: Codable {
+    let id: String?
     let name: String?
     let password: String
     let email: String
     let imageURL: String?
     let imageData: Data?
-    let type: String?
+    let isOrg: Bool?
     // let campaignsSupported: [String]
 }

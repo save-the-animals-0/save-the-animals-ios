@@ -13,7 +13,7 @@ class UserController {
     private let baseURL = URL(string: "https://")! //placeholder
     
     func loginWith(user: User, loginType: LoginType, completion: @escaping (Error?) -> ()) {
-        let requestURL = baseURL.appendingPathComponent("users/\(loginType.rawValue)")
+        let requestURL = baseURL.appendingPathComponent("user/\(loginType.rawValue)")
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

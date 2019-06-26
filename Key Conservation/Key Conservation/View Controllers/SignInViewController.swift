@@ -35,18 +35,18 @@ class SignInViewController: UIViewController {
             email != "",
             let password = passwordTextField.text,
             password != "" else { return }
-        user = User(name: nil, password: password, email: email, imageURL: nil, imageData: nil, type: nil)
+        user = User(id: nil, name: nil, password: password, email: email, imageURL: nil, imageData: nil, isOrg: nil)
         performSegue(withIdentifier: "ShowFeed", sender: self)
-        //        userController.loginWith(user: user!, loginType: .signIn) { (error) in
-        //            if let error = error {
-        //                print(error)
-        //                return
-        //            }
-        //
-        //            DispatchQueue.main.async {
-        //                self.performSegue(withIdentifier: "ShowFeed", sender: self)
-        //            }
-        //        }
+                userController.loginWith(user: user!, loginType: .signIn) { (error) in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+        
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ShowFeed", sender: self)
+                    }
+                }
         
     }
     

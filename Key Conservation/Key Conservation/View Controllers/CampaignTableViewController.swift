@@ -35,13 +35,13 @@ class CampaignTableViewController: UITableViewController {
         }
         
         if let user = user {
-            if user.type != "organization" {
+            if user.isOrg! {
                 addCampaignButton.isHidden = true
                 myCampaignsButton.isHidden = true
             }
         }
         
-        //        fetchCampaigns(search: nil)
+        fetchCampaigns()
     }
     
     // MARK: - Table view data source
@@ -106,7 +106,7 @@ class CampaignTableViewController: UITableViewController {
 //        campaigns = filteredCampaigns
     }
     
-    func fetchCampaigns(search: String?) {
+    func fetchCampaigns() {
         campaignController.fetchCampaigns() { (result) in
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {

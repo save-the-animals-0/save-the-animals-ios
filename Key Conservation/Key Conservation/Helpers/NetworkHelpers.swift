@@ -28,6 +28,6 @@ struct Bearer: Codable {
 }
 
 enum LoginType: String {
-    case signUp = "signup" //placeholder
-    case signIn = "login" //placeholder
+    case signUp = "register"
+    case signIn = "auth"
 }
