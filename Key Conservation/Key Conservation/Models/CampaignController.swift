@@ -27,12 +27,15 @@ class CampaignController {
                 completion(.failure(.badData))
                 return
             }
+            data.printJSON()
             
             let jsonDecoder = JSONDecoder()
+            jsonDecoder.dateDecodingStrategy = .iso8601
             do {
                 self.campaignList = try jsonDecoder.decode([Campaign].self, from: data)
                 completion(.success(self.campaignList))
             } catch {
+                print("\(error)")
                 completion(.failure(.noDecode))
                 print("campaign decode failure")
             }
@@ -73,14 +76,16 @@ class CampaignController {
     }
     
     // update a campaign
-    func updateCampaign(campaign: Campaign, fundingGoal: Int, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
+    func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
         let updatedCampaign = Campaign(id: id, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         let updateURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
+        
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.dateEncodingStrategy = .iso8601
         do {
             request.httpBody = try jsonEncoder.encode(updatedCampaign)
         } catch {
@@ -153,4 +158,15 @@ class CampaignController {
             }.resume()
     }
     
+}
+
+extension Data
+{
+    func printJSON()
+    {
+        if let JSONString = String(data: self, encoding: String.Encoding.utf8)
+        {
+            print(JSONString)
+        }
+    }
 }

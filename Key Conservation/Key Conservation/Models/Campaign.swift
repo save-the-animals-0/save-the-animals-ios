@@ -11,7 +11,7 @@ import Foundation
 struct Campaign: Codable {
     let id: String?
     let campaignName: String
-    let fundingGoal: Int
+    let fundingGoal: Double
     let location: String
     let description: String
     let deadline: Date

@@ -85,7 +85,7 @@ class AddEditCampaignViewController: UIViewController {
         
         
         if let campaign = campaign {
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: Int(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil) { (error) in
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil) { (error) in
                 if let error = error {
                     print(error)
                 } else {
@@ -95,7 +95,7 @@ class AddEditCampaignViewController: UIViewController {
                 }
             }
         } else {
-            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: Int(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
+            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)

@@ -45,6 +45,7 @@ class SignInViewController: UIViewController {
             }
             
             if let bearer = self.userController.bearer {
+                print(bearer)
                 self.userController.getCurrentUser(for: bearer, completion: { (result) in
                     if let user = try? result.get() {
                         DispatchQueue.main.async {
