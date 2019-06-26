@@ -189,7 +189,10 @@
                                                                 <rect key="frame" x="0.0" y="24" width="300" height="33"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-Xd-qKz">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="300" id="vkE-wJ-bQ7"/>
+                                                                        </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -222,7 +225,10 @@
                                                                 <rect key="frame" x="0.0" y="24" width="300" height="33"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="327-2R-pmw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="300" id="cEf-xq-7OS"/>
+                                                                        </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -255,7 +261,10 @@
                                                                 <rect key="frame" x="0.0" y="24" width="300" height="33"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5W-ZS-ZPf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="300" id="6kV-iN-nTa"/>
+                                                                        </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
