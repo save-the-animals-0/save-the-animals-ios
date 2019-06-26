@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var isOrg: Bool = false
     let userController = UserController()
@@ -26,8 +27,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: Notification.Name.UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: Notification.Name.UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         nameTextField.delegate = self
         emailTextField.delegate = self
@@ -88,37 +89,44 @@ class SignUpViewController: UIViewController {
         // stub function for stretch goal
     }
     
-//    @objc func keyboardWillShow(notification: Notification) {
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            print("notification: Keyboard will show")
-//            if self.view.frame.origin.y == 0{
-//                self.view.frame.origin.y -= keyboardSize.height
-//            }
-//        }
-//
-//    }
-//
-//    func keyboardWillHide(notification: Notification) {
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y != 0 {
-//                self.view.frame.origin.y += keyboardSize.height
-//            }
-//        }
-//    }
     
+    // keyboard handling
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+        let userInfo = notification.userInfo ?? [:]
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let adjustmentHeight = (keyboardFrame.height) * (show ? 1 : -1)
+        scrollView.contentInset.bottom += adjustmentHeight
+        scrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustInsetForKeyboardShow(true, notification: notification)
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        adjustInsetForKeyboardShow(false, notification: notification)
+    }
 }
 
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeTextField = textField
-        
-//        let lastOffset = self.scrollView.contentOffset
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        activeTextField?.resignFirstResponder()
-        activeTextField = nil
+        switch activeTextField {
+        case nameTextField:
+            emailTextField.becomeFirstResponder()
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
         return true
     }
 }

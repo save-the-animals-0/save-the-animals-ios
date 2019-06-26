@@ -366,6 +366,7 @@
                         <outlet property="nameTextField" destination="BpF-Xd-qKz" id="vnk-yw-mAN"/>
                         <outlet property="organizationButton" destination="zoL-w0-szx" id="Vxs-0S-1ss"/>
                         <outlet property="passwordTextField" destination="S5W-ZS-ZPf" id="K2z-pm-03L"/>
+                        <outlet property="scrollView" destination="yJc-oG-6RV" id="EnS-2v-5c8"/>
                         <outlet property="supporterButton" destination="dCb-wJ-zh7" id="CNt-Cy-NUP"/>
                         <segue destination="L9k-6L-MD7" kind="show" identifier="LocationPermissionSegue" id="fww-uI-Rr2"/>
                     </connections>
