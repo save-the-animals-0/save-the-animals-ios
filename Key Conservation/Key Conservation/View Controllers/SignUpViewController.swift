@@ -34,7 +34,6 @@ class SignUpViewController: UIViewController {
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
-
     }
 
     // MARK: - Navigation
@@ -70,19 +69,20 @@ class SignUpViewController: UIViewController {
     
     @IBAction func supporterButtonTapped(_ sender: Any) {
         supporterButton.backgroundColor = .getBlueColor()
-        supporterButton.titleLabel?.textColor = .white
+        supporterButton.setTitleColor(.white, for: .normal)
         
         organizationButton.backgroundColor = .white
+        organizationButton.setTitleColor(.black, for: .normal)
         organizationButton.titleLabel?.textColor = .black
         isOrg = false
     }
     
     @IBAction func organizationButtonTapped(_ sender: Any) {
         organizationButton.backgroundColor = .getBlueColor()
-        organizationButton.titleLabel?.textColor = .white
+        organizationButton.setTitleColor(.white, for: .normal)
         
         supporterButton.backgroundColor = .white
-        supporterButton.titleLabel?.textColor = .black
+        supporterButton.setTitleColor(.black, for: .normal)
         isOrg = true
     }
     
