@@ -23,6 +23,7 @@ class SignInViewController: UIViewController {
         if segue.identifier == "ShowFeed" {
             guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
             campaignTableVC.userController = userController
+            campaignTableVC.user = user
         }
     }
     
@@ -41,6 +42,16 @@ class SignInViewController: UIViewController {
             if let error = error {
                 print(error)
                 return
+            }
+            
+            if let bearer = self.userController.bearer {
+                self.userController.getCurrentUser(for: bearer, completion: { (result) in
+                    if let user = try? result.get() {
+                        DispatchQueue.main.async {
+                            self.user = user
+                        }
+                    }
+                })
             }
 
             DispatchQueue.main.async {

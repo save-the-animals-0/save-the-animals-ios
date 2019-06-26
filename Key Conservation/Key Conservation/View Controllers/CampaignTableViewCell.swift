@@ -19,6 +19,7 @@ class CampaignTableViewCell: UITableViewCell {
     @IBOutlet weak var campaignDeadline: UILabel!
     @IBOutlet weak var campaignCategory: UILabel!
     @IBOutlet weak var campaignDescription: UILabel!
+    @IBOutlet weak var editCampaignButton: UIButton!
     
     let campaignController = CampaignController()
     var campaign: Campaign? {
@@ -26,6 +27,7 @@ class CampaignTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    var user: User?
     
     func updateViews() {
         organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
@@ -38,7 +40,14 @@ class CampaignTableViewCell: UITableViewCell {
         campaignDeadline.text = campaign?.deadline
         campaignCategory.text = campaign?.urgencyLevel
         campaignDescription.text = campaign?.description
-        fetchImage(for: campaign!)
+//        fetchImage(for: campaign!) //stretch goal
+        
+        editCampaignButton.isHidden = true
+        if let campaignName = campaign?.campaignName, let userName = user?.name {
+            if campaignName == userName {
+                editCampaignButton.isHidden = false
+            }
+        }
     }
     
     func fetchImage(for campaign: Campaign) {

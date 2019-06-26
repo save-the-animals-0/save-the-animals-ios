@@ -100,10 +100,12 @@ class CampaignTableViewController: UITableViewController {
     }
     
     private func showMyCampaigns() {
-//        var filteredCampaigns: [Campaign] = []
-//            filteredCampaigns = campaigns.filter({ $0.orgID })
-//
-//        campaigns = filteredCampaigns
+        var filteredCampaigns: [Campaign] = []
+        if let name = user?.name {
+          filteredCampaigns = campaigns.filter({ $0.campaignName.contains(name) })
+        }
+        
+        campaigns = filteredCampaigns
     }
     
     func fetchCampaigns() {

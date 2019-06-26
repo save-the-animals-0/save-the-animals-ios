@@ -678,6 +678,7 @@
                                     <outlet property="campaignLocation" destination="Uae-FO-XXy" id="1ic-Kh-qIl"/>
                                     <outlet property="campaignPhoto" destination="tvZ-Lu-9Po" id="X2T-cS-p3Z"/>
                                     <outlet property="campaignTitle" destination="sZq-Lc-Ihl" id="nhZ-sG-Ucg"/>
+                                    <outlet property="editCampaignButton" destination="nHp-fr-5IT" id="fiR-G7-rg2"/>
                                     <outlet property="organizationPhoto" destination="Z21-3V-Id1" id="ROT-jW-Qfj"/>
                                     <segue destination="WNO-js-dS9" kind="show" identifier="CampaignDetailSegue" id="X5Y-j0-Tmf"/>
                                 </connections>

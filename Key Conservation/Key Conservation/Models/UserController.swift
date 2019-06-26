@@ -60,7 +60,38 @@ class UserController {
             }.resume()
     }
     
-    func getCurrentUser(for bearer: Bearer) {
+    func getCurrentUser(for bearer: Bearer, completion: @escaping (Result<User, NetworkError>) -> ()) {
+        let currentUserURL = baseURL.appendingPathComponent("current")
+        var request = URLRequest(url: currentUserURL)
+        request.httpMethod = HTTPMethod.get.rawValue
         
+        let jsonEncoder = JSONEncoder()
+        do {
+            request.httpBody = try jsonEncoder.encode(bearer)
+        } catch {
+            print("error encoding: \(error)")
+            completion(.failure(.noEncode))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let _ = error {
+                completion(.failure(.otherError))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            do {
+                self.user = try jsonDecoder.decode(User.self, from: data)
+                completion(.success(self.user!))
+            } catch {
+                completion(.failure(.noDecode))
+            }
+            }.resume()
     }
 }
