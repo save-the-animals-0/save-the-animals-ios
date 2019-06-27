@@ -12,6 +12,7 @@ import UIKit
 class CampaignController {
     let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/campaigns")!
     var campaignList: [Campaign] = []
+    let token: String? = KeychainWrapper.standard.string(forKey: "token")
     
     // fetch campaigns for all
     func fetchCampaigns(completion: @escaping (Result<[Campaign], NetworkError>) -> ()) {
@@ -48,6 +49,9 @@ class CampaignController {
         
         var request = URLRequest(url: deleteURL)
         request.httpMethod = HTTPMethod.delete.rawValue
+        if let token = token {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
 //        let jsonEncoder = JSONEncoder()
 //        do {
 //            request.httpBody = try jsonEncoder.encode(campaign)
@@ -77,11 +81,17 @@ class CampaignController {
     func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
         let updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
+        
         let updateURL = baseURL.appendingPathComponent(":\(id)")
-        print(updateURL)
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
+        print(request)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let token = token {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            print(token)
+        }
+        
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .customISO8601
         do {
