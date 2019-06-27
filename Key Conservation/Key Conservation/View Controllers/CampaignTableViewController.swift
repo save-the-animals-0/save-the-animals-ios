@@ -22,12 +22,14 @@ class CampaignTableViewController: UITableViewController {
             searchCampaigns()
         }
     }
+    var editIndexPath: IndexPath?
     
     private var campaignsFiltered: [Campaign] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +58,8 @@ class CampaignTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CampaignCell", for: indexPath) as? CampaignTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.delegate = self
+        cell.user = user
         cell.campaign = campaignsFiltered[indexPath.row]
         return cell
     }
@@ -73,14 +76,13 @@ class CampaignTableViewController: UITableViewController {
             campaignDetailVC.campaignController = campaignController
         } else if segue.identifier == "EditCampaignSegue",
             let editCampaignVC = segue.destination as? AddEditCampaignViewController {
-            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let indexPath = editIndexPath else { return }
                 editCampaignVC.campaign = campaignsFiltered[indexPath.row]
                 editCampaignVC.campaignController = campaignController
 //                editCampaignVC.user = user
-            }
-            editCampaignVC.campaignController = campaignController
         } else if segue.identifier == "AddCampaignSegue",
             let addCampaignVC = segue.destination as? AddEditCampaignViewController {
+            print("adding campaign")
             addCampaignVC.user = user
             addCampaignVC.campaignController = campaignController
         }
@@ -89,10 +91,6 @@ class CampaignTableViewController: UITableViewController {
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
         showMyCampaigns()
-    }
-    
-    @IBAction func editCampaignButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "EditCampaignSegue", sender: self)
     }
     
     private func searchCampaigns() {
@@ -133,5 +131,12 @@ extension CampaignTableViewController: UITextFieldDelegate {
         searchCampaigns()
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension CampaignTableViewController: CampaignTableViewCellDelegate {
+    func editButtonTapped(cell: CampaignTableViewCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+        editIndexPath = indexPath
     }
 }

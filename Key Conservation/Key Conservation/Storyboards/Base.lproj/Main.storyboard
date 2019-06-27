@@ -584,8 +584,8 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="editCampaignButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="ZEn-b3-ea8"/>
-                                                                <segue destination="8Gn-MN-QWt" kind="presentation" identifier="EditCampaignSegue" id="LAn-Vn-0D0"/>
+                                                                <action selector="editButtonTapped:" destination="PO6-Db-ono" eventType="touchUpInside" id="ER9-Xn-EzA"/>
+                                                                <segue destination="8Gn-MN-QWt" kind="presentation" identifier="EditCampaignSegue" id="AlE-aI-jnz"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -1410,6 +1410,7 @@
                         <outlet property="nearThreatenedButton" destination="Lkn-5U-2Nb" id="Yyt-af-ZnW"/>
                         <outlet property="saveCampaignButton" destination="hPY-td-jHz" id="1os-di-RkH"/>
                         <outlet property="scrollView" destination="zIi-cS-fwW" id="RRp-lq-kpK"/>
+                        <outlet property="titleLabel" destination="7R3-Ua-oCa" id="kae-qJ-0yy"/>
                         <outlet property="vulnerableButton" destination="56x-p4-o90" id="P7b-kS-AmX"/>
                     </connections>
                 </viewController>
@@ -1426,8 +1427,8 @@
         <image name="LaunchLogo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LAn-Vn-0D0"/>
-        <segue reference="YhS-Ve-ej9"/>
+        <segue reference="AlE-aI-jnz"/>
+        <segue reference="0NY-5d-2Cu"/>
         <segue reference="kR5-gW-z24"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CampaignTableViewCellDelegate: class {
+    func editButtonTapped(cell: CampaignTableViewCell)
+}
+
 class CampaignTableViewCell: UITableViewCell {
 
     @IBOutlet weak var organizationPhoto: UIImageView!
@@ -28,6 +32,16 @@ class CampaignTableViewCell: UITableViewCell {
         }
     }
     var user: User?
+    weak var delegate: CampaignTableViewCellDelegate?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.delegate = nil
+    }
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        self.delegate?.editButtonTapped(cell: self)
+    }
     
     func updateViews() {
         guard let campaign = campaign else { return }
@@ -53,9 +67,12 @@ class CampaignTableViewCell: UITableViewCell {
 //        fetchImage(for: campaign!) //stretch goal
         
         editCampaignButton.isHidden = true
-        if campaign.campaignName == user?.name {
-            editCampaignButton.isHidden = false
+        if let name = user?.name {
+            if campaign.campaignName == name {
+                editCampaignButton.isHidden = false
+            }
         }
+        
     }
     
     func updateUrgencyColor() {
