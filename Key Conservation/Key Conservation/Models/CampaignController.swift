@@ -77,12 +77,12 @@ class CampaignController {
     // update a campaign
     func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
-        let updatedCampaign = Campaign(id: id, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
+        let updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         let updateURL = baseURL.appendingPathComponent(":\(id)")
         
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
-        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .customISO8601
         do {
@@ -92,7 +92,7 @@ class CampaignController {
             completion(.noEncode)
             return
         }
-        
+        request.httpBody?.printJSON()
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
                 completion(.otherError)
@@ -100,6 +100,7 @@ class CampaignController {
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                print(response)
                 completion(.badResponse)
                 return
             }
