@@ -20,12 +20,10 @@ class AddEditCampaignViewController: UIViewController {
     @IBOutlet weak var nearThreatenedButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var deleteCampaignButton: UIButton!
     
-    var campaign: Campaign? {
-        didSet {
-            updateViews()
-        }
-    }
+    var campaign: Campaign?
     var campaignController: CampaignController?
     var category: String = "Critically Endangered"
     var activeTextField: UITextField?
@@ -33,7 +31,8 @@ class AddEditCampaignViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        deleteCampaignButton.isHidden = true
+        updateViews()
         locationTextField.delegate = self
         fundingGoalTextField.delegate = self
         deadlineTextField.delegate = self
@@ -41,17 +40,18 @@ class AddEditCampaignViewController: UIViewController {
     }
     
     func updateViews() {
-        locationTextField.text = campaign?.location
-        fundingGoalTextField.text = "\(campaign?.fundingGoal ?? 0)"
-        descriptionTextView.text = campaign?.description
+        guard let campaign = campaign else { return }
+        locationTextField.text = campaign.location
+        fundingGoalTextField.text? = "\(campaign.fundingGoal)"
+        descriptionTextView.text? = campaign.description
+        titleLabel.text = "Edit Campaign"
+        deleteCampaignButton.isHidden = false
         
-        if let deadlineDate = campaign?.deadline {
-            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
-            let deadlineString = "\(diffInDays)"
-            deadlineTextField.text = deadlineString
-        }
-        
-        switch campaign?.urgencyLevel {
+        let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
+        let deadlineString = "\(diffInDays.day!)"
+        deadlineTextField.text = deadlineString
+ 
+        switch campaign.urgencyLevel {
         case "Critically Endangered":
             criticallyEndangeredButtonTapped(self)
         case "Endangered":
@@ -79,13 +79,12 @@ class AddEditCampaignViewController: UIViewController {
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
             let description = descriptionTextView.text, description != "",
             let deadlineInt = Int(deadlineTextField.text!) else { return }
-
         let today = Date()
         let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
         
-        
         if let campaign = campaign {
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil) { (error) in
+            print("updating campaign")
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder") { (error) in
                 if let error = error {
                     print(error)
                 } else {
@@ -95,7 +94,8 @@ class AddEditCampaignViewController: UIViewController {
                 }
             }
         } else {
-            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
+            guard let name = user?.name else { return }
+            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)
@@ -104,6 +104,15 @@ class AddEditCampaignViewController: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
+            }
+        }
+    }
+    
+    @IBAction func deleteCampaignButtonTapped(_ sender: Any) {
+        guard let campaignController = campaignController, let campaign = campaign else { return }
+        campaignController.deleteCampaign(campaign: campaign) { (error) in
+            if let error = error {
+                print(error)
             }
         }
     }

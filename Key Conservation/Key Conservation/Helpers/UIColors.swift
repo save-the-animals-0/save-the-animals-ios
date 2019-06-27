@@ -9,6 +9,21 @@
 import Foundation
 import UIKit
 
+func getUrgencyColor(urgencyLevel: String) -> UIColor {
+    switch urgencyLevel {
+    case "Critically Endangered":
+        return UIColor.getCritEndangeredColor()
+    case "Endangered":
+        return UIColor.getEndangeredColor()
+    case "Vulnerable":
+        return UIColor.getVulnerableColor()
+    case "Near Threatened":
+       return UIColor.getNearThreatenedColor()
+    default:
+        return UIColor.black
+    }
+}
+
 extension UIColor {
     class func getGreenColor() -> UIColor {
         return UIColor(red:0.38, green:0.91, blue:0.53, alpha:1.0)
@@ -38,4 +53,18 @@ extension UIColor {
         return UIColor(red:0.43, green:0.64, blue:0.30, alpha:1.0)
     }
    
+    class func getUrgencyColor(urgencyLevel: String) -> UIColor {
+        switch urgencyLevel {
+        case "Critically Endangered":
+            return UIColor.getCritEndangeredColor()
+        case "Endangered":
+            return UIColor.getEndangeredColor()
+        case "Vulnerable":
+            return UIColor.getVulnerableColor()
+        case "Near Threatened":
+            return UIColor.getNearThreatenedColor()
+        default:
+            return UIColor.black
+        }
+    }
 }

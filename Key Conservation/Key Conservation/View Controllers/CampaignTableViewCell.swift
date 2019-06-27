@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CampaignTableViewCellDelegate: class {
+    func editButtonTapped(cell: CampaignTableViewCell)
+}
+
 class CampaignTableViewCell: UITableViewCell {
 
     @IBOutlet weak var organizationPhoto: UIImageView!
@@ -28,30 +32,61 @@ class CampaignTableViewCell: UITableViewCell {
         }
     }
     var user: User?
+    weak var delegate: CampaignTableViewCellDelegate?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.delegate = nil
+    }
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        self.delegate?.editButtonTapped(cell: self)
+    }
     
     func updateViews() {
+        guard let campaign = campaign else { return }
+        campaignTitle.text = campaign.campaignName
+        campaignLocation.text = campaign.location
+        campaignFundedAmount.text = "\(campaign.fundingRaised?.clean ?? "$0")"
+        campaignGoal.text = "of \(campaign.fundingGoal.clean) goal"
+        campaignCategory.text = campaign.urgencyLevel
+        campaignCategory.textColor = UIColor.getUrgencyColor(urgencyLevel: campaign.urgencyLevel)
+        campaignDescription.text = campaign.description
+        
+        let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
+        let deadlineString = "Deadline: \(diffInDays.day!) days to go"
+        campaignDeadline.text = deadlineString
+        
         organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
         organizationPhoto.clipsToBounds = true
         
-        campaignTitle.text = campaign?.campaignName
-        campaignLocation.text = campaign?.location
-        campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = "of $\(campaign?.fundingGoal ?? 0) goal"
-        campaignCategory.text = campaign?.urgencyLevel
-        campaignDescription.text = campaign?.description
-        
-        if let deadlineDate = campaign?.deadline {
-            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
-            let deadlineString = "\(diffInDays)"
-            campaignDeadline.text = deadlineString
-        }
+        // placeholder
+        campaignPhoto.image = #imageLiteral(resourceName: "turtle")
+        // placeholder
+        organizationPhoto.image = #imageLiteral(resourceName: "turtle")
 //        fetchImage(for: campaign!) //stretch goal
         
         editCampaignButton.isHidden = true
-        if let campaignName = campaign?.campaignName, let userName = user?.name {
-            if campaignName == userName {
+        if let name = user?.name {
+            if campaign.campaignName == name {
                 editCampaignButton.isHidden = false
             }
+        }
+        
+    }
+    
+    func updateUrgencyColor() {
+        switch campaign?.urgencyLevel {
+        case "Critically Endangered":
+            campaignCategory.textColor = UIColor.getCritEndangeredColor()
+        case "Endangered":
+            campaignCategory.textColor = UIColor.getEndangeredColor()
+        case "Vulnerable":
+            campaignCategory.textColor = UIColor.getVulnerableColor()
+        case "Near Threatened":
+            campaignCategory.textColor = UIColor.getNearThreatenedColor()
+        default:
+            return
         }
     }
     

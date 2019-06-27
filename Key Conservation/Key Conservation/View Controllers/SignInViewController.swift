@@ -14,6 +14,11 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     private let userController = UserController()
     var user: User?
+    var currentUser: User?  {
+        didSet {
+            performSegue(withIdentifier: "ShowFeed", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +27,9 @@ class SignInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFeed" {
             guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
-            campaignTableVC.userController = userController
-            campaignTableVC.user = user
+            if let currentUser = currentUser {
+               campaignTableVC.user = currentUser
+            }
         }
     }
     
@@ -38,18 +44,12 @@ class SignInViewController: UIViewController {
             password != "" else { return }
         user = User(id: nil, name: nil, password: password, email: email, imageURL: nil, imageData: nil, isOrg: nil)
         
-        userController.loginWith(user: user!, loginType: .signIn) { (error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            if let bearer = self.userController.bearer {
-                self.userController.getCurrentUser(for: bearer, completion: { (result) in
+        userController.loginWith(user: user!, loginType: .signIn) { (result) in
+            if let bearer = try? result.get() {
+                self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
                     if let user = try? result.get() {
                         DispatchQueue.main.async {
-                            self.user = user
-                            self.performSegue(withIdentifier: "ShowFeed", sender: self)
+                            self.currentUser = user
                         }
                     } else {
                         print("Result is: \(result)")
@@ -57,5 +57,22 @@ class SignInViewController: UIViewController {
                 })
             }
         }
+//        userController.loginWith(user: user!, loginType: .signIn) { (result) in
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//            if let bearer = self.userController.bearer {
+//                self.userController.getCurrentUser(for: bearer, completion: { (result) in
+//                    if let user = try? result.get() {
+//                        DispatchQueue.main.async {
+//                            self.currentUser = user
+//                        }
+//                    } else {
+//                        print("Result is: \(result)")
+//                    }
+//                })
+//            }
+//        }
     }
 }

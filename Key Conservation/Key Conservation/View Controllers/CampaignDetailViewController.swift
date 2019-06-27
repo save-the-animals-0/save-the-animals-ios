@@ -21,33 +21,38 @@ class CampaignDetailViewController: UIViewController {
     @IBOutlet weak var campaignDescription: UILabel!
     @IBOutlet weak var donationAmountTextField: UITextField!
     
-    var campaign: Campaign? {
-        didSet {
-            updateViews()
-        }
-    }
+    var campaign: Campaign?
     var campaignController: CampaignController?
-    let df = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateViews()
+    }
+    
     func updateViews() {
-        campaignTitle.text = campaign?.campaignName
-        campaignLocation.text = campaign?.location
-        campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = "of $\(campaign?.fundingGoal ?? 0) goal"
-        campaignCategory.text = campaign?.urgencyLevel
-        campaignDescription.text = campaign?.description
+        guard let campaign = campaign else { return }
+        campaignTitle.text = campaign.campaignName
+        campaignLocation.text = campaign.location
+        campaignFundedAmount.text = "\(campaign.fundingRaised?.clean ?? "$0")"
+        campaignGoal.text = "of \(campaign.fundingGoal.clean) goal"
+        campaignCategory.text = campaign.urgencyLevel
+        campaignDescription.text = campaign.description
         
-        if let deadlineDate = campaign?.deadline {
             
-            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
-            let deadlineString = "\(diffInDays)"
-            campaignDeadline.text = deadlineString
-        }
+        let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
+        let deadlineString = "Deadline: \(diffInDays.day!) days to go"
+        campaignDeadline.text = deadlineString
+        
+        organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
+        organizationPhoto.clipsToBounds = true
+        
+        // placeholder
+        organizationPhoto.image = #imageLiteral(resourceName: "turtle")
+        campaignPhoto.image = #imageLiteral(resourceName: "turtle")
 //        fetchImage(for: campaign!)
     }
     

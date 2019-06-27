@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var isOrg: Bool = false
-    let userController = UserController()
+    private let userController = UserController()
     var user: User?
     var activeTextField: UITextField?
     
@@ -42,7 +42,6 @@ class SignUpViewController: UIViewController {
         if segue.identifier == "LocationPermissionSegue" {
             guard let locationVC = segue.destination as? LocationPermissionViewController else { return }
             locationVC.user = user
-            locationVC.userController = userController
         }
     }
 
@@ -54,16 +53,27 @@ class SignUpViewController: UIViewController {
             let password = passwordTextField.text, password != "" else { return }
         signUpButton.backgroundColor = UIColor.getGreenColor()
         user = User(id: nil, name: name, password: password, email: email, imageURL: nil, imageData: nil, isOrg: isOrg)
-        userController.loginWith(user: user!, loginType: .signUp) { (error) in
+        userController.signUpWith(user: user!, loginType: .signUp) { (error) in
             if let error = error {
                 print(error)
                 return
             }
-
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
+            
+            self.userController.loginWith(user: self.user!, loginType: .signIn) { (result) in
+                if let bearer = try? result.get() {
+                    self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
+                        if (try? result.get()) != nil {
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
+                            }
+                        } else {
+                            print("Result is: \(result)")
+                        }
+                    })
+                }
             }
         }
+        
         print("sign up tapped")
     }
     

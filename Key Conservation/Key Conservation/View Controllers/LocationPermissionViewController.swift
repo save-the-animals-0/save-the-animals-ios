@@ -11,7 +11,6 @@ import UIKit
 class LocationPermissionViewController: UIViewController {
     
     var user: User?
-    var userController: UserController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,6 @@ class LocationPermissionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFeedView" {
             guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
-            campaignTableVC.userController = userController
             campaignTableVC.user = user
         }
     }

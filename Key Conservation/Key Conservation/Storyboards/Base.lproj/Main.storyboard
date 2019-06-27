@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Gc-2B-rhI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mzo-BV-lEZ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,7 @@
         <!--Get Started View Controller-->
         <scene sceneID="FY0-Ik-ygr">
             <objects>
-                <viewController id="XaX-mF-8mx" customClass="GetStartedViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GetStartedViewController" id="XaX-mF-8mx" customClass="GetStartedViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D6B-fx-6Lp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="getStartedButtonTapped:" destination="XaX-mF-8mx" eventType="touchUpInside" id="2Me-4a-too"/>
                                     <segue destination="nS4-bi-xB6" kind="show" id="AT9-XM-t9a"/>
                                 </connections>
                             </button>
@@ -82,13 +81,10 @@
                         <viewLayoutGuide key="safeArea" id="cik-OL-VoW"/>
                     </view>
                     <navigationItem key="navigationItem" id="EYz-zr-dnO"/>
-                    <connections>
-                        <outlet property="getStartedButton" destination="5Yo-TA-ffO" id="hwH-Ck-pnB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djE-Hp-RwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.11594202898561" y="153.34821428571428"/>
+            <point key="canvasLocation" x="2491" y="-563"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="KIe-3C-lQJ">
@@ -195,7 +191,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zft-6F-LgJ">
                                                                         <rect key="frame" x="0.0" y="28" width="300" height="5"/>
@@ -267,7 +263,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-YV-JVb">
                                                                         <rect key="frame" x="0.0" y="28" width="300" height="5"/>
@@ -383,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYp-b6-rpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524.6376811594205" y="152.67857142857142"/>
+            <point key="canvasLocation" x="3254" y="-563"/>
         </scene>
         <!--Location Permission View Controller-->
         <scene sceneID="6nO-fL-e10">
@@ -459,17 +455,17 @@
                         <viewLayoutGuide key="safeArea" id="6mn-am-PXy"/>
                     </view>
                     <connections>
-                        <segue destination="P4F-tg-sxv" kind="show" identifier="ShowFeedView" id="EnJ-fc-dDD"/>
+                        <segue destination="Mzo-BV-lEZ" kind="show" identifier="ShowFeedView" id="msO-v8-B2A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vM-Ti-RUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331.8840579710145" y="151.33928571428569"/>
+            <point key="canvasLocation" x="4026" y="-898"/>
         </scene>
         <!--Campaign Table View Controller-->
         <scene sceneID="VSL-xw-Ggc">
             <objects>
-                <tableViewController id="P4F-tg-sxv" customClass="CampaignTableViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CampaignTableViewController" id="P4F-tg-sxv" customClass="CampaignTableViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dwJ-ec-3bh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -478,27 +474,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DK0-Y2-Cjd">
-                                    <rect key="frame" x="20" y="26.5" width="374" height="30"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DK0-Y2-Cjd">
+                                    <rect key="frame" x="20" y="26.5" width="374" height="32"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZTb-cP-Bjn">
-                                            <rect key="frame" x="0.0" y="0.0" width="178" height="30"/>
+                                            <rect key="frame" x="0.0" y="5" width="157" height="22"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pwf-2B-cEK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="178" height="22"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="14"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="zFA-kr-HLL"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zFA-kr-HLL"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-SJ-ARx">
-                                                    <rect key="frame" x="0.0" y="27" width="178" height="3"/>
+                                                    <rect key="frame" x="0.0" y="19" width="157" height="3"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="LHo-N5-4nA"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="QvO-UI-hiy"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="QvO-UI-hiy"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -506,8 +502,18 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17U-OS-Sys">
-                                            <rect key="frame" x="183" y="0.0" width="158" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-UU-PKl">
+                                            <rect key="frame" x="167" y="1" width="30" height="30"/>
+                                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                            <state key="normal" title="All">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="allCampaignsButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="edu-tV-GRE"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17U-OS-Sys">
+                                            <rect key="frame" x="207" y="1" width="125" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="MJu-p5-hz4"/>
                                             </constraints>
@@ -519,14 +525,15 @@
                                                 <action selector="myCampaignsButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="S7z-SD-JwH"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-Pc-AV2">
-                                            <rect key="frame" x="346" y="0.0" width="28" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-Pc-AV2">
+                                            <rect key="frame" x="342" y="0.0" width="32" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="28" id="PWm-US-D7A"/>
+                                                <constraint firstAttribute="width" constant="32" id="PWm-US-D7A"/>
+                                                <constraint firstAttribute="height" constant="32" id="f9m-Ge-PB8"/>
                                             </constraints>
                                             <state key="normal" image="Add"/>
                                             <connections>
-                                                <segue destination="8Gn-MN-QWt" kind="presentation" identifier="EditCampaignSegue" id="xfs-ZK-qoR"/>
+                                                <segue destination="8Gn-MN-QWt" kind="presentation" identifier="AddCampaignSegue" id="xfs-ZK-qoR"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -584,8 +591,8 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="editCampaignButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="ZEn-b3-ea8"/>
-                                                                <segue destination="8Gn-MN-QWt" kind="presentation" identifier="AddCampaignSegue" id="LAn-Vn-0D0"/>
+                                                                <action selector="editButtonTapped:" destination="PO6-Db-ono" eventType="touchUpInside" id="ER9-Xn-EzA"/>
+                                                                <segue destination="8Gn-MN-QWt" kind="presentation" identifier="EditCampaignSegue" id="AlE-aI-jnz"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -682,7 +689,7 @@
                                     <outlet property="campaignTitle" destination="sZq-Lc-Ihl" id="nhZ-sG-Ucg"/>
                                     <outlet property="editCampaignButton" destination="nHp-fr-5IT" id="fiR-G7-rg2"/>
                                     <outlet property="organizationPhoto" destination="Z21-3V-Id1" id="ROT-jW-Qfj"/>
-                                    <segue destination="WNO-js-dS9" kind="show" identifier="CampaignDetailSegue" id="X5Y-j0-Tmf"/>
+                                    <segue destination="WNO-js-dS9" kind="show" identifier="CampaignDetailSegue" id="D5E-AB-qBB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -691,16 +698,19 @@
                             <outlet property="delegate" destination="P4F-tg-sxv" id="TpG-Xw-f22"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yqx-Ra-VdU"/>
                     <connections>
                         <outlet property="addCampaignButton" destination="MHu-Pc-AV2" id="3nP-yp-ZLI"/>
+                        <outlet property="allCampaignsButton" destination="7iZ-UU-PKl" id="1wq-l0-ma4"/>
                         <outlet property="myCampaignsButton" destination="17U-OS-Sys" id="tcC-k4-Tas"/>
                         <outlet property="searchTextField" destination="Pwf-2B-cEK" id="ww7-Mc-Rec"/>
                         <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" id="0NY-5d-2Cu"/>
+                        <segue destination="XaX-mF-8mx" kind="presentation" identifier="PresentOnboarding" id="ynd-xa-iG1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtn-pl-BAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3117" y="167"/>
+            <point key="canvasLocation" x="4026.0869565217395" y="166.74107142857142"/>
         </scene>
         <!--Campaign Detail View Controller-->
         <scene sceneID="Ywh-7G-Lhl">
@@ -722,18 +732,18 @@
                                     <action selector="backButtonTapped:" destination="WNO-js-dS9" eventType="touchUpInside" id="bjK-rd-VhH"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Eb-Lp-TWT">
-                                <rect key="frame" x="8" y="104" width="398" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Eb-Lp-TWT">
+                                <rect key="frame" x="8" y="112" width="398" height="40"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vk4-vQ-hcI">
-                                        <rect key="frame" x="0.0" y="10" width="40" height="40"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Vk4-vQ-hcI">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="jDX-cu-fyI"/>
                                             <constraint firstAttribute="width" constant="40" id="ksz-MF-htU"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pwZ-nY-4P0">
-                                        <rect key="frame" x="48" y="12.5" width="350" height="35.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pwZ-nY-4P0">
+                                        <rect key="frame" x="48" y="2.5" width="350" height="35.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoc-ds-eu6">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="19.5"/>
@@ -750,19 +760,15 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Vk4-vQ-hcI" secondAttribute="bottom" constant="10" id="2bf-ps-5vK"/>
-                                    <constraint firstItem="pwZ-nY-4P0" firstAttribute="leading" secondItem="Vk4-vQ-hcI" secondAttribute="trailing" constant="8" id="f7L-RT-tes"/>
-                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FpT-0r-wEd">
-                                <rect key="frame" x="0.0" y="174" width="414" height="276"/>
+                                <rect key="frame" x="0.0" y="162" width="414" height="276"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FpT-0r-wEd" secondAttribute="height" multiplier="3:2" id="Tsv-4r-hx2"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HSQ-rb-aXx">
-                                <rect key="frame" x="11" y="462" width="389" height="209"/>
+                                <rect key="frame" x="11" y="450" width="389" height="209"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-5w-LuC">
                                         <rect key="frame" x="0.0" y="0.0" width="242" height="33.5"/>
@@ -828,6 +834,9 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-Cz-KGE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="22"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="274" id="wrv-lN-3w3"/>
+                                                                </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -836,6 +845,7 @@
                                                                 <rect key="frame" x="0.0" y="27" width="274" height="3"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="274" id="9Ls-fI-1NR"/>
                                                                     <constraint firstAttribute="height" constant="3" id="kg2-WL-9c9"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -879,7 +889,7 @@
                             <constraint firstItem="FpT-0r-wEd" firstAttribute="top" secondItem="7Eb-Lp-TWT" secondAttribute="bottom" constant="10" id="Nfg-se-4JS"/>
                             <constraint firstItem="O88-ru-nHz" firstAttribute="trailing" secondItem="7Eb-Lp-TWT" secondAttribute="trailing" constant="8" id="SQ8-BS-mdy"/>
                             <constraint firstItem="FpT-0r-wEd" firstAttribute="trailing" secondItem="O88-ru-nHz" secondAttribute="trailing" id="U5Z-Yx-YKr"/>
-                            <constraint firstItem="7Eb-Lp-TWT" firstAttribute="top" secondItem="QOg-iJ-3Yk" secondAttribute="top" constant="40" id="VaK-qG-mUx"/>
+                            <constraint firstItem="7Eb-Lp-TWT" firstAttribute="top" secondItem="QOg-iJ-3Yk" secondAttribute="bottom" constant="20" id="VaK-qG-mUx"/>
                             <constraint firstItem="7Eb-Lp-TWT" firstAttribute="leading" secondItem="O88-ru-nHz" secondAttribute="leading" constant="8" id="ViD-dP-coE"/>
                             <constraint firstItem="FpT-0r-wEd" firstAttribute="centerX" secondItem="DUx-JV-nX5" secondAttribute="centerX" id="XIa-iB-zgK"/>
                             <constraint firstItem="HSQ-rb-aXx" firstAttribute="leading" secondItem="O88-ru-nHz" secondAttribute="leading" constant="11" id="bIa-bv-Lot"/>
@@ -903,24 +913,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcH-5a-PLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896" y="151"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8Dz-WR-qXB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1Gc-2B-rhI" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fcG-kA-aXZ">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XaX-mF-8mx" kind="relationship" relationship="rootViewController" id="vps-ZH-gPA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y8Y-Pj-0BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-142.02898550724638" y="153.34821428571428"/>
+            <point key="canvasLocation" x="4790" y="167"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="W54-Sh-1Dy">
@@ -943,10 +936,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KN9-3P-THa">
-                                                <rect key="frame" x="0.0" y="24" width="50.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="24" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="6nG-TD-eQJ"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqv-9c-P17">
                                                 <rect key="frame" x="0.0" y="55" width="300" height="5"/>
@@ -971,10 +967,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-cW-bz7">
-                                                <rect key="frame" x="0.0" y="24" width="84.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="24" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="sjW-iu-EIM"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vo-IB-3KP">
                                                 <rect key="frame" x="0.0" y="55" width="300" height="5"/>
@@ -1038,12 +1037,12 @@
                     <connections>
                         <outlet property="emailTextField" destination="KN9-3P-THa" id="n8O-37-oFC"/>
                         <outlet property="passwordTextField" destination="sKl-cW-bz7" id="cxw-6S-ty8"/>
-                        <segue destination="P4F-tg-sxv" kind="show" identifier="ShowFeed" id="kR5-gW-z24"/>
+                        <segue destination="Mzo-BV-lEZ" kind="show" identifier="ShowFeed" id="Jhd-0e-aLU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhQ-sF-r2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896" y="-562"/>
+            <point key="canvasLocation" x="4790" y="-563"/>
         </scene>
         <!--Add Edit Campaign View Controller-->
         <scene sceneID="6FR-8i-atH">
@@ -1074,13 +1073,13 @@
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIi-cS-fwW">
-                                <rect key="frame" x="0.0" y="112" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YQ-9g-RtP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="q2d-kt-b2g">
-                                                <rect key="frame" x="37" y="20" width="340" height="683"/>
+                                                <rect key="frame" x="37" y="20" width="340" height="601"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lml-9T-DtD">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="55"/>
@@ -1092,10 +1091,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NqF-9I-m3H">
-                                                                <rect key="frame" x="0.0" y="24" width="59.5" height="20"/>
+                                                                <rect key="frame" x="0.0" y="24" width="300" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="e67-rK-aUw"/>
+                                                                </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSw-5V-pmL">
                                                                 <rect key="frame" x="0.0" y="50" width="300" height="5"/>
@@ -1120,10 +1122,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-b7-ARI">
-                                                                <rect key="frame" x="0.0" y="24" width="12" height="20"/>
+                                                                <rect key="frame" x="0.0" y="24" width="300" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="s7T-1f-85F"/>
+                                                                </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-Cv-p2o">
                                                                 <rect key="frame" x="0.0" y="50" width="300" height="5"/>
@@ -1148,10 +1153,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1- 60 days" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GpM-z3-qUn">
-                                                                <rect key="frame" x="0.0" y="24" width="70" height="20"/>
+                                                                <rect key="frame" x="0.0" y="24" width="300" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="nz0-Yo-llT"/>
+                                                                </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w61-34-bQ3">
                                                                 <rect key="frame" x="0.0" y="50" width="300" height="5"/>
@@ -1304,7 +1312,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-K6-zNE">
-                                                        <rect key="frame" x="0.0" y="539" width="340" height="144"/>
+                                                        <rect key="frame" x="0.0" y="539" width="340" height="62"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weT-rc-nmo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="95.5" height="18"/>
@@ -1312,15 +1320,14 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Axe-3a-w4q">
-                                                                <rect key="frame" x="0.0" y="27" width="340" height="117"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Axe-3a-w4q">
+                                                                <rect key="frame" x="0.0" y="27" width="340" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                             </textView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="Axe-3a-w4q" firstAttribute="leading" secondItem="weT-rc-nmo" secondAttribute="trailing" constant="-95.5" id="F2h-MP-VQa"/>
                                                             <constraint firstItem="Axe-3a-w4q" firstAttribute="leading" secondItem="weT-rc-nmo" secondAttribute="leading" id="QeL-wF-Nuf"/>
                                                             <constraint firstAttribute="trailing" secondItem="Axe-3a-w4q" secondAttribute="trailing" id="X4r-NE-ZgM"/>
                                                         </constraints>
@@ -1349,38 +1356,53 @@
                                     <constraint firstAttribute="bottom" secondItem="3YQ-9g-RtP" secondAttribute="bottom" id="pHH-IJ-h12"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-td-jHz">
-                                <rect key="frame" x="57.5" y="886" width="299" height="60"/>
-                                <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="IPb-mF-sib"/>
-                                    <constraint firstAttribute="height" constant="60" id="W2l-Dt-HGf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
-                                <state key="normal" title="Save Campaign">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="HuG-ET-CQh"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="sp0-c0-B3X">
+                                <rect key="frame" x="77" y="870" width="260" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-td-jHz">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="60"/>
+                                        <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="IPb-mF-sib"/>
+                                            <constraint firstAttribute="height" constant="60" id="W2l-Dt-HGf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
+                                        <state key="normal" title="Save Campaign">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="HuG-ET-CQh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aa5-wB-TIW">
+                                        <rect key="frame" x="73.5" y="74" width="113" height="26"/>
+                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
+                                        <state key="normal" title="Delete Campaign">
+                                            <color key="titleColor" red="0.93333333333333335" green="0.37647058823529411" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="Akm-sT-lMc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="9YJ-3B-RGj" secondAttribute="trailing" constant="20" id="ACh-cQ-pnK"/>
-                            <constraint firstItem="QX4-7w-ohw" firstAttribute="bottom" secondItem="hPY-td-jHz" secondAttribute="bottom" constant="20" id="Fqd-Nt-oz7"/>
+                            <constraint firstAttribute="bottom" secondItem="sp0-c0-B3X" secondAttribute="bottom" constant="30" id="Ll1-OY-xhA"/>
                             <constraint firstItem="zIi-cS-fwW" firstAttribute="top" secondItem="9YJ-3B-RGj" secondAttribute="bottom" constant="20" id="NXy-OO-EZi"/>
+                            <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="sp0-c0-B3X" secondAttribute="trailing" constant="77" id="Odn-QK-IIf"/>
+                            <constraint firstItem="sp0-c0-B3X" firstAttribute="centerX" secondItem="z1t-WA-HA2" secondAttribute="centerX" id="Wq8-1c-ykI"/>
+                            <constraint firstItem="sp0-c0-B3X" firstAttribute="leading" secondItem="QX4-7w-ohw" secondAttribute="leading" constant="77" id="YYb-zA-QUo"/>
                             <constraint firstItem="zIi-cS-fwW" firstAttribute="leading" secondItem="z1t-WA-HA2" secondAttribute="leading" id="aXC-by-fp9"/>
-                            <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="hPY-td-jHz" secondAttribute="trailing" constant="57.5" id="cb2-r0-tVB"/>
-                            <constraint firstItem="hPY-td-jHz" firstAttribute="top" secondItem="zIi-cS-fwW" secondAttribute="bottom" constant="20" id="doX-CQ-ohk"/>
                             <constraint firstItem="9YJ-3B-RGj" firstAttribute="top" secondItem="QX4-7w-ohw" secondAttribute="top" constant="20" id="eWh-rw-ckv"/>
                             <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="zIi-cS-fwW" secondAttribute="trailing" id="lYe-rM-zgY"/>
-                            <constraint firstItem="hPY-td-jHz" firstAttribute="leading" secondItem="QX4-7w-ohw" secondAttribute="leading" constant="57.5" id="yU4-uT-Pfy"/>
                             <constraint firstItem="9YJ-3B-RGj" firstAttribute="leading" secondItem="QX4-7w-ohw" secondAttribute="leading" constant="20" id="zc7-K5-A3l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QX4-7w-ohw"/>
@@ -1389,6 +1411,7 @@
                     <connections>
                         <outlet property="criticallyEndangeredButton" destination="2mz-FC-KkB" id="ZBS-bk-huv"/>
                         <outlet property="deadlineTextField" destination="GpM-z3-qUn" id="lr3-lE-Y2g"/>
+                        <outlet property="deleteCampaignButton" destination="Aa5-wB-TIW" id="rzf-rC-jr7"/>
                         <outlet property="descriptionTextView" destination="Axe-3a-w4q" id="yVl-mH-lBW"/>
                         <outlet property="endangeredButton" destination="kad-7Y-Aae" id="TRF-hx-JhG"/>
                         <outlet property="fundingGoalTextField" destination="6ud-b7-ARI" id="Mku-mj-Thc"/>
@@ -1396,12 +1419,30 @@
                         <outlet property="nearThreatenedButton" destination="Lkn-5U-2Nb" id="Yyt-af-ZnW"/>
                         <outlet property="saveCampaignButton" destination="hPY-td-jHz" id="1os-di-RkH"/>
                         <outlet property="scrollView" destination="zIi-cS-fwW" id="RRp-lq-kpK"/>
+                        <outlet property="titleLabel" destination="7R3-Ua-oCa" id="kae-qJ-0yy"/>
                         <outlet property="vulnerableButton" destination="56x-p4-o90" id="P7b-kS-AmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9H-J6-TQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3115.9420289855075" y="895.98214285714278"/>
+            <point key="canvasLocation" x="4028" y="903"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mDC-Nb-SCX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Mzo-BV-lEZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lV8-D5-9Qb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P4F-tg-sxv" kind="relationship" relationship="rootViewController" id="OpE-b7-QDe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84G-G0-Ijq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3254" y="167"/>
         </scene>
     </scenes>
     <resources>
@@ -1412,8 +1453,8 @@
         <image name="LaunchLogo" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LAn-Vn-0D0"/>
-        <segue reference="0NY-5d-2Cu"/>
-        <segue reference="kR5-gW-z24"/>
+        <segue reference="Jhd-0e-aLU"/>
+        <segue reference="AlE-aI-jnz"/>
+        <segue reference="lc5-UO-29l"/>
     </inferredMetricsTieBreakers>
 </document>

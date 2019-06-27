@@ -12,6 +12,7 @@ import UIKit
 class CampaignController {
     let baseURL = URL(string: "https://protected-temple-41202.herokuapp.com/campaigns")!
     var campaignList: [Campaign] = []
+    let token: String? = KeychainWrapper.standard.string(forKey: "token")
     
     // fetch campaigns for all
     func fetchCampaigns(completion: @escaping (Result<[Campaign], NetworkError>) -> ()) {
@@ -44,18 +45,21 @@ class CampaignController {
     // delete a campaign
     func deleteCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
-        let deleteURL = baseURL.appendingPathComponent(":\(id)")
+        let deleteURL = baseURL.appendingPathComponent("\(id)")
         
         var request = URLRequest(url: deleteURL)
         request.httpMethod = HTTPMethod.delete.rawValue
-        let jsonEncoder = JSONEncoder()
-        do {
-            request.httpBody = try jsonEncoder.encode(campaign)
-        } catch {
-            print("error encoding: \(error)")
-            completion(.noEncode)
-            return
+        if let token = token {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
+//        let jsonEncoder = JSONEncoder()
+//        do {
+//            request.httpBody = try jsonEncoder.encode(campaign)
+//        } catch {
+//            print("error encoding: \(error)")
+//            completion(.noEncode)
+//            return
+//        }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
@@ -71,17 +75,22 @@ class CampaignController {
             
             completion(nil)
         }.resume()
-        
     }
     
     // update a campaign
     func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
-        let updatedCampaign = Campaign(id: id, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
-        let updateURL = baseURL.appendingPathComponent(":\(id)")
+        let updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         
+        let updateURL = baseURL.appendingPathComponent("\(id)")
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
+        print(request)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let token = token {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            print(token)
+        }
         
         let jsonEncoder = JSONEncoder()
         jsonEncoder.dateEncodingStrategy = .customISO8601
@@ -92,7 +101,7 @@ class CampaignController {
             completion(.noEncode)
             return
         }
-        
+        request.httpBody?.printJSON()
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
                 completion(.otherError)
@@ -100,6 +109,7 @@ class CampaignController {
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                print(response)
                 completion(.badResponse)
                 return
             }
@@ -112,7 +122,9 @@ class CampaignController {
     func addCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         var request = URLRequest(url: baseURL)
         request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.dateEncodingStrategy = .customISO8601
         do {
             request.httpBody = try jsonEncoder.encode(campaign)
         } catch {
@@ -121,6 +133,8 @@ class CampaignController {
             return
         }
         
+        request.httpBody?.printJSON()
+        
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
                 completion(.otherError)
@@ -128,6 +142,7 @@ class CampaignController {
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                print("\(response)")
                 completion(.badResponse)
                 return
             }
