@@ -27,7 +27,7 @@
         <!--Get Started View Controller-->
         <scene sceneID="FY0-Ik-ygr">
             <objects>
-                <viewController id="XaX-mF-8mx" customClass="GetStartedViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GetStartedViewController" id="XaX-mF-8mx" customClass="GetStartedViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D6B-fx-6Lp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="getStartedButtonTapped:" destination="XaX-mF-8mx" eventType="touchUpInside" id="2Me-4a-too"/>
                                     <segue destination="nS4-bi-xB6" kind="show" id="AT9-XM-t9a"/>
                                 </connections>
                             </button>
@@ -82,14 +81,10 @@
                         <viewLayoutGuide key="safeArea" id="cik-OL-VoW"/>
                     </view>
                     <navigationItem key="navigationItem" id="EYz-zr-dnO"/>
-                    <connections>
-                        <outlet property="getStartedButton" destination="5Yo-TA-ffO" id="hwH-Ck-pnB"/>
-                        <segue destination="P4F-tg-sxv" kind="show" identifier="NotFirstLaunchSegue" id="Qi0-ez-rJS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djE-Hp-RwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="881"/>
+            <point key="canvasLocation" x="887" y="167"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="KIe-3C-lQJ">
@@ -384,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYp-b6-rpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="881"/>
+            <point key="canvasLocation" x="1630" y="167"/>
         </scene>
         <!--Location Permission View Controller-->
         <scene sceneID="6nO-fL-e10">
@@ -465,12 +460,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vM-Ti-RUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="881"/>
+            <point key="canvasLocation" x="2367" y="167"/>
         </scene>
         <!--Campaign Table View Controller-->
         <scene sceneID="VSL-xw-Ggc">
             <objects>
-                <tableViewController id="P4F-tg-sxv" customClass="CampaignTableViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CampaignTableViewController" id="P4F-tg-sxv" customClass="CampaignTableViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dwJ-ec-3bh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -916,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcH-5a-PLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896" y="151"/>
+            <point key="canvasLocation" x="3896" y="167"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Dz-WR-qXB">
@@ -933,7 +928,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8Y-Pj-0BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="143"/>
+            <point key="canvasLocation" x="158" y="167"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="W54-Sh-1Dy">
@@ -1457,7 +1452,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AlE-aI-jnz"/>
-        <segue reference="lc5-UO-29l"/>
-        <segue reference="Qi0-ez-rJS"/>
+        <segue reference="0NY-5d-2Cu"/>
+        <segue reference="EnJ-fc-dDD"/>
     </inferredMetricsTieBreakers>
 </document>
