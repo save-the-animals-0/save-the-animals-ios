@@ -195,7 +195,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zft-6F-LgJ">
                                                                         <rect key="frame" x="0.0" y="28" width="300" height="5"/>
@@ -1427,7 +1427,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LAn-Vn-0D0"/>
-        <segue reference="0NY-5d-2Cu"/>
+        <segue reference="YhS-Ve-ej9"/>
         <segue reference="kR5-gW-z24"/>
     </inferredMetricsTieBreakers>
 </document>

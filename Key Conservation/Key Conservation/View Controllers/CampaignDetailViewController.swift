@@ -43,7 +43,7 @@ class CampaignDetailViewController: UIViewController {
         campaignDescription.text = campaign.description
         
             
-        let diffInDays = Calendar.current.dateComponents([.day], from: campaign.deadline, to: Date())
+        let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
         let deadlineString = "Deadline: \(diffInDays.day!) days to go"
         campaignDeadline.text = deadlineString
         
