@@ -31,18 +31,17 @@ class CampaignTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if UserDefaults.isFirstLaunch() {
+        
+        if UserDefaults.isFirstLaunch() && token == nil {
             performSegue(withIdentifier: "PresentOnboarding", sender: self)
         } else if token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
         } else {
             getCurrentUser()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if let user = user {
             if !user.isOrg! {
                 addCampaignButton.isHidden = true

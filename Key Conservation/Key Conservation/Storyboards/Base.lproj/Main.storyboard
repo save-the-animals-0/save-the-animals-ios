@@ -689,7 +689,7 @@
                                     <outlet property="campaignTitle" destination="sZq-Lc-Ihl" id="nhZ-sG-Ucg"/>
                                     <outlet property="editCampaignButton" destination="nHp-fr-5IT" id="fiR-G7-rg2"/>
                                     <outlet property="organizationPhoto" destination="Z21-3V-Id1" id="ROT-jW-Qfj"/>
-                                    <segue destination="WNO-js-dS9" kind="show" identifier="EditCampaignSegue" id="D5E-AB-qBB"/>
+                                    <segue destination="WNO-js-dS9" kind="show" identifier="CampaignDetailSegue" id="D5E-AB-qBB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
