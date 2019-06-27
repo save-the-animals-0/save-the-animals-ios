@@ -30,9 +30,6 @@ class CampaignTableViewCell: UITableViewCell {
     var user: User?
     
     func updateViews() {
-        organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
-        organizationPhoto.clipsToBounds = true
-        
         guard let campaign = campaign else { return }
         campaignTitle.text = campaign.campaignName
         campaignLocation.text = campaign.location
@@ -45,6 +42,14 @@ class CampaignTableViewCell: UITableViewCell {
         let diffInDays = Calendar.current.dateComponents([.day], from: campaign.deadline, to: Date())
         let deadlineString = "Deadline: \(diffInDays.day!) days to go"
         campaignDeadline.text = deadlineString
+        
+        organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
+        organizationPhoto.clipsToBounds = true
+        
+        // placeholder
+        campaignPhoto.image = #imageLiteral(resourceName: "turtle")
+        // placeholder
+        organizationPhoto.image = #imageLiteral(resourceName: "turtle")
 //        fetchImage(for: campaign!) //stretch goal
         
         editCampaignButton.isHidden = true

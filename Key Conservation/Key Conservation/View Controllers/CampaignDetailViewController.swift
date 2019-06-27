@@ -46,6 +46,13 @@ class CampaignDetailViewController: UIViewController {
         let diffInDays = Calendar.current.dateComponents([.day], from: campaign.deadline, to: Date())
         let deadlineString = "Deadline: \(diffInDays.day!) days to go"
         campaignDeadline.text = deadlineString
+        
+        organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
+        organizationPhoto.clipsToBounds = true
+        
+        // placeholder
+        organizationPhoto.image = #imageLiteral(resourceName: "turtle")
+        campaignPhoto.image = #imageLiteral(resourceName: "turtle")
 //        fetchImage(for: campaign!)
     }
     
