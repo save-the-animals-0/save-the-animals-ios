@@ -95,7 +95,7 @@ class AddEditCampaignViewController: UIViewController {
             }
         } else {
             guard let name = user?.name else { return }
-            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", imageData: nil, imageURL: nil, fundingRaised: 0)
+            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)

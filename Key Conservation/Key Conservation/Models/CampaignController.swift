@@ -45,7 +45,7 @@ class CampaignController {
     // delete a campaign
     func deleteCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
-        let deleteURL = baseURL.appendingPathComponent(":\(id)")
+        let deleteURL = baseURL.appendingPathComponent("\(id)")
         
         var request = URLRequest(url: deleteURL)
         request.httpMethod = HTTPMethod.delete.rawValue
@@ -82,7 +82,7 @@ class CampaignController {
         guard let id = campaign.id else { return }
         let updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         
-        let updateURL = baseURL.appendingPathComponent(":\(id)")
+        let updateURL = baseURL.appendingPathComponent("\(id)")
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
         print(request)
