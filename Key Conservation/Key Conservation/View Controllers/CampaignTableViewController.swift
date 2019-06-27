@@ -19,9 +19,11 @@ class CampaignTableViewController: UITableViewController {
     private let campaignController = CampaignController()
     private var campaigns: [Campaign] = [] {
         didSet {
-            tableView.reloadData()
+            searchCampaigns()
         }
     }
+    
+    private var campaignsFiltered: [Campaign] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +49,7 @@ class CampaignTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return campaigns.count
+        return campaignsFiltered.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +57,7 @@ class CampaignTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.campaign = campaigns[indexPath.row]
+        cell.campaign = campaignsFiltered[indexPath.row]
         return cell
     }
 
@@ -65,14 +67,14 @@ class CampaignTableViewController: UITableViewController {
         if segue.identifier == "CampaignDetailSegue",
             let campaignDetailVC = segue.destination as? CampaignDetailViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                campaignDetailVC.campaign = campaigns[indexPath.row]
-                print(campaigns[indexPath.row])
+                campaignDetailVC.campaign = campaignsFiltered[indexPath.row]
+                print(campaignsFiltered[indexPath.row])
             }
             campaignDetailVC.campaignController = campaignController
         } else if segue.identifier == "EditCampaignSegue",
             let editCampaignVC = segue.destination as? AddEditCampaignViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                editCampaignVC.campaign = campaigns[indexPath.row]
+                editCampaignVC.campaign = campaignsFiltered[indexPath.row]
             }
             editCampaignVC.campaignController = campaignController
         } else if segue.identifier == "AddCampaignSegue",
@@ -91,13 +93,14 @@ class CampaignTableViewController: UITableViewController {
     }
     
     private func searchCampaigns() {
-        var filteredCampaigns: [Campaign] = []
-        if let searchText = searchTextField.text {
-            filteredCampaigns = campaigns.filter({ $0.campaignName.localizedCaseInsensitiveContains(searchText) || $0.urgencyLevel.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.location.localizedCaseInsensitiveContains(searchText)})
+        if let searchText = searchTextField.text, !searchText.isEmpty {
+            campaignsFiltered = campaigns.filter({ $0.campaignName.localizedCaseInsensitiveContains(searchText) || $0.urgencyLevel.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.location.localizedCaseInsensitiveContains(searchText)})
+        } else {
+            campaignsFiltered = campaigns
         }
         print("searching campaigns")
-        print(filteredCampaigns)
-        campaigns = filteredCampaigns
+        tableView.reloadData()
+        
     }
     
     private func showMyCampaigns() {
@@ -123,16 +126,8 @@ class CampaignTableViewController: UITableViewController {
 }
 
 extension CampaignTableViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchCampaigns()
-        tableView.reloadData()
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            searchCampaigns()
-        }
-        
+        searchCampaigns()
         textField.resignFirstResponder()
         return true
     }
