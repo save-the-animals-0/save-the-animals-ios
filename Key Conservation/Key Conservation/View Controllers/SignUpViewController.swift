@@ -59,11 +59,22 @@ class SignUpViewController: UIViewController {
                 print(error)
                 return
             }
-
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
+            
+            self.userController.loginWith(user: self.user!, loginType: .signIn) { (result) in
+                if let bearer = try? result.get() {
+                    self.userController.getCurrentUser(for: bearer, completion: { (result) in
+                        if (try? result.get()) != nil {
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
+                            }
+                        } else {
+                            print("Result is: \(result)")
+                        }
+                    })
+                }
             }
         }
+        
         print("sign up tapped")
     }
     

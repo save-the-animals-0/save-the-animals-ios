@@ -18,6 +18,8 @@
 		66048BC022C15FD70053146F /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66048BBF22C15FD70053146F /* GetStartedViewController.swift */; };
 		661BBEC322C423F200895333 /* DateFormattingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BBEC222C423F200895333 /* DateFormattingHelper.swift */; };
 		661BBEC522C4580E00895333 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BBEC422C4580E00895333 /* NumberFormatter.swift */; };
+		661BBEC822C5190C00895333 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BBEC622C5190C00895333 /* KeychainItemAccessibility.swift */; };
+		661BBEC922C5190C00895333 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BBEC722C5190C00895333 /* KeychainWrapper.swift */; };
 		66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF222C16B5200D7BF9C /* SignUpViewController.swift */; };
 		66853CF622C16E1000D7BF9C /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF522C16E1000D7BF9C /* LocationPermissionViewController.swift */; };
 		66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF722C1764000D7BF9C /* CampaignTableViewController.swift */; };
@@ -47,6 +49,8 @@
 		66048BBF22C15FD70053146F /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		661BBEC222C423F200895333 /* DateFormattingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattingHelper.swift; sourceTree = "<group>"; };
 		661BBEC422C4580E00895333 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		661BBEC622C5190C00895333 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		661BBEC722C5190C00895333 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		66853CF222C16B5200D7BF9C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		66853CF522C16E1000D7BF9C /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
 		66853CF722C1764000D7BF9C /* CampaignTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				66853CF422C16B5600D7BF9C /* View Controllers */,
 				66048BB522C158650053146F /* Storyboards */,
 				66E78F8522C28BFA004EBBD3 /* Helpers */,
+				661BBECA22C5191500895333 /* Libraries */,
 				66048BAA22C157A60053146F /* Assets.xcassets */,
 				66048BAF22C157A60053146F /* Info.plist */,
 				66048BB622C159B10053146F /* Fonts */,
@@ -122,6 +127,15 @@
 				66048BB722C159CC0053146F /* Sofia Pro Bold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		661BBECA22C5191500895333 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				661BBEC622C5190C00895333 /* KeychainItemAccessibility.swift */,
+				661BBEC722C5190C00895333 /* KeychainWrapper.swift */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		66853CF422C16B5600D7BF9C /* View Controllers */ = {
@@ -241,8 +255,10 @@
 				66853CFE22C1855E00D7BF9C /* CampaignTableViewCell.swift in Sources */,
 				66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */,
 				661BBEC522C4580E00895333 /* NumberFormatter.swift in Sources */,
+				661BBEC822C5190C00895333 /* KeychainItemAccessibility.swift in Sources */,
 				66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */,
 				66853D0A22C1ACEB00D7BF9C /* NetworkHelpers.swift in Sources */,
+				661BBEC922C5190C00895333 /* KeychainWrapper.swift in Sources */,
 				66E78F8222C27BA4004EBBD3 /* AddEditCampaignViewController.swift in Sources */,
 				66048BA422C157A60053146F /* AppDelegate.swift in Sources */,
 				66853D0722C18A8E00D7BF9C /* UserController.swift in Sources */,

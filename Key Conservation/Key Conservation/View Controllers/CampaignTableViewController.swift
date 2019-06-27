@@ -17,6 +17,7 @@ class CampaignTableViewController: UITableViewController {
     
     var userController: UserController?
     var user: User?
+    let token: String? = KeychainWrapper.standard.string(forKey: "token")
     private let campaignController = CampaignController()
     private var campaigns: [Campaign] = [] {
         didSet {
@@ -34,10 +35,9 @@ class CampaignTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        guard let userController = userController else { return }
-//        if userController.bearer == nil {
-//            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
-//        }
+        if token == nil {
+            performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+        }
         
         if let user = user {
             if !user.isOrg! {

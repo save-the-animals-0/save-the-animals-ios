@@ -48,7 +48,10 @@ class UserController {
                 let jsonDecoder = JSONDecoder()
                 do {
                     self.bearer = try jsonDecoder.decode(Bearer.self, from: data)
-                    completion(.success(self.bearer!))
+                    if let bearer = self.bearer {
+                        completion(.success(bearer))
+                        KeychainWrapper.standard.set(bearer.token, forKey: "token")
+                    }
                 } catch {
                     print("error decoding data/token: \(error)")
                     completion(.failure(.noDecode))
