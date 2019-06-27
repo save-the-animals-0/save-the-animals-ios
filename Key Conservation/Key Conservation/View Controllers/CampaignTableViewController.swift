@@ -40,7 +40,7 @@ class CampaignTableViewController: UITableViewController {
             getCurrentUser()
         }
         
-        fetchCampaigns()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,7 @@ class CampaignTableViewController: UITableViewController {
                 allCampaignsButton.isHidden = true
             }
         }
-        
+        fetchCampaigns()
         tableView.reloadData()
     }
     
