@@ -79,12 +79,11 @@ class AddEditCampaignViewController: UIViewController {
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
             let description = descriptionTextView.text, description != "",
             let deadlineInt = Int(deadlineTextField.text!) else { return }
-
         let today = Date()
         let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
         
-        
         if let campaign = campaign {
+            print("updating campaign")
             campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil) { (error) in
                 if let error = error {
                     print(error)
@@ -95,7 +94,8 @@ class AddEditCampaignViewController: UIViewController {
                 }
             }
         } else {
-            campaign = Campaign(id: nil, campaignName: "placeholder", fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: nil, imageData: nil, imageURL: nil, fundingRaised: nil)
+            guard let name = user?.name else { return }
+            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", imageData: nil, imageURL: nil, fundingRaised: 0)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)

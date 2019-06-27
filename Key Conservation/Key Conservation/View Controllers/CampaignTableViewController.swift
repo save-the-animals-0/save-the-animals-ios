@@ -75,11 +75,14 @@ class CampaignTableViewController: UITableViewController {
             let editCampaignVC = segue.destination as? AddEditCampaignViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 editCampaignVC.campaign = campaignsFiltered[indexPath.row]
+                editCampaignVC.campaignController = campaignController
+//                editCampaignVC.user = user
             }
             editCampaignVC.campaignController = campaignController
         } else if segue.identifier == "AddCampaignSegue",
             let addCampaignVC = segue.destination as? AddEditCampaignViewController {
             addCampaignVC.user = user
+            addCampaignVC.campaignController = campaignController
         }
     }
 

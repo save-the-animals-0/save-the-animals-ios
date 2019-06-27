@@ -112,7 +112,9 @@ class CampaignController {
     func addCampaign(campaign: Campaign, completion: @escaping (NetworkError?) -> ()) {
         var request = URLRequest(url: baseURL)
         request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.dateEncodingStrategy = .customISO8601
         do {
             request.httpBody = try jsonEncoder.encode(campaign)
         } catch {
@@ -121,6 +123,8 @@ class CampaignController {
             return
         }
         
+        request.httpBody?.printJSON()
+        
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
                 completion(.otherError)
@@ -128,6 +132,7 @@ class CampaignController {
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode != 200 {
+                print("\(response)")
                 completion(.badResponse)
                 return
             }

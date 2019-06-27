@@ -16,7 +16,7 @@ struct Campaign: Codable {
     let description: String
     let deadline: Date
     let urgencyLevel: String
-    let species: String?
+    let species: String
     let imageData: Data?
     let imageURL: String?
     let fundingRaised: Double?
