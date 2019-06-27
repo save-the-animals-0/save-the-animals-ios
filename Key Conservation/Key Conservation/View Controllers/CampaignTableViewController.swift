@@ -39,6 +39,8 @@ class CampaignTableViewController: UITableViewController {
         } else {
             getCurrentUser()
         }
+        
+        fetchCampaigns()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +52,7 @@ class CampaignTableViewController: UITableViewController {
             }
         }
         
-        fetchCampaigns()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -115,7 +117,7 @@ class CampaignTableViewController: UITableViewController {
     
     private func showMyCampaigns() {
         if let name = user?.name {
-          campaignsFiltered = campaigns.filter({ $0.campaignName.contains(name) })
+            campaignsFiltered = campaigns.filter({ $0.campaignName.contains(name) })
         } else {
             campaignsFiltered = campaigns
         }
@@ -127,6 +129,7 @@ class CampaignTableViewController: UITableViewController {
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns
+                    self.tableView.reloadData()
                 }
             } else {
                 print(result)
