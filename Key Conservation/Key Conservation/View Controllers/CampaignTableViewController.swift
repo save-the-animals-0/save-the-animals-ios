@@ -87,7 +87,7 @@ class CampaignTableViewController: UITableViewController {
     }
     
     @IBAction func editCampaignButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "EditCampaignsegue", sender: self)
+        performSegue(withIdentifier: "EditCampaignSegue", sender: self)
     }
     
     private func searchCampaigns() {
@@ -95,7 +95,8 @@ class CampaignTableViewController: UITableViewController {
         if let searchText = searchTextField.text {
             filteredCampaigns = campaigns.filter({ $0.campaignName.contains(searchText) || $0.urgencyLevel.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
         }
-        
+        print("searching campaigns")
+        print(filteredCampaigns)
         campaigns = filteredCampaigns
     }
     
