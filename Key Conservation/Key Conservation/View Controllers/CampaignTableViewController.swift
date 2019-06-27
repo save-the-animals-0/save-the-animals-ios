@@ -90,10 +90,14 @@ class CampaignTableViewController: UITableViewController {
 
     @IBAction func allCampaignsButtonTapped(_ sender: Any) {
         campaignsFiltered = campaigns
+        allCampaignsButton.setTitleColor(.getBlueColor(), for: .normal)
+        myCampaignsButton.setTitleColor(.black, for: .normal)
         tableView.reloadData()
     }
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
+        myCampaignsButton.setTitleColor(.getBlueColor(), for: .normal)
+        allCampaignsButton.setTitleColor(.black, for: .normal)
         showMyCampaigns()
     }
     

@@ -48,14 +48,14 @@ class CampaignController {
         
         var request = URLRequest(url: deleteURL)
         request.httpMethod = HTTPMethod.delete.rawValue
-        let jsonEncoder = JSONEncoder()
-        do {
-            request.httpBody = try jsonEncoder.encode(campaign)
-        } catch {
-            print("error encoding: \(error)")
-            completion(.noEncode)
-            return
-        }
+//        let jsonEncoder = JSONEncoder()
+//        do {
+//            request.httpBody = try jsonEncoder.encode(campaign)
+//        } catch {
+//            print("error encoding: \(error)")
+//            completion(.noEncode)
+//            return
+//        }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
@@ -71,7 +71,6 @@ class CampaignController {
             
             completion(nil)
         }.resume()
-        
     }
     
     // update a campaign
@@ -79,7 +78,7 @@ class CampaignController {
         guard let id = campaign.id else { return }
         let updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
         let updateURL = baseURL.appendingPathComponent(":\(id)")
-        
+        print(updateURL)
         var request = URLRequest(url: updateURL)
         request.httpMethod = HTTPMethod.put.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

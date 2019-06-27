@@ -21,6 +21,7 @@ class AddEditCampaignViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var deleteCampaignButton: UIButton!
     
     var campaign: Campaign?
     var campaignController: CampaignController?
@@ -30,6 +31,7 @@ class AddEditCampaignViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteCampaignButton.isHidden = true
         updateViews()
         locationTextField.delegate = self
         fundingGoalTextField.delegate = self
@@ -43,6 +45,7 @@ class AddEditCampaignViewController: UIViewController {
         fundingGoalTextField.text? = "\(campaign.fundingGoal)"
         descriptionTextView.text? = campaign.description
         titleLabel.text = "Edit Campaign"
+        deleteCampaignButton.isHidden = false
         
         let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
         let deadlineString = "\(diffInDays.day!)"
@@ -101,6 +104,15 @@ class AddEditCampaignViewController: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
+            }
+        }
+    }
+    
+    @IBAction func deleteCampaignButtonTapped(_ sender: Any) {
+        guard let campaignController = campaignController, let campaign = campaign else { return }
+        campaignController.deleteCampaign(campaign: campaign) { (error) in
+            if let error = error {
+                print(error)
             }
         }
     }
