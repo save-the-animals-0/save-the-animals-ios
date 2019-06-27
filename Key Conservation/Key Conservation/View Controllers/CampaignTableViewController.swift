@@ -93,7 +93,7 @@ class CampaignTableViewController: UITableViewController {
     private func searchCampaigns() {
         var filteredCampaigns: [Campaign] = []
         if let searchText = searchTextField.text {
-            filteredCampaigns = campaigns.filter({ $0.campaignName.contains(searchText) || $0.urgencyLevel.contains(searchText) || $0.description.contains(searchText) || $0.location.contains(searchText)})
+            filteredCampaigns = campaigns.filter({ $0.campaignName.localizedCaseInsensitiveContains(searchText) || $0.urgencyLevel.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.location.localizedCaseInsensitiveContains(searchText)})
         }
         print("searching campaigns")
         print(filteredCampaigns)
@@ -126,5 +126,14 @@ extension CampaignTableViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         searchCampaigns()
         tableView.reloadData()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            searchCampaigns()
+        }
+        
+        textField.resignFirstResponder()
+        return true
     }
 }
