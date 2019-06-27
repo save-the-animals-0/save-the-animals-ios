@@ -13,6 +13,7 @@ class CampaignTableViewController: UITableViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var myCampaignsButton: UIButton!
     @IBOutlet weak var addCampaignButton: UIButton!
+    @IBOutlet weak var allCampaignsButton: UIButton!
     
     var userController: UserController?
     var user: User?
@@ -42,6 +43,7 @@ class CampaignTableViewController: UITableViewController {
             if !user.isOrg! {
                 addCampaignButton.isHidden = true
                 myCampaignsButton.isHidden = true
+                allCampaignsButton.isHidden = true
             }
         }
         
@@ -71,7 +73,6 @@ class CampaignTableViewController: UITableViewController {
             let campaignDetailVC = segue.destination as? CampaignDetailViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 campaignDetailVC.campaign = campaignsFiltered[indexPath.row]
-                print(campaignsFiltered[indexPath.row])
             }
             campaignDetailVC.campaignController = campaignController
         } else if segue.identifier == "EditCampaignSegue",
@@ -82,12 +83,15 @@ class CampaignTableViewController: UITableViewController {
 //                editCampaignVC.user = user
         } else if segue.identifier == "AddCampaignSegue",
             let addCampaignVC = segue.destination as? AddEditCampaignViewController {
-            print("adding campaign")
             addCampaignVC.user = user
             addCampaignVC.campaignController = campaignController
         }
     }
 
+    @IBAction func allCampaignsButtonTapped(_ sender: Any) {
+        campaignsFiltered = campaigns
+        tableView.reloadData()
+    }
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
         showMyCampaigns()
@@ -99,18 +103,16 @@ class CampaignTableViewController: UITableViewController {
         } else {
             campaignsFiltered = campaigns
         }
-        print("searching campaigns")
         tableView.reloadData()
-        
     }
     
     private func showMyCampaigns() {
-        var filteredCampaigns: [Campaign] = []
         if let name = user?.name {
-          filteredCampaigns = campaigns.filter({ $0.campaignName.contains(name) })
+          campaignsFiltered = campaigns.filter({ $0.campaignName.contains(name) })
+        } else {
+            campaignsFiltered = campaigns
         }
-        
-        campaigns = filteredCampaigns
+        tableView.reloadData()
     }
     
     func fetchCampaigns() {

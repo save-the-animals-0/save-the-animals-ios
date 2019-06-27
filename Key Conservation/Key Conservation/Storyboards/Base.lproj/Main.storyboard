@@ -478,27 +478,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DK0-Y2-Cjd">
-                                    <rect key="frame" x="20" y="26.5" width="374" height="30"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DK0-Y2-Cjd">
+                                    <rect key="frame" x="20" y="26.5" width="374" height="32"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZTb-cP-Bjn">
-                                            <rect key="frame" x="0.0" y="0.0" width="178" height="30"/>
+                                            <rect key="frame" x="0.0" y="5" width="157" height="22"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pwf-2B-cEK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="178" height="22"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="14"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="zFA-kr-HLL"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zFA-kr-HLL"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-SJ-ARx">
-                                                    <rect key="frame" x="0.0" y="27" width="178" height="3"/>
+                                                    <rect key="frame" x="0.0" y="19" width="157" height="3"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="LHo-N5-4nA"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="QvO-UI-hiy"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="QvO-UI-hiy"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -506,8 +506,18 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17U-OS-Sys">
-                                            <rect key="frame" x="183" y="0.0" width="158" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iZ-UU-PKl">
+                                            <rect key="frame" x="167" y="1" width="30" height="30"/>
+                                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                            <state key="normal" title="All">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="allCampaignsButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="edu-tV-GRE"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17U-OS-Sys">
+                                            <rect key="frame" x="207" y="1" width="125" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="MJu-p5-hz4"/>
                                             </constraints>
@@ -519,10 +529,11 @@
                                                 <action selector="myCampaignsButtonTapped:" destination="P4F-tg-sxv" eventType="touchUpInside" id="S7z-SD-JwH"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-Pc-AV2">
-                                            <rect key="frame" x="346" y="0.0" width="28" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MHu-Pc-AV2">
+                                            <rect key="frame" x="342" y="0.0" width="32" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="28" id="PWm-US-D7A"/>
+                                                <constraint firstAttribute="width" constant="32" id="PWm-US-D7A"/>
+                                                <constraint firstAttribute="height" constant="32" id="f9m-Ge-PB8"/>
                                             </constraints>
                                             <state key="normal" image="Add"/>
                                             <connections>
@@ -693,6 +704,7 @@
                     </tableView>
                     <connections>
                         <outlet property="addCampaignButton" destination="MHu-Pc-AV2" id="3nP-yp-ZLI"/>
+                        <outlet property="allCampaignsButton" destination="7iZ-UU-PKl" id="1wq-l0-ma4"/>
                         <outlet property="myCampaignsButton" destination="17U-OS-Sys" id="tcC-k4-Tas"/>
                         <outlet property="searchTextField" destination="Pwf-2B-cEK" id="ww7-Mc-Rec"/>
                         <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" id="0NY-5d-2Cu"/>
