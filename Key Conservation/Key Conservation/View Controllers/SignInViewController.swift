@@ -19,9 +19,13 @@ class SignInViewController: UIViewController {
             performSegue(withIdentifier: "ShowFeed", sender: self)
         }
     }
+    var activeTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.becomeFirstResponder()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,22 +61,23 @@ class SignInViewController: UIViewController {
                 })
             }
         }
-//        userController.loginWith(user: user!, loginType: .signIn) { (result) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//            if let bearer = self.userController.bearer {
-//                self.userController.getCurrentUser(for: bearer, completion: { (result) in
-//                    if let user = try? result.get() {
-//                        DispatchQueue.main.async {
-//                            self.currentUser = user
-//                        }
-//                    } else {
-//                        print("Result is: \(result)")
-//                    }
-//                })
-//            }
-//        }
     }
 }
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeTextField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if activeTextField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        
+        activeTextField?.resignFirstResponder()
+        return true
+    }
+}
+
+
