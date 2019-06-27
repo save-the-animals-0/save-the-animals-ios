@@ -21,33 +21,31 @@ class CampaignDetailViewController: UIViewController {
     @IBOutlet weak var campaignDescription: UILabel!
     @IBOutlet weak var donationAmountTextField: UITextField!
     
-    var campaign: Campaign? {
-        didSet {
-            updateViews()
-        }
-    }
+    var campaign: Campaign?
     var campaignController: CampaignController?
-    let df = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateViews()
+    }
+    
     func updateViews() {
-        campaignTitle.text = campaign?.campaignName
-        campaignLocation.text = campaign?.location
-        campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = "of $\(campaign?.fundingGoal ?? 0) goal"
-        campaignCategory.text = campaign?.urgencyLevel
-        campaignDescription.text = campaign?.description
+        guard let campaign = campaign else { return }
+        campaignTitle.text = campaign.campaignName
+        campaignLocation.text = campaign.location
+        campaignFundedAmount.text = "$\(campaign.fundingRaised ?? 0)"
+        campaignGoal.text = "of $\(campaign.fundingGoal) goal"
+        campaignCategory.text = campaign.urgencyLevel
+        campaignDescription.text = campaign.description
         
-        if let deadlineDate = campaign?.deadline {
             
-            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
-            let deadlineString = "\(diffInDays)"
-            campaignDeadline.text = deadlineString
-        }
+        let diffInDays = Calendar.current.dateComponents([.day], from: campaign.deadline, to: Date())
+        let deadlineString = "Deadline: \(diffInDays.day!) days to go"
+        campaignDeadline.text = deadlineString
 //        fetchImage(for: campaign!)
     }
     

@@ -19,5 +19,5 @@ struct Campaign: Codable {
     let species: String?
     let imageData: Data?
     let imageURL: String?
-    let fundingRaised: String?
+    let fundingRaised: Double?
 }

@@ -33,25 +33,38 @@ class CampaignTableViewCell: UITableViewCell {
         organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
         organizationPhoto.clipsToBounds = true
         
-        campaignTitle.text = campaign?.campaignName
-        campaignLocation.text = campaign?.location
-        campaignFundedAmount.text = campaign?.fundingRaised
-        campaignGoal.text = "of $\(campaign?.fundingGoal ?? 0) goal"
-        campaignCategory.text = campaign?.urgencyLevel
-        campaignDescription.text = campaign?.description
+        guard let campaign = campaign else { return }
+        campaignTitle.text = campaign.campaignName
+        campaignLocation.text = campaign.location
+        campaignFundedAmount.text = "$\(campaign.fundingRaised ?? 0)"
+        campaignGoal.text = "of $\(campaign.fundingGoal) goal"
+        campaignCategory.text = campaign.urgencyLevel
+        campaignCategory.textColor = UIColor.getUrgencyColor(urgencyLevel: campaign.urgencyLevel)
+        campaignDescription.text = campaign.description
         
-        if let deadlineDate = campaign?.deadline {
-            let diffInDays = Calendar.current.dateComponents([.day], from: deadlineDate, to: Date())
-            let deadlineString = "\(diffInDays)"
-            campaignDeadline.text = deadlineString
-        }
+        let diffInDays = Calendar.current.dateComponents([.day], from: campaign.deadline, to: Date())
+        let deadlineString = "Deadline: \(diffInDays.day!) days to go"
+        campaignDeadline.text = deadlineString
 //        fetchImage(for: campaign!) //stretch goal
         
         editCampaignButton.isHidden = true
-        if let campaignName = campaign?.campaignName, let userName = user?.name {
-            if campaignName == userName {
-                editCampaignButton.isHidden = false
-            }
+        if campaign.campaignName == user?.name {
+            editCampaignButton.isHidden = false
+        }
+    }
+    
+    func updateUrgencyColor() {
+        switch campaign?.urgencyLevel {
+        case "Critically Endangered":
+            campaignCategory.textColor = UIColor.getCritEndangeredColor()
+        case "Endangered":
+            campaignCategory.textColor = UIColor.getEndangeredColor()
+        case "Vulnerable":
+            campaignCategory.textColor = UIColor.getVulnerableColor()
+        case "Near Threatened":
+            campaignCategory.textColor = UIColor.getNearThreatenedColor()
+        default:
+            return
         }
     }
     
