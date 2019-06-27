@@ -17,6 +17,7 @@
 		66048BBE22C15A1E0053146F /* Sofia Pro Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 66048BBD22C15A1E0053146F /* Sofia Pro Black.otf */; };
 		66048BC022C15FD70053146F /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66048BBF22C15FD70053146F /* GetStartedViewController.swift */; };
 		661BBEC322C423F200895333 /* DateFormattingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BBEC222C423F200895333 /* DateFormattingHelper.swift */; };
+		661BBEC522C4580E00895333 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661BBEC422C4580E00895333 /* NumberFormatter.swift */; };
 		66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF222C16B5200D7BF9C /* SignUpViewController.swift */; };
 		66853CF622C16E1000D7BF9C /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF522C16E1000D7BF9C /* LocationPermissionViewController.swift */; };
 		66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66853CF722C1764000D7BF9C /* CampaignTableViewController.swift */; };
@@ -45,6 +46,7 @@
 		66048BBD22C15A1E0053146F /* Sofia Pro Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sofia Pro Black.otf"; sourceTree = "<group>"; };
 		66048BBF22C15FD70053146F /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		661BBEC222C423F200895333 /* DateFormattingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattingHelper.swift; sourceTree = "<group>"; };
+		661BBEC422C4580E00895333 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		66853CF222C16B5200D7BF9C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		66853CF522C16E1000D7BF9C /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
 		66853CF722C1764000D7BF9C /* CampaignTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				66853D0922C1ACEB00D7BF9C /* NetworkHelpers.swift */,
 				661BBEC222C423F200895333 /* DateFormattingHelper.swift */,
 				66E78F8322C28BE6004EBBD3 /* UIColors.swift */,
+				661BBEC422C4580E00895333 /* NumberFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				66853D0522C18A7400D7BF9C /* CampaignController.swift in Sources */,
 				66853CFE22C1855E00D7BF9C /* CampaignTableViewCell.swift in Sources */,
 				66853CF322C16B5200D7BF9C /* SignUpViewController.swift in Sources */,
+				661BBEC522C4580E00895333 /* NumberFormatter.swift in Sources */,
 				66853CF822C1764000D7BF9C /* CampaignTableViewController.swift in Sources */,
 				66853D0A22C1ACEB00D7BF9C /* NetworkHelpers.swift in Sources */,
 				66E78F8222C27BA4004EBBD3 /* AddEditCampaignViewController.swift in Sources */,

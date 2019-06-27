@@ -943,7 +943,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KN9-3P-THa">
-                                                <rect key="frame" x="0.0" y="24" width="50.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="24" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="6nG-TD-eQJ"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -971,7 +974,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-cW-bz7">
-                                                <rect key="frame" x="0.0" y="24" width="84.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="24" width="300" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="sjW-iu-EIM"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>

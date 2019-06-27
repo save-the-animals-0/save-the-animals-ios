@@ -33,8 +33,8 @@ class CampaignTableViewCell: UITableViewCell {
         guard let campaign = campaign else { return }
         campaignTitle.text = campaign.campaignName
         campaignLocation.text = campaign.location
-        campaignFundedAmount.text = "$\(campaign.fundingRaised ?? 0)"
-        campaignGoal.text = "of $\(campaign.fundingGoal) goal"
+        campaignFundedAmount.text = "\(campaign.fundingRaised?.clean ?? "$0")"
+        campaignGoal.text = "of \(campaign.fundingGoal.clean) goal"
         campaignCategory.text = campaign.urgencyLevel
         campaignCategory.textColor = UIColor.getUrgencyColor(urgencyLevel: campaign.urgencyLevel)
         campaignDescription.text = campaign.description
