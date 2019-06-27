@@ -15,7 +15,7 @@ class CampaignTableViewController: UITableViewController {
     @IBOutlet weak var addCampaignButton: UIButton!
     @IBOutlet weak var allCampaignsButton: UIButton!
     
-    var userController: UserController?
+    private let userController = UserController()
     var user: User?
     let token: String? = KeychainWrapper.standard.string(forKey: "token")
     private let campaignController = CampaignController()
@@ -130,7 +130,23 @@ class CampaignTableViewController: UITableViewController {
             }
         }
     }
+    
+    func getCurrentUser() {
+        if let token = token {
+            userController.getCurrentUser(for: token) { (result) in
+                if let user = try? result.get() {
+                    DispatchQueue.main.async {
+                        self.user = user
+                    }
+                } else {
+                    print("Result is: \(result)")
+                }
+            }
+        }
+    }
 }
+
+
 
 extension CampaignTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

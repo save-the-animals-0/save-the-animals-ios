@@ -11,9 +11,16 @@ import UIKit
 class GetStartedViewController: UIViewController {
 
     @IBOutlet weak var getStartedButton: UIButton!
+    let isFirstLaunch = UserDefaults.isFirstLaunch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if !isFirstLaunch {
+            performSegue(withIdentifier: "NotFirstLaunchSegue", sender: self)
+        }
     }
     
     @IBAction func getStartedButtonTapped(_ sender: Any) {

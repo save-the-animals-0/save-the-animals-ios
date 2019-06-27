@@ -92,11 +92,11 @@ class UserController {
             }.resume()
     }
     
-    func getCurrentUser(for bearer: Bearer, completion: @escaping (Result<User, NetworkError>) -> ()) {
+    func getCurrentUser(for token: String, completion: @escaping (Result<User, NetworkError>) -> ()) {
         let currentUserURL = baseURL.appendingPathComponent("current")
         var request = URLRequest(url: currentUserURL)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.addValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {

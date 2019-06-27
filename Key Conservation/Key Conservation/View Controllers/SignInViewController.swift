@@ -27,7 +27,6 @@ class SignInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFeed" {
             guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
-            campaignTableVC.userController = userController
             if let currentUser = currentUser {
                campaignTableVC.user = currentUser
             }
@@ -47,7 +46,7 @@ class SignInViewController: UIViewController {
         
         userController.loginWith(user: user!, loginType: .signIn) { (result) in
             if let bearer = try? result.get() {
-                self.userController.getCurrentUser(for: bearer, completion: { (result) in
+                self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
                     if let user = try? result.get() {
                         DispatchQueue.main.async {
                             self.currentUser = user

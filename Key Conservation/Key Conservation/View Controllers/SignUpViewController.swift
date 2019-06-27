@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var isOrg: Bool = false
-    let userController = UserController()
+    private let userController = UserController()
     var user: User?
     var activeTextField: UITextField?
     
@@ -42,7 +42,6 @@ class SignUpViewController: UIViewController {
         if segue.identifier == "LocationPermissionSegue" {
             guard let locationVC = segue.destination as? LocationPermissionViewController else { return }
             locationVC.user = user
-            locationVC.userController = userController
         }
     }
 
@@ -62,7 +61,7 @@ class SignUpViewController: UIViewController {
             
             self.userController.loginWith(user: self.user!, loginType: .signIn) { (result) in
                 if let bearer = try? result.get() {
-                    self.userController.getCurrentUser(for: bearer, completion: { (result) in
+                    self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
                         if (try? result.get()) != nil {
                             DispatchQueue.main.async {
                                 self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)

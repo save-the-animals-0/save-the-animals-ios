@@ -84,11 +84,12 @@
                     <navigationItem key="navigationItem" id="EYz-zr-dnO"/>
                     <connections>
                         <outlet property="getStartedButton" destination="5Yo-TA-ffO" id="hwH-Ck-pnB"/>
+                        <segue destination="P4F-tg-sxv" kind="show" identifier="NotFirstLaunchSegue" id="Qi0-ez-rJS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djE-Hp-RwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.11594202898561" y="153.34821428571428"/>
+            <point key="canvasLocation" x="274" y="881"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="KIe-3C-lQJ">
@@ -383,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYp-b6-rpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524.6376811594205" y="152.67857142857142"/>
+            <point key="canvasLocation" x="1062" y="881"/>
         </scene>
         <!--Location Permission View Controller-->
         <scene sceneID="6nO-fL-e10">
@@ -464,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vM-Ti-RUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331.8840579710145" y="151.33928571428569"/>
+            <point key="canvasLocation" x="1858" y="881"/>
         </scene>
         <!--Campaign Table View Controller-->
         <scene sceneID="VSL-xw-Ggc">
@@ -932,7 +933,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8Y-Pj-0BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142.02898550724638" y="153.34821428571428"/>
+            <point key="canvasLocation" x="274" y="143"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="W54-Sh-1Dy">
@@ -1061,7 +1062,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhQ-sF-r2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3896" y="-562"/>
+            <point key="canvasLocation" x="3896" y="-558"/>
         </scene>
         <!--Add Edit Campaign View Controller-->
         <scene sceneID="6FR-8i-atH">
@@ -1456,7 +1457,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AlE-aI-jnz"/>
-        <segue reference="0NY-5d-2Cu"/>
-        <segue reference="kR5-gW-z24"/>
+        <segue reference="lc5-UO-29l"/>
+        <segue reference="Qi0-ez-rJS"/>
     </inferredMetricsTieBreakers>
 </document>
