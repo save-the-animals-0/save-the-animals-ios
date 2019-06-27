@@ -31,12 +31,16 @@ class CampaignTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if token == nil {
+        if UserDefaults.isFirstLaunch() {
+            performSegue(withIdentifier: "PresentOnboarding", sender: self)
+        } else if token == nil {
             performSegue(withIdentifier: "LoginViewModalSegue", sender: self)
+        } else {
+            getCurrentUser()
         }
         
         if let user = user {

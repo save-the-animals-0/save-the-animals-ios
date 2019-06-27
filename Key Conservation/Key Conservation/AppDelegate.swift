@@ -16,19 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //set initial view controller depending on first launch
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialViewController: UIViewController
-        if (!UserDefaults.isFirstLaunch()) {
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "CampaignTableViewController") as! CampaignTableViewController
-        } else {
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "GetStartedViewController") as! GetStartedViewController
-        }
-        
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
-        
         return true
     }
 
