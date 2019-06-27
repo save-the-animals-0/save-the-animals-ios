@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController {
             let password = passwordTextField.text, password != "" else { return }
         signUpButton.backgroundColor = UIColor.getGreenColor()
         user = User(id: nil, name: name, password: password, email: email, imageURL: nil, imageData: nil, isOrg: isOrg)
-        userController.loginWith(user: user!, loginType: .signUp) { (error) in
+        userController.signUpWith(user: user!, loginType: .signUp) { (error) in
             if let error = error {
                 print(error)
                 return
