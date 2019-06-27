@@ -119,53 +119,53 @@ class AddEditCampaignViewController: UIViewController {
     
     @IBAction func criticallyEndangeredButtonTapped(_ sender: Any) {
         criticallyEndangeredButton.backgroundColor = .getCritEndangeredColor()
-        criticallyEndangeredButton.titleLabel?.textColor = .white
+        criticallyEndangeredButton.setTitleColor(.white, for: .normal)
         
         endangeredButton.backgroundColor = .white
-        endangeredButton.titleLabel?.textColor = .black
+        endangeredButton.setTitleColor(.black, for: .normal)
         vulnerableButton.backgroundColor = .white
-        vulnerableButton.titleLabel?.textColor = .black
+        vulnerableButton.setTitleColor(.black, for: .normal)
         nearThreatenedButton.backgroundColor = .white
-        nearThreatenedButton.titleLabel?.textColor = .black
+        nearThreatenedButton.setTitleColor(.black, for: .normal)
         category = "Critically Endangered"
     }
     
     @IBAction func endangeredButtonTapped(_ sender: Any) {
         endangeredButton.backgroundColor = .getEndangeredColor()
-        endangeredButton.titleLabel?.textColor = .white
+        endangeredButton.setTitleColor(.white, for: .normal)
         
         criticallyEndangeredButton.backgroundColor = .white
-        criticallyEndangeredButton.titleLabel?.textColor = .black
+        criticallyEndangeredButton.setTitleColor(.black, for: .normal)
         vulnerableButton.backgroundColor = .white
-        vulnerableButton.titleLabel?.textColor = .black
+        vulnerableButton.setTitleColor(.black, for: .normal)
         nearThreatenedButton.backgroundColor = .white
-        nearThreatenedButton.titleLabel?.textColor = .black
+        nearThreatenedButton.setTitleColor(.black, for: .normal)
         category = "Endangered"
     }
     
     @IBAction func vulnerableButtonTapped(_ sender: Any) {
         vulnerableButton.backgroundColor = .getVulnerableColor()
-        vulnerableButton.titleLabel?.textColor = .white
+        vulnerableButton.setTitleColor(.white, for: .normal)
         
         criticallyEndangeredButton.backgroundColor = .white
-        criticallyEndangeredButton.titleLabel?.textColor = .black
+        criticallyEndangeredButton.setTitleColor(.black, for: .normal)
         endangeredButton.backgroundColor = .white
-        endangeredButton.titleLabel?.textColor = .black
+        endangeredButton.setTitleColor(.black, for: .normal)
         nearThreatenedButton.backgroundColor = .white
-        nearThreatenedButton.titleLabel?.textColor = .black
+        nearThreatenedButton.setTitleColor(.black, for: .normal)
         category = "Vulnerable"
     }
     
     @IBAction func nearThreatenedButtonTapped(_ sender: Any) {
         nearThreatenedButton.backgroundColor = .getNearThreatenedColor()
-        nearThreatenedButton.titleLabel?.textColor = .white
+        nearThreatenedButton.setTitleColor(.white, for: .normal)
         
         criticallyEndangeredButton.backgroundColor = .white
-        criticallyEndangeredButton.titleLabel?.textColor = .black
+        criticallyEndangeredButton.setTitleColor(.black, for: .normal)
         endangeredButton.backgroundColor = .white
-        endangeredButton.titleLabel?.textColor = .black
+        endangeredButton.setTitleColor(.black, for: .normal)
         vulnerableButton.backgroundColor = .white
-        vulnerableButton.titleLabel?.textColor = .black
+        vulnerableButton.setTitleColor(.black, for: .normal)
         category = "Vulnerable"
     }
     
