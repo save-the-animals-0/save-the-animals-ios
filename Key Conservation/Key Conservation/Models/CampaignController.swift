@@ -52,14 +52,6 @@ class CampaignController {
         if let token = token {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-//        let jsonEncoder = JSONEncoder()
-//        do {
-//            request.httpBody = try jsonEncoder.encode(campaign)
-//        } catch {
-//            print("error encoding: \(error)")
-//            completion(.noEncode)
-//            return
-//        }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
