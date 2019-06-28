@@ -77,6 +77,7 @@ extension SignInViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if activeTextField == emailTextField {
+            activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         }
         

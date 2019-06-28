@@ -263,7 +263,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="password"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="new-password"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-YV-JVb">
                                                                         <rect key="frame" x="0.0" y="28" width="300" height="5"/>
@@ -1558,6 +1558,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Jhd-0e-aLU"/>
         <segue reference="AlE-aI-jnz"/>
-        <segue reference="0NY-5d-2Cu"/>
+        <segue reference="YhS-Ve-ej9"/>
     </inferredMetricsTieBreakers>
 </document>
