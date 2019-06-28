@@ -548,7 +548,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="509" id="PO6-Db-ono" customClass="CampaignTableViewCell" customModule="Key_Conservation" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="509" id="PO6-Db-ono" customClass="CampaignTableViewCell" customModule="Key_Conservation" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="103" width="414" height="509"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PO6-Db-ono" id="HNi-73-jtO">
