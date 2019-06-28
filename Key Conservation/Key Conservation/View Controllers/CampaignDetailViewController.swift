@@ -20,6 +20,7 @@ class CampaignDetailViewController: UIViewController {
     @IBOutlet weak var campaignCategory: UILabel!
     @IBOutlet weak var campaignDescription: UILabel!
     @IBOutlet weak var donationAmountTextField: UITextField!
+    @IBOutlet weak var campaignSpecies: UILabel!
     
     var campaign: Campaign?
     var campaignController: CampaignController?
@@ -41,10 +42,12 @@ class CampaignDetailViewController: UIViewController {
         campaignGoal.text = "of \(campaign.fundingGoal.clean) goal"
         campaignCategory.text = campaign.urgencyLevel
         campaignDescription.text = campaign.description
+        campaignSpecies.text = campaign.species
+        updateUrgencyColor()
         
             
         let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
-        let deadlineString = "Deadline: \(diffInDays.day!) days to go"
+        let deadlineString = "\(diffInDays.day!) days to go"
         campaignDeadline.text = deadlineString
         
         organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
@@ -54,6 +57,21 @@ class CampaignDetailViewController: UIViewController {
         organizationPhoto.image = #imageLiteral(resourceName: "turtle")
         campaignPhoto.image = #imageLiteral(resourceName: "turtle")
 //        fetchImage(for: campaign!)
+    }
+    
+    func updateUrgencyColor() {
+        switch campaign?.urgencyLevel {
+        case "Critically Endangered":
+            campaignCategory.textColor = UIColor.getCritEndangeredColor()
+        case "Endangered":
+            campaignCategory.textColor = UIColor.getEndangeredColor()
+        case "Vulnerable":
+            campaignCategory.textColor = UIColor.getVulnerableColor()
+        case "Near Threatened":
+            campaignCategory.textColor = UIColor.getNearThreatenedColor()
+        default:
+            return
+        }
     }
     
     func fetchImage(for campaign: Campaign) {
