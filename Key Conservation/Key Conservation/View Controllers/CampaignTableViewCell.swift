@@ -24,6 +24,7 @@ class CampaignTableViewCell: UITableViewCell {
     @IBOutlet weak var campaignCategory: UILabel!
     @IBOutlet weak var campaignDescription: UILabel!
     @IBOutlet weak var editCampaignButton: UIButton!
+    @IBOutlet weak var campaignSpecies: UILabel!
     
     let campaignController = CampaignController()
     var campaign: Campaign? {
@@ -52,9 +53,10 @@ class CampaignTableViewCell: UITableViewCell {
         campaignCategory.text = campaign.urgencyLevel
         campaignCategory.textColor = UIColor.getUrgencyColor(urgencyLevel: campaign.urgencyLevel)
         campaignDescription.text = campaign.description
+        campaignSpecies.text = "Species: \(campaign.species)"
         
         let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
-        let deadlineString = "Deadline: \(diffInDays.day!) days to go"
+        let deadlineString = "\(diffInDays.day!) days to go"
         campaignDeadline.text = deadlineString
         
         organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
