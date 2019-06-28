@@ -733,7 +733,7 @@
                         <outlet property="allCampaignsButton" destination="7iZ-UU-PKl" id="1wq-l0-ma4"/>
                         <outlet property="myCampaignsButton" destination="17U-OS-Sys" id="tcC-k4-Tas"/>
                         <outlet property="searchTextField" destination="Pwf-2B-cEK" id="ww7-Mc-Rec"/>
-                        <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" id="0NY-5d-2Cu"/>
+                        <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" animates="NO" id="0NY-5d-2Cu"/>
                         <segue destination="XaX-mF-8mx" kind="show" identifier="PresentOnboarding" animates="NO" id="ynd-xa-iG1"/>
                     </connections>
                 </tableViewController>
@@ -1097,6 +1097,7 @@
                         <viewLayoutGuide key="safeArea" id="8oC-qf-pR5"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="rt2-Eb-dCC" id="AP8-fZ-14F"/>
                         <outlet property="emailTextField" destination="KN9-3P-THa" id="n8O-37-oFC"/>
                         <outlet property="passwordTextField" destination="sKl-cW-bz7" id="cxw-6S-ty8"/>
                         <segue destination="Mzo-BV-lEZ" kind="show" identifier="ShowFeed" id="Jhd-0e-aLU"/>

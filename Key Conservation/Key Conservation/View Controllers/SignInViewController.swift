@@ -20,12 +20,17 @@ class SignInViewController: UIViewController {
         }
     }
     var activeTextField: UITextField?
+    var hideBackButton: Bool = false
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.becomeFirstResponder()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        if hideBackButton {
+            backButton.isHidden = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

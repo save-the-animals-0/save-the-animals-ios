@@ -90,6 +90,8 @@ class CampaignTableViewController: UITableViewController {
             let addCampaignVC = segue.destination as? AddEditCampaignViewController {
             addCampaignVC.user = user
             addCampaignVC.campaignController = campaignController
+        } else if segue.identifier == "LoginViewModalSegue", let loginVC = segue.destination as? SignInViewController {
+            loginVC.hideBackButton = true
         }
     }
 
