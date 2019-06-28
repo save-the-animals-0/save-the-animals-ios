@@ -13,6 +13,7 @@ class AddEditCampaignViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var fundingGoalTextField: UITextField!
     @IBOutlet weak var deadlineTextField: UITextField!
+    @IBOutlet weak var speciesTextField: UITextField!
     @IBOutlet weak var saveCampaignButton: UIButton!
     @IBOutlet weak var criticallyEndangeredButton: UIButton!
     @IBOutlet weak var endangeredButton: UIButton!
@@ -34,6 +35,7 @@ class AddEditCampaignViewController: UIViewController {
         deleteCampaignButton.isHidden = true
         updateViews()
         locationTextField.delegate = self
+        speciesTextField.delegate = self
         fundingGoalTextField.delegate = self
         deadlineTextField.delegate = self
         descriptionTextView.delegate = self
@@ -42,6 +44,7 @@ class AddEditCampaignViewController: UIViewController {
     func updateViews() {
         guard let campaign = campaign else { return }
         locationTextField.text = campaign.location
+        speciesTextField.text = campaign.species
         fundingGoalTextField.text? = "\(campaign.fundingGoal)"
         descriptionTextView.text? = campaign.description
         titleLabel.text = "Edit Campaign"
@@ -78,13 +81,14 @@ class AddEditCampaignViewController: UIViewController {
         guard let location = locationTextField.text, location != "",
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
             let description = descriptionTextView.text, description != "",
+            let species = speciesTextField.text, species != "",
             let deadlineInt = Int(deadlineTextField.text!) else { return }
         let today = Date()
         let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
         
         if let campaign = campaign {
             print("updating campaign")
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", donationAmount: nil) { (error) in
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, donationAmount: nil) { (error) in
                 if let error = error {
                     print(error)
                 } else {
@@ -95,7 +99,7 @@ class AddEditCampaignViewController: UIViewController {
             }
         } else {
             guard let name = user?.name else { return }
-            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", imageData: nil, imageURL: nil, fundingRaised: nil)
+            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)
@@ -200,6 +204,9 @@ extension AddEditCampaignViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch activeTextField {
         case locationTextField:
+            activeTextField?.resignFirstResponder()
+            speciesTextField.becomeFirstResponder()
+        case speciesTextField:
             activeTextField?.resignFirstResponder()
             fundingGoalTextField.becomeFirstResponder()
         case fundingGoalTextField:
