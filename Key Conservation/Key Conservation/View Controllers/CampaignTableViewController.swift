@@ -39,8 +39,6 @@ class CampaignTableViewController: UITableViewController {
         } else {
             getCurrentUser()
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +49,7 @@ class CampaignTableViewController: UITableViewController {
                 allCampaignsButton.isHidden = true
             }
         }
+        
         fetchCampaigns()
         tableView.reloadData()
     }
@@ -145,6 +144,11 @@ class CampaignTableViewController: UITableViewController {
                 if let user = try? result.get() {
                     DispatchQueue.main.async {
                         self.user = user
+                            if !user.isOrg! {
+                                self.addCampaignButton.isHidden = true
+                                self.myCampaignsButton.isHidden = true
+                                self.allCampaignsButton.isHidden = true
+                            }
                     }
                 } else {
                     print("Result is: \(result)")
