@@ -32,6 +32,7 @@ class CampaignTableViewController: UITableViewController {
         super.viewDidLoad()
         searchTextField.delegate = self
         
+        // check if first launch or not logged in
         if UserDefaults.isFirstLaunch() && token == nil {
             performSegue(withIdentifier: "PresentOnboarding", sender: self)
         } else if token == nil {
@@ -39,10 +40,13 @@ class CampaignTableViewController: UITableViewController {
         } else {
             getCurrentUser()
         }
+        
+        // hide table view seperator lines
         self.tableView.tableFooterView = UIView.init()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // hide org specific buttons
         if let user = user {
             if !user.isOrg! {
                 addCampaignButton.isHidden = true
@@ -111,8 +115,9 @@ class CampaignTableViewController: UITableViewController {
     }
     
     private func searchCampaigns() {
+        // filter campaigns by any available field
         if let searchText = searchTextField.text, !searchText.isEmpty {
-            campaignsFiltered = campaigns.filter({ $0.campaignName.localizedCaseInsensitiveContains(searchText) || $0.urgencyLevel.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.location.localizedCaseInsensitiveContains(searchText)})
+            campaignsFiltered = campaigns.filter({ $0.campaignName.localizedCaseInsensitiveContains(searchText) || $0.urgencyLevel.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.location.localizedCaseInsensitiveContains(searchText) || $0.species.localizedCaseInsensitiveContains(searchText)})
         } else {
             campaignsFiltered = campaigns
         }
@@ -123,6 +128,7 @@ class CampaignTableViewController: UITableViewController {
     }
     
     private func showMyCampaigns() {
+        // show campaigns that match the org's name
         if let name = user?.name {
             campaignsFiltered = campaigns.filter({ $0.campaignName.contains(name) })
         } else {
@@ -170,8 +176,7 @@ class CampaignTableViewController: UITableViewController {
     }
 }
 
-
-
+// dismiss keyboard after entering search
 extension CampaignTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchCampaigns()
@@ -180,6 +185,7 @@ extension CampaignTableViewController: UITextFieldDelegate {
     }
 }
 
+// get index path for edit buttons
 extension CampaignTableViewController: CampaignTableViewCellDelegate {
     func editButtonTapped(cell: CampaignTableViewCell) {
         guard let indexPath = self.tableView.indexPath(for: cell) else { return }

@@ -34,6 +34,30 @@ class CampaignDetailViewController: UIViewController {
         updateViews()
     }
     
+
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func donationButtonTapped(_ sender: Any) {
+        addDonation()
+    }
+    
+    // update funding raised
+    func addDonation() {
+        guard let campaign = campaign, let campaignController = campaignController, let donationText = donationAmountTextField.text else { return }
+        let donationAmount = Double(donationText)
+        campaignController.updateCampaign(campaign: campaign, fundingGoal: campaign.fundingGoal, location: campaign.location, description: campaign.description, deadline: campaign.deadline, urgencyLevel: campaign.urgencyLevel, species: campaign.species, donationAmount: donationAmount) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
     func updateViews() {
         guard let campaign = campaign else { return }
         campaignTitle.text = campaign.campaignName
@@ -43,9 +67,8 @@ class CampaignDetailViewController: UIViewController {
         campaignCategory.text = campaign.urgencyLevel
         campaignDescription.text = campaign.description
         campaignSpecies.text = "Species: \(campaign.species)"
-        updateUrgencyColor()
+        campaignCategory.textColor = .getUrgencyColor(urgencyLevel: campaign.urgencyLevel)
         
-            
         let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
         let deadlineString = "\(diffInDays.day!) days to go"
         campaignDeadline.text = deadlineString
@@ -56,22 +79,7 @@ class CampaignDetailViewController: UIViewController {
         // placeholder
         organizationPhoto.image = #imageLiteral(resourceName: "turtle")
         campaignPhoto.image = #imageLiteral(resourceName: "turtle")
-//        fetchImage(for: campaign!)
-    }
-    
-    func updateUrgencyColor() {
-        switch campaign?.urgencyLevel {
-        case "Critically Endangered":
-            campaignCategory.textColor = UIColor.getCritEndangeredColor()
-        case "Endangered":
-            campaignCategory.textColor = UIColor.getEndangeredColor()
-        case "Vulnerable":
-            campaignCategory.textColor = UIColor.getVulnerableColor()
-        case "Near Threatened":
-            campaignCategory.textColor = UIColor.getNearThreatenedColor()
-        default:
-            return
-        }
+        //        fetchImage(for: campaign!)
     }
     
     func fetchImage(for campaign: Campaign) {
@@ -86,27 +94,9 @@ class CampaignDetailViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func backButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func donationButtonTapped(_ sender: Any) {
-        guard let campaign = campaign, let campaignController = campaignController, let donationText = donationAmountTextField.text else { return }
-        let donationAmount = Double(donationText)
-        campaignController.updateCampaign(campaign: campaign, fundingGoal: campaign.fundingGoal, location: campaign.location, description: campaign.description, deadline: campaign.deadline, urgencyLevel: campaign.urgencyLevel, species: campaign.species, donationAmount: donationAmount) { (error) in
-            if let error = error {
-                print(error)
-            } else {
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
-        
-    }
 }
 
+// close keyboard on return
 extension CampaignDetailViewController: UITextFieldDelegate  {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
