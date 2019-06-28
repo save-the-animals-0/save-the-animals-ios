@@ -38,6 +38,10 @@ class SignUpViewController: UIViewController {
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        signUpButton.isEnabled = false
+        signUpButton.alpha = 0.25
+        [emailTextField, passwordTextField, nameTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
 
     // MARK: - Navigation
@@ -104,6 +108,26 @@ class SignUpViewController: UIViewController {
         // stub function for stretch goal
     }
     
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty,
+            let name = nameTextField.text, !name.isEmpty
+            else {
+                self.signUpButton.isEnabled = false
+                self.signUpButton.alpha = 0.25
+                return
+        }
+        signUpButton.isEnabled = true
+        UIView.animate(withDuration: 1) {
+            self.signUpButton.alpha = 1
+        }
+    }
     
     // keyboard handling
     deinit {
@@ -142,9 +166,6 @@ extension SignUpViewController: UITextFieldDelegate {
             activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            if passwordTextField.text != nil && passwordTextField.text != "" {
-                signUpButton.backgroundColor = UIColor.getGreenColor()
-            }
             activeTextField?.resignFirstResponder()
         default:
             activeTextField?.resignFirstResponder()

@@ -42,6 +42,10 @@ class AddEditCampaignViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(AddEditCampaignViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddEditCampaignViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        saveCampaignButton.isEnabled = false
+        saveCampaignButton.alpha = 0.25
+        [locationTextField, speciesTextField,fundingGoalTextField, deadlineTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
     
     func updateViews() {
@@ -68,6 +72,7 @@ class AddEditCampaignViewController: UIViewController {
             nearThreatenedButtonTapped(self)
         default:
             criticallyEndangeredButtonTapped(self)
+            
         }
     }
     
@@ -174,6 +179,29 @@ class AddEditCampaignViewController: UIViewController {
         vulnerableButton.backgroundColor = .white
         vulnerableButton.setTitleColor(.black, for: .normal)
         category = "Vulnerable"
+    }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let location = locationTextField.text, !location.isEmpty,
+            let species = speciesTextField.text, !species.isEmpty,
+            let fundingGoal = fundingGoalTextField.text, !fundingGoal.isEmpty,
+            let deadline = deadlineTextField.text, !deadline.isEmpty
+            else {
+                self.saveCampaignButton.isEnabled = false
+                self.saveCampaignButton.alpha = 0.25
+                return
+        }
+        self.saveCampaignButton.isEnabled = true
+        UIView.animate(withDuration: 1) {
+            self.saveCampaignButton.alpha = 1
+        }
+        
     }
     
     // keyboard handling

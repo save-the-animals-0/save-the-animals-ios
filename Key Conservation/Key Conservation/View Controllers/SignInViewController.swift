@@ -88,9 +88,10 @@ class SignInViewController: UIViewController {
                 return
             }
         signInButton.isEnabled = true
-        signInButton.alpha = 1
+        UIView.animate(withDuration: 1) {
+            self.signInButton.alpha = 1
+        }
     }
-    
 }
 
 extension SignInViewController: UITextFieldDelegate {

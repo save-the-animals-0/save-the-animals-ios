@@ -466,10 +466,11 @@
         <scene sceneID="VSL-xw-Ggc">
             <objects>
                 <tableViewController storyboardIdentifier="CampaignTableViewController" id="P4F-tg-sxv" customClass="CampaignTableViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dwJ-ec-3bh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dwJ-ec-3bh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.0" green="0.30980392159999998" blue="1" alpha="0.69236943493150682" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="rqh-J0-Q1F">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1559,6 +1560,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Jhd-0e-aLU"/>
         <segue reference="AlE-aI-jnz"/>
-        <segue reference="YhS-Ve-ej9"/>
+        <segue reference="0NY-5d-2Cu"/>
     </inferredMetricsTieBreakers>
 </document>

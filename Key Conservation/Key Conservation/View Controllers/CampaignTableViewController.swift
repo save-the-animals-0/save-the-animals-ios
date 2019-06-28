@@ -39,6 +39,7 @@ class CampaignTableViewController: UITableViewController {
         } else {
             getCurrentUser()
         }
+        self.tableView.tableFooterView = UIView.init()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +52,10 @@ class CampaignTableViewController: UITableViewController {
         }
         
         fetchCampaigns()
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     // MARK: - Table view data source
@@ -98,7 +102,10 @@ class CampaignTableViewController: UITableViewController {
         campaignsFiltered = campaigns
         allCampaignsButton.setTitleColor(.getBlueColor(), for: .normal)
         myCampaignsButton.setTitleColor(.black, for: .normal)
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
@@ -113,7 +120,10 @@ class CampaignTableViewController: UITableViewController {
         } else {
             campaignsFiltered = campaigns
         }
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     private func showMyCampaigns() {
@@ -122,7 +132,10 @@ class CampaignTableViewController: UITableViewController {
         } else {
             campaignsFiltered = campaigns
         }
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     func fetchCampaigns() {
@@ -130,7 +143,10 @@ class CampaignTableViewController: UITableViewController {
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns
-                    self.tableView.reloadData()
+                    UIView.transition(with: self.tableView,
+                                      duration: 0.35,
+                                      options: .transitionCrossDissolve,
+                                      animations: { self.tableView.reloadData() })
                 }
             } else {
                 print(result)
