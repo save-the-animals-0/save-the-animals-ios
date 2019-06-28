@@ -39,6 +39,9 @@ class AddEditCampaignViewController: UIViewController {
         fundingGoalTextField.delegate = self
         deadlineTextField.delegate = self
         descriptionTextView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AddEditCampaignViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddEditCampaignViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func updateViews() {
