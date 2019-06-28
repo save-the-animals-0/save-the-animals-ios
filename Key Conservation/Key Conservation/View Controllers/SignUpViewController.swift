@@ -32,9 +32,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // add observers and delegates for keyboard handling
         NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -45,7 +45,6 @@ class SignUpViewController: UIViewController {
     }
 
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LocationPermissionSegue" {
             guard let locationVC = segue.destination as? LocationPermissionViewController else { return }
@@ -59,30 +58,7 @@ class SignUpViewController: UIViewController {
             let email = emailTextField.text,
             email != "",
             let password = passwordTextField.text, password != "" else { return }
-        signUpButton.backgroundColor = UIColor.getGreenColor()
-        user = User(id: nil, name: name, password: password, email: email, imageURL: nil, imageData: nil, isOrg: isOrg)
-        userController.signUpWith(user: user!, loginType: .signUp) { (error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            self.userController.loginWith(user: self.user!, loginType: .signIn) { (result) in
-                if let bearer = try? result.get() {
-                    self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
-                        if let user = try? result.get() {
-                            DispatchQueue.main.async {
-                                self.currentUser = user
-                            }
-                        } else {
-                            print("Result is: \(result)")
-                        }
-                    })
-                }
-            }
-        }
-        
-        print("sign up tapped")
+        signUp(name: name, email: email, password: password)
     }
     
     @IBAction func supporterButtonTapped(_ sender: Any) {
@@ -108,6 +84,32 @@ class SignUpViewController: UIViewController {
         // stub function for stretch goal
     }
     
+    // sign up the user and assign their user object so it can be passed
+    func signUp(name: String, email: String, password: String) {
+        user = User(id: nil, name: name, password: password, email: email, imageURL: nil, imageData: nil, isOrg: isOrg)
+        userController.signUpWith(user: user!, loginType: .signUp) { (error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            self.userController.loginWith(user: self.user!, loginType: .signIn) { (result) in
+                if let bearer = try? result.get() {
+                    self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
+                        if let user = try? result.get() {
+                            DispatchQueue.main.async {
+                                self.currentUser = user
+                            }
+                        } else {
+                            print("Result is: \(result)")
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    // sign up button handling for enabling/disabling based on text entry
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
@@ -158,16 +160,13 @@ extension SignUpViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch activeTextField {
-        case nameTextField:
+        if activeTextField == nameTextField {
             activeTextField?.resignFirstResponder()
             emailTextField.becomeFirstResponder()
-        case emailTextField:
+        } else if activeTextField == emailTextField {
             activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
-        case passwordTextField:
-            activeTextField?.resignFirstResponder()
-        default:
+        } else if activeTextField == passwordTextField {
             activeTextField?.resignFirstResponder()
         }
         return true

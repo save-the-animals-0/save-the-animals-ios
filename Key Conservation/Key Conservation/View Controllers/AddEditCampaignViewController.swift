@@ -48,6 +48,83 @@ class AddEditCampaignViewController: UIViewController {
         [locationTextField, speciesTextField,fundingGoalTextField, deadlineTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
     
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addCampaignPhotoButtonTapped(_ sender: Any) {
+        // stub action for photo stretch
+    }
+    
+    @IBAction func saveCampaignButtonTapped(_ sender: Any) {
+        if let campaign = campaign {
+            updateCampaign(campaign: campaign)
+        } else {
+            saveNewCampaign()
+        }
+    }
+    
+    @IBAction func deleteCampaignButtonTapped(_ sender: Any) {
+        deleteCampaign()
+    }
+    
+    func saveNewCampaign() {
+        guard let campaignController = campaignController else { return }
+        guard let location = locationTextField.text, location != "",
+            let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
+            let description = descriptionTextView.text, description != "",
+            let species = speciesTextField.text, species != "",
+            let deadlineInt = Int(deadlineTextField.text!) else { return }
+        let today = Date()
+        let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
+        
+        guard let name = user?.name else { return }
+        campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, imageData: nil, imageURL: nil, fundingRaised: nil)
+        campaignController.addCampaign(campaign: campaign!) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func updateCampaign(campaign: Campaign) {
+        guard let campaignController = campaignController else { return }
+        guard let location = locationTextField.text, location != "",
+            let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
+            let description = descriptionTextView.text, description != "",
+            let species = speciesTextField.text, species != "",
+            let deadlineInt = Int(deadlineTextField.text!) else { return }
+        let today = Date()
+        let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
+        
+        campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, donationAmount: nil) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func deleteCampaign() {
+        guard let campaignController = campaignController, let campaign = campaign else { return }
+        campaignController.deleteCampaign(campaign: campaign) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     func updateViews() {
         guard let campaign = campaign else { return }
         locationTextField.text = campaign.location
@@ -60,7 +137,7 @@ class AddEditCampaignViewController: UIViewController {
         let diffInDays = Calendar.current.dateComponents([.day], from: Date(), to: campaign.deadline)
         let deadlineString = "\(diffInDays.day!)"
         deadlineTextField.text = deadlineString
- 
+        
         switch campaign.urgencyLevel {
         case "Critically Endangered":
             criticallyEndangeredButtonTapped(self)
@@ -72,63 +149,10 @@ class AddEditCampaignViewController: UIViewController {
             nearThreatenedButtonTapped(self)
         default:
             criticallyEndangeredButtonTapped(self)
-            
         }
     }
     
-    @IBAction func exitButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func addCampaignPhotoButtonTapped(_ sender: Any) {
-        // stub action for photo stretch
-    }
-    
-    @IBAction func saveCampaignButtonTapped(_ sender: Any) {
-        guard let campaignController = campaignController else { return }
-        guard let location = locationTextField.text, location != "",
-            let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
-            let description = descriptionTextView.text, description != "",
-            let species = speciesTextField.text, species != "",
-            let deadlineInt = Int(deadlineTextField.text!) else { return }
-        let today = Date()
-        let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
-        
-        if let campaign = campaign {
-            print("updating campaign")
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, donationAmount: nil) { (error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            }
-        } else {
-            guard let name = user?.name else { return }
-            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, imageData: nil, imageURL: nil, fundingRaised: nil)
-            campaignController.addCampaign(campaign: campaign!) { (error) in
-                if let error = error {
-                    print(error)
-                } else {
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            }
-        }
-    }
-    
-    @IBAction func deleteCampaignButtonTapped(_ sender: Any) {
-        guard let campaignController = campaignController, let campaign = campaign else { return }
-        campaignController.deleteCampaign(campaign: campaign) { (error) in
-            if let error = error {
-                print(error)
-            }
-        }
-    }
-    
+    // handling for category buttons
     @IBAction func criticallyEndangeredButtonTapped(_ sender: Any) {
         criticallyEndangeredButton.backgroundColor = .getCritEndangeredColor()
         criticallyEndangeredButton.setTitleColor(.white, for: .normal)
@@ -181,6 +205,7 @@ class AddEditCampaignViewController: UIViewController {
         category = "Vulnerable"
     }
     
+    // handle enabling/disabling of save button if all text fields are full/empty
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {

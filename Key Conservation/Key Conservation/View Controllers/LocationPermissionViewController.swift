@@ -17,18 +17,16 @@ class LocationPermissionViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFeedView" {
             guard let campaignTableVC = segue.destination as? CampaignTableViewController else { return }
             campaignTableVC.user = user
         }
     }
-
     
     @IBAction func allowLocationButtonTapped(_ sender: Any) {
         // Stub function for adding location (stretch)
-        // need update user details function/api
+        // need update user location function/api
         self.performSegue(withIdentifier: "ShowFeedView", sender: self)
     }
     

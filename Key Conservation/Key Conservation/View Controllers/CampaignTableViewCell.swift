@@ -62,9 +62,8 @@ class CampaignTableViewCell: UITableViewCell {
         organizationPhoto.layer.cornerRadius = self.organizationPhoto.frame.size.width / 2
         organizationPhoto.clipsToBounds = true
         
-        // placeholder
+        // placeholders
         campaignPhoto.image = #imageLiteral(resourceName: "turtle")
-        // placeholder
         organizationPhoto.image = #imageLiteral(resourceName: "turtle")
 //        fetchImage(for: campaign!) //stretch goal
         
@@ -75,21 +74,6 @@ class CampaignTableViewCell: UITableViewCell {
             }
         }
         
-    }
-    
-    func updateUrgencyColor() {
-        switch campaign?.urgencyLevel {
-        case "Critically Endangered":
-            campaignCategory.textColor = UIColor.getCritEndangeredColor()
-        case "Endangered":
-            campaignCategory.textColor = UIColor.getEndangeredColor()
-        case "Vulnerable":
-            campaignCategory.textColor = UIColor.getVulnerableColor()
-        case "Near Threatened":
-            campaignCategory.textColor = UIColor.getNearThreatenedColor()
-        default:
-            return
-        }
     }
     
     func fetchImage(for campaign: Campaign) {
