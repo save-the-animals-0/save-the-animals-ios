@@ -42,7 +42,7 @@ class CampaignDetailViewController: UIViewController {
         campaignGoal.text = "of \(campaign.fundingGoal.clean) goal"
         campaignCategory.text = campaign.urgencyLevel
         campaignDescription.text = campaign.description
-        campaignSpecies.text = campaign.species
+        campaignSpecies.text = "Species: \(campaign.species)"
         updateUrgencyColor()
         
             
