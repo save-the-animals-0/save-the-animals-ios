@@ -52,10 +52,6 @@ class CampaignTableViewController: UITableViewController {
         }
         
         fetchCampaigns()
-        UIView.transition(with: self.tableView,
-                          duration: 0.35,
-                          options: .transitionCrossDissolve,
-                          animations: { self.tableView.reloadData() })
     }
     
     // MARK: - Table view data source
