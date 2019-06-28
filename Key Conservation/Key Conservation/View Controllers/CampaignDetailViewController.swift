@@ -74,5 +74,17 @@ class CampaignDetailViewController: UIViewController {
     }
     
     @IBAction func donationButtonTapped(_ sender: Any) {
+        guard let campaign = campaign, let campaignController = campaignController, let donationText = donationAmountTextField.text else { return }
+        let donationAmount = Double(donationText)
+        campaignController.updateCampaign(campaign: campaign, fundingGoal: campaign.fundingGoal, location: campaign.location, description: campaign.description, deadline: campaign.deadline, urgencyLevel: campaign.urgencyLevel, species: campaign.species, donationAmount: donationAmount) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+        
     }
 }

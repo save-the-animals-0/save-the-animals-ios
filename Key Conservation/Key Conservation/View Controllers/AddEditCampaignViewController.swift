@@ -84,7 +84,7 @@ class AddEditCampaignViewController: UIViewController {
         
         if let campaign = campaign {
             print("updating campaign")
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder") { (error) in
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", donationAmount: nil) { (error) in
                 if let error = error {
                     print(error)
                 } else {
