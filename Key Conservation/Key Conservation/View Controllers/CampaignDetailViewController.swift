@@ -27,7 +27,7 @@ class CampaignDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        donationAmountTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,5 +104,12 @@ class CampaignDetailViewController: UIViewController {
             }
         }
         
+    }
+}
+
+extension CampaignDetailViewController: UITextFieldDelegate  {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

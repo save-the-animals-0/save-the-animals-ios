@@ -24,10 +24,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Get Started View Controller-->
+        <!--View Controller-->
         <scene sceneID="FY0-Ik-ygr">
             <objects>
-                <viewController storyboardIdentifier="GetStartedViewController" id="XaX-mF-8mx" customClass="GetStartedViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GetStartedViewController" id="XaX-mF-8mx" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D6B-fx-6Lp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -896,7 +896,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>

@@ -56,6 +56,10 @@ class SignInViewController: UIViewController {
             email != "",
             let password = passwordTextField.text,
             password != "" else { return }
+        signIn(email: email, password: password)
+    }
+    
+    func signIn(email: String, password: String) {
         user = User(id: nil, name: nil, password: password, email: email, imageURL: nil, imageData: nil, isOrg: nil)
         
         userController.loginWith(user: user!, loginType: .signIn) { (result) in
@@ -106,7 +110,6 @@ extension SignInViewController: UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         }
         
-        activeTextField?.resignFirstResponder()
         return true
     }
 }
