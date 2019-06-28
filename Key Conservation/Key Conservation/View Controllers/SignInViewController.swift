@@ -12,6 +12,7 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
     private let userController = UserController()
     var user: User?
     var currentUser: User?  {
@@ -31,6 +32,10 @@ class SignInViewController: UIViewController {
         if hideBackButton {
             backButton.isHidden = true
         }
+        
+        signInButton.isEnabled = false
+        signInButton.alpha = 0.25
+        [emailTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,6 +72,25 @@ class SignInViewController: UIViewController {
             }
         }
     }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty
+            else {
+                self.signInButton.isEnabled = false
+                self.signInButton.alpha = 0.25
+                return
+            }
+        signInButton.isEnabled = true
+        signInButton.alpha = 1
+    }
+    
 }
 
 extension SignInViewController: UITextFieldDelegate {
