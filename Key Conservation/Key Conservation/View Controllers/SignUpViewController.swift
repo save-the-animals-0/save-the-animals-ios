@@ -23,7 +23,11 @@ class SignUpViewController: UIViewController {
     private let userController = UserController()
     var user: User?
     var activeTextField: UITextField?
-    
+    var currentUser: User?  {
+        didSet {
+            performSegue(withIdentifier: "LocationPermissionSegue", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,10 @@ class SignUpViewController: UIViewController {
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        signUpButton.isEnabled = false
+        signUpButton.alpha = 0.25
+        [emailTextField, passwordTextField, nameTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
 
     // MARK: - Navigation
@@ -41,7 +49,7 @@ class SignUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LocationPermissionSegue" {
             guard let locationVC = segue.destination as? LocationPermissionViewController else { return }
-            locationVC.user = user
+            locationVC.user = currentUser
         }
     }
 
@@ -62,9 +70,9 @@ class SignUpViewController: UIViewController {
             self.userController.loginWith(user: self.user!, loginType: .signIn) { (result) in
                 if let bearer = try? result.get() {
                     self.userController.getCurrentUser(for: bearer.token, completion: { (result) in
-                        if (try? result.get()) != nil {
+                        if let user = try? result.get() {
                             DispatchQueue.main.async {
-                                self.performSegue(withIdentifier: "LocationPermissionSegue", sender: nil)
+                                self.currentUser = user
                             }
                         } else {
                             print("Result is: \(result)")
@@ -100,6 +108,26 @@ class SignUpViewController: UIViewController {
         // stub function for stretch goal
     }
     
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty,
+            let name = nameTextField.text, !name.isEmpty
+            else {
+                self.signUpButton.isEnabled = false
+                self.signUpButton.alpha = 0.25
+                return
+        }
+        signUpButton.isEnabled = true
+        UIView.animate(withDuration: 1) {
+            self.signUpButton.alpha = 1
+        }
+    }
     
     // keyboard handling
     deinit {
@@ -138,9 +166,6 @@ extension SignUpViewController: UITextFieldDelegate {
             activeTextField?.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            if passwordTextField.text != nil && passwordTextField.text != "" {
-                signUpButton.backgroundColor = UIColor.getGreenColor()
-            }
             activeTextField?.resignFirstResponder()
         default:
             activeTextField?.resignFirstResponder()

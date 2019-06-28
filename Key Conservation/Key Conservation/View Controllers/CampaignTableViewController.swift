@@ -39,6 +39,7 @@ class CampaignTableViewController: UITableViewController {
         } else {
             getCurrentUser()
         }
+        self.tableView.tableFooterView = UIView.init()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,10 @@ class CampaignTableViewController: UITableViewController {
         }
         
         fetchCampaigns()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     // MARK: - Table view data source
@@ -88,6 +93,8 @@ class CampaignTableViewController: UITableViewController {
             let addCampaignVC = segue.destination as? AddEditCampaignViewController {
             addCampaignVC.user = user
             addCampaignVC.campaignController = campaignController
+        } else if segue.identifier == "LoginViewModalSegue", let loginVC = segue.destination as? SignInViewController {
+            loginVC.hideBackButton = true
         }
     }
 
@@ -95,7 +102,10 @@ class CampaignTableViewController: UITableViewController {
         campaignsFiltered = campaigns
         allCampaignsButton.setTitleColor(.getBlueColor(), for: .normal)
         myCampaignsButton.setTitleColor(.black, for: .normal)
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     @IBAction func myCampaignsButtonTapped(_ sender: Any) {
@@ -110,16 +120,22 @@ class CampaignTableViewController: UITableViewController {
         } else {
             campaignsFiltered = campaigns
         }
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     private func showMyCampaigns() {
         if let name = user?.name {
-          campaignsFiltered = campaigns.filter({ $0.campaignName.contains(name) })
+            campaignsFiltered = campaigns.filter({ $0.campaignName.contains(name) })
         } else {
             campaignsFiltered = campaigns
         }
-        tableView.reloadData()
+        UIView.transition(with: self.tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: { self.tableView.reloadData() })
     }
     
     func fetchCampaigns() {
@@ -127,6 +143,10 @@ class CampaignTableViewController: UITableViewController {
             if let campaigns = try? result.get() {
                 DispatchQueue.main.async {
                     self.campaigns = campaigns
+                    UIView.transition(with: self.tableView,
+                                      duration: 0.35,
+                                      options: .transitionCrossDissolve,
+                                      animations: { self.tableView.reloadData() })
                 }
             } else {
                 print(result)
@@ -140,6 +160,11 @@ class CampaignTableViewController: UITableViewController {
                 if let user = try? result.get() {
                     DispatchQueue.main.async {
                         self.user = user
+                            if !user.isOrg! {
+                                self.addCampaignButton.isHidden = true
+                                self.myCampaignsButton.isHidden = true
+                                self.allCampaignsButton.isHidden = true
+                            }
                     }
                 } else {
                     print("Result is: \(result)")

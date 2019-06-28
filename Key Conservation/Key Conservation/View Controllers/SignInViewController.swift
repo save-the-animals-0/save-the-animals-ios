@@ -12,6 +12,7 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
     private let userController = UserController()
     var user: User?
     var currentUser: User?  {
@@ -19,9 +20,22 @@ class SignInViewController: UIViewController {
             performSegue(withIdentifier: "ShowFeed", sender: self)
         }
     }
+    var activeTextField: UITextField?
+    var hideBackButton: Bool = false
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.becomeFirstResponder()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        if hideBackButton {
+            backButton.isHidden = true
+        }
+        
+        signInButton.isEnabled = false
+        signInButton.alpha = 0.25
+        [emailTextField, passwordTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,22 +71,44 @@ class SignInViewController: UIViewController {
                 })
             }
         }
-//        userController.loginWith(user: user!, loginType: .signIn) { (result) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
-//            if let bearer = self.userController.bearer {
-//                self.userController.getCurrentUser(for: bearer, completion: { (result) in
-//                    if let user = try? result.get() {
-//                        DispatchQueue.main.async {
-//                            self.currentUser = user
-//                        }
-//                    } else {
-//                        print("Result is: \(result)")
-//                    }
-//                })
-//            }
-//        }
+    }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty
+            else {
+                self.signInButton.isEnabled = false
+                self.signInButton.alpha = 0.25
+                return
+            }
+        signInButton.isEnabled = true
+        UIView.animate(withDuration: 1) {
+            self.signInButton.alpha = 1
+        }
     }
 }
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeTextField = textField
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if activeTextField == emailTextField {
+            activeTextField?.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        }
+        
+        activeTextField?.resignFirstResponder()
+        return true
+    }
+}
+
+

@@ -13,6 +13,7 @@ class AddEditCampaignViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var fundingGoalTextField: UITextField!
     @IBOutlet weak var deadlineTextField: UITextField!
+    @IBOutlet weak var speciesTextField: UITextField!
     @IBOutlet weak var saveCampaignButton: UIButton!
     @IBOutlet weak var criticallyEndangeredButton: UIButton!
     @IBOutlet weak var endangeredButton: UIButton!
@@ -34,14 +35,23 @@ class AddEditCampaignViewController: UIViewController {
         deleteCampaignButton.isHidden = true
         updateViews()
         locationTextField.delegate = self
+        speciesTextField.delegate = self
         fundingGoalTextField.delegate = self
         deadlineTextField.delegate = self
         descriptionTextView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AddEditCampaignViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddEditCampaignViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        saveCampaignButton.isEnabled = false
+        saveCampaignButton.alpha = 0.25
+        [locationTextField, speciesTextField,fundingGoalTextField, deadlineTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
     }
     
     func updateViews() {
         guard let campaign = campaign else { return }
         locationTextField.text = campaign.location
+        speciesTextField.text = campaign.species
         fundingGoalTextField.text? = "\(campaign.fundingGoal)"
         descriptionTextView.text? = campaign.description
         titleLabel.text = "Edit Campaign"
@@ -62,6 +72,7 @@ class AddEditCampaignViewController: UIViewController {
             nearThreatenedButtonTapped(self)
         default:
             criticallyEndangeredButtonTapped(self)
+            
         }
     }
     
@@ -78,13 +89,14 @@ class AddEditCampaignViewController: UIViewController {
         guard let location = locationTextField.text, location != "",
             let fundingGoal = fundingGoalTextField.text, fundingGoal != "",
             let description = descriptionTextView.text, description != "",
+            let species = speciesTextField.text, species != "",
             let deadlineInt = Int(deadlineTextField.text!) else { return }
         let today = Date()
         let deadlineDate = Calendar.current.date(byAdding: .day, value: deadlineInt, to: today)
         
         if let campaign = campaign {
             print("updating campaign")
-            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder") { (error) in
+            campaignController.updateCampaign(campaign: campaign, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, donationAmount: nil) { (error) in
                 if let error = error {
                     print(error)
                 } else {
@@ -95,7 +107,7 @@ class AddEditCampaignViewController: UIViewController {
             }
         } else {
             guard let name = user?.name else { return }
-            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: "placeholder", imageData: nil, imageURL: nil, fundingRaised: nil)
+            campaign = Campaign(id: nil, campaignName: name, fundingGoal: Double(fundingGoal)!, location: location, description: description, deadline: deadlineDate!, urgencyLevel: category, species: species, imageData: nil, imageURL: nil, fundingRaised: nil)
             campaignController.addCampaign(campaign: campaign!) { (error) in
                 if let error = error {
                     print(error)
@@ -119,54 +131,77 @@ class AddEditCampaignViewController: UIViewController {
     
     @IBAction func criticallyEndangeredButtonTapped(_ sender: Any) {
         criticallyEndangeredButton.backgroundColor = .getCritEndangeredColor()
-        criticallyEndangeredButton.titleLabel?.textColor = .white
+        criticallyEndangeredButton.setTitleColor(.white, for: .normal)
         
         endangeredButton.backgroundColor = .white
-        endangeredButton.titleLabel?.textColor = .black
+        endangeredButton.setTitleColor(.black, for: .normal)
         vulnerableButton.backgroundColor = .white
-        vulnerableButton.titleLabel?.textColor = .black
+        vulnerableButton.setTitleColor(.black, for: .normal)
         nearThreatenedButton.backgroundColor = .white
-        nearThreatenedButton.titleLabel?.textColor = .black
+        nearThreatenedButton.setTitleColor(.black, for: .normal)
         category = "Critically Endangered"
     }
     
     @IBAction func endangeredButtonTapped(_ sender: Any) {
         endangeredButton.backgroundColor = .getEndangeredColor()
-        endangeredButton.titleLabel?.textColor = .white
+        endangeredButton.setTitleColor(.white, for: .normal)
         
         criticallyEndangeredButton.backgroundColor = .white
-        criticallyEndangeredButton.titleLabel?.textColor = .black
+        criticallyEndangeredButton.setTitleColor(.black, for: .normal)
         vulnerableButton.backgroundColor = .white
-        vulnerableButton.titleLabel?.textColor = .black
+        vulnerableButton.setTitleColor(.black, for: .normal)
         nearThreatenedButton.backgroundColor = .white
-        nearThreatenedButton.titleLabel?.textColor = .black
+        nearThreatenedButton.setTitleColor(.black, for: .normal)
         category = "Endangered"
     }
     
     @IBAction func vulnerableButtonTapped(_ sender: Any) {
         vulnerableButton.backgroundColor = .getVulnerableColor()
-        vulnerableButton.titleLabel?.textColor = .white
+        vulnerableButton.setTitleColor(.white, for: .normal)
         
         criticallyEndangeredButton.backgroundColor = .white
-        criticallyEndangeredButton.titleLabel?.textColor = .black
+        criticallyEndangeredButton.setTitleColor(.black, for: .normal)
         endangeredButton.backgroundColor = .white
-        endangeredButton.titleLabel?.textColor = .black
+        endangeredButton.setTitleColor(.black, for: .normal)
         nearThreatenedButton.backgroundColor = .white
-        nearThreatenedButton.titleLabel?.textColor = .black
+        nearThreatenedButton.setTitleColor(.black, for: .normal)
         category = "Vulnerable"
     }
     
     @IBAction func nearThreatenedButtonTapped(_ sender: Any) {
         nearThreatenedButton.backgroundColor = .getNearThreatenedColor()
-        nearThreatenedButton.titleLabel?.textColor = .white
+        nearThreatenedButton.setTitleColor(.white, for: .normal)
         
         criticallyEndangeredButton.backgroundColor = .white
-        criticallyEndangeredButton.titleLabel?.textColor = .black
+        criticallyEndangeredButton.setTitleColor(.black, for: .normal)
         endangeredButton.backgroundColor = .white
-        endangeredButton.titleLabel?.textColor = .black
+        endangeredButton.setTitleColor(.black, for: .normal)
         vulnerableButton.backgroundColor = .white
-        vulnerableButton.titleLabel?.textColor = .black
+        vulnerableButton.setTitleColor(.black, for: .normal)
         category = "Vulnerable"
+    }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard let location = locationTextField.text, !location.isEmpty,
+            let species = speciesTextField.text, !species.isEmpty,
+            let fundingGoal = fundingGoalTextField.text, !fundingGoal.isEmpty,
+            let deadline = deadlineTextField.text, !deadline.isEmpty
+            else {
+                self.saveCampaignButton.isEnabled = false
+                self.saveCampaignButton.alpha = 0.25
+                return
+        }
+        self.saveCampaignButton.isEnabled = true
+        UIView.animate(withDuration: 1) {
+            self.saveCampaignButton.alpha = 1
+        }
+        
     }
     
     // keyboard handling
@@ -200,6 +235,9 @@ extension AddEditCampaignViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch activeTextField {
         case locationTextField:
+            activeTextField?.resignFirstResponder()
+            speciesTextField.becomeFirstResponder()
+        case speciesTextField:
             activeTextField?.resignFirstResponder()
             fundingGoalTextField.becomeFirstResponder()
         case fundingGoalTextField:

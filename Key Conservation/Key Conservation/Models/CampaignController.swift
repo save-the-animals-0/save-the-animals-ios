@@ -52,14 +52,6 @@ class CampaignController {
         if let token = token {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-//        let jsonEncoder = JSONEncoder()
-//        do {
-//            request.httpBody = try jsonEncoder.encode(campaign)
-//        } catch {
-//            print("error encoding: \(error)")
-//            completion(.noEncode)
-//            return
-//        }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let _ = error {
@@ -78,9 +70,13 @@ class CampaignController {
     }
     
     // update a campaign
-    func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String?, completion: @escaping (NetworkError?) -> ()) {
+    func updateCampaign(campaign: Campaign, fundingGoal: Double, location: String, description: String, deadline: Date, urgencyLevel: String, species: String, donationAmount: Double?, completion: @escaping (NetworkError?) -> ()) {
         guard let id = campaign.id else { return }
-        let updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: "species", imageData: nil, imageURL: nil, fundingRaised: nil)
+        var updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: fundingGoal, location: location, description: description, deadline: deadline, urgencyLevel: urgencyLevel, species: species, imageData: nil, imageURL: nil, fundingRaised: nil)
+        
+        if let newFundingRaised = donationAmount {
+            updatedCampaign = Campaign(id: nil, campaignName: campaign.campaignName, fundingGoal: campaign.fundingGoal, location: campaign.location, description: campaign.description, deadline: campaign.deadline, urgencyLevel: campaign.urgencyLevel, species: campaign.species, imageData: nil, imageURL: nil, fundingRaised: newFundingRaised + (campaign.fundingRaised ?? 0))
+        }
         
         let updateURL = baseURL.appendingPathComponent("\(id)")
         var request = URLRequest(url: updateURL)

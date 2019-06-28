@@ -227,7 +227,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTA-0B-lUY">
                                                                         <rect key="frame" x="0.0" y="28" width="300" height="5"/>
@@ -263,7 +263,7 @@
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="new-password"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-YV-JVb">
                                                                         <rect key="frame" x="0.0" y="28" width="300" height="5"/>
@@ -313,7 +313,7 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4W-Nb-cPb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4W-Nb-cPb">
                                                 <rect key="frame" x="57" y="505" width="300" height="60"/>
                                                 <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -466,10 +466,11 @@
         <scene sceneID="VSL-xw-Ggc">
             <objects>
                 <tableViewController storyboardIdentifier="CampaignTableViewController" id="P4F-tg-sxv" customClass="CampaignTableViewController" customModule="Key_Conservation" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dwJ-ec-3bh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dwJ-ec-3bh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.0" green="0.30980392159999998" blue="1" alpha="0.69236943493150682" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="rqh-J0-Q1F">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -547,28 +548,28 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="512" id="PO6-Db-ono" customClass="CampaignTableViewCell" customModule="Key_Conservation" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="103" width="414" height="512"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="509" id="PO6-Db-ono" customClass="CampaignTableViewCell" customModule="Key_Conservation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="414" height="509"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PO6-Db-ono" id="HNi-73-jtO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="511.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="508.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HY-me-Dt4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="511.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="508.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eZO-ek-sYQ">
-                                                    <rect key="frame" x="8" y="14" width="386" height="40"/>
+                                                    <rect key="frame" x="8" y="14" width="386" height="46"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z21-3V-Id1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                            <rect key="frame" x="0.0" y="3" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="pfr-0u-XEH"/>
                                                                 <constraint firstAttribute="width" constant="40" id="xGL-8V-Qpl"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ERE-TA-wXl">
-                                                            <rect key="frame" x="48" y="2.5" width="297" height="35.5"/>
+                                                            <rect key="frame" x="48" y="5.5" width="297" height="35.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZq-Lc-Ihl">
                                                                     <rect key="frame" x="0.0" y="0.0" width="297" height="19.5"/>
@@ -585,7 +586,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHp-fr-5IT">
-                                                            <rect key="frame" x="353" y="5" width="33" height="30"/>
+                                                            <rect key="frame" x="353" y="8" width="33" height="30"/>
                                                             <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
                                                             <state key="normal" title="Edit">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -596,70 +597,98 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Z21-3V-Id1" firstAttribute="top" secondItem="eZO-ek-sYQ" secondAttribute="top" constant="3" id="EZx-Jj-kbR"/>
+                                                    </constraints>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-Lu-9Po">
-                                                    <rect key="frame" x="0.0" y="64" width="414" height="276"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-Lu-9Po">
+                                                    <rect key="frame" x="0.0" y="70" width="414" height="276"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="tvZ-Lu-9Po" secondAttribute="height" multiplier="3:2" id="Xoc-UC-QhF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-Va-3l2">
-                                                    <rect key="frame" x="11" y="352" width="389" height="147.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-Va-3l2">
+                                                    <rect key="frame" x="11" y="349" width="383" height="147.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-iz-jFF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="242" height="36.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="byn-ms-ujI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="39.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,100,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sh-Ie-nuC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="33.5"/>
-                                                                    <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="24"/>
-                                                                    <color key="textColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of $2,000,000 goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpV-bm-FZB">
-                                                                    <rect key="frame" x="120" y="11" width="122" height="19.5"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-iz-jFF">
+                                                                    <rect key="frame" x="0.0" y="3" width="242" height="33.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,100,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sh-Ie-nuC">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="33.5"/>
+                                                                            <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="24"/>
+                                                                            <color key="textColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of $2,000,000 goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpV-bm-FZB">
+                                                                            <rect key="frame" x="120" y="11" width="122" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                                            <color key="textColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="12 days to go" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pZ-Ty-BUQ">
+                                                                    <rect key="frame" x="252" y="10" width="131" height="19.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="pdz-dD-tLx"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                    <color key="textColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="9pZ-Ty-BUQ" firstAttribute="top" secondItem="byn-ms-ujI" secondAttribute="top" constant="10" id="uVn-dn-kze"/>
+                                                            </constraints>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline: 12 days to go" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pZ-Ty-BUQ">
-                                                            <rect key="frame" x="0.0" y="44.5" width="148" height="19.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Species: Sea Turtles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMx-13-4go">
+                                                            <rect key="frame" x="0.0" y="42.5" width="127.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rtn-S0-FFc">
-                                                            <rect key="frame" x="0.0" y="72" width="148.5" height="19.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Leb-0e-Ks4">
+                                                            <rect key="frame" x="0.0" y="65" width="380" height="82.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04b-r2-M2O">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="64.5" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endangered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFt-oy-i2F">
-                                                                    <rect key="frame" x="69.5" y="0.0" width="79" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rtn-S0-FFc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="148.5" height="26.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04b-r2-M2O">
+                                                                            <rect key="frame" x="0.0" y="7" width="64.5" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Endangered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFt-oy-i2F">
+                                                                            <rect key="frame" x="69.5" y="7" width="79" height="19.5"/>
+                                                                            <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="752" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vET-qd-57v">
+                                                                    <rect key="frame" x="0.0" y="34.5" width="380" height="48"/>
+                                                                    <string key="text">Sea turtles throughout the world are severely reduced from historical levels. According to the World Conservation Union (IUCN) Red List of Threatened Species, persistent over-exploitation, especially of adult females on nesting...</string>
+                                                                    <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vET-qd-57v">
-                                                            <rect key="frame" x="0.0" y="99.5" width="380" height="48"/>
-                                                            <string key="text">Sea turtles throughout the world are severely reduced from historical levels. According to the World Conservation Union (IUCN) Red List of Threatened Species, persistent over-exploitation, especially of adult females on nesting...</string>
-                                                            <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="12"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="9pZ-Ty-BUQ" secondAttribute="trailing" id="KSn-5A-ajj"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="tc1-Va-3l2" firstAttribute="top" secondItem="tvZ-Lu-9Po" secondAttribute="bottom" constant="12" id="1P3-GD-7Vf"/>
-                                                <constraint firstAttribute="trailing" secondItem="tc1-Va-3l2" secondAttribute="trailing" constant="14" id="57f-SX-mff"/>
+                                                <constraint firstItem="tc1-Va-3l2" firstAttribute="top" secondItem="tvZ-Lu-9Po" secondAttribute="bottom" constant="3" id="1P3-GD-7Vf"/>
+                                                <constraint firstAttribute="trailing" secondItem="tc1-Va-3l2" secondAttribute="trailing" constant="20" id="57f-SX-mff"/>
                                                 <constraint firstItem="tvZ-Lu-9Po" firstAttribute="width" secondItem="9HY-me-Dt4" secondAttribute="width" id="MbR-Gf-ipl"/>
                                                 <constraint firstItem="tc1-Va-3l2" firstAttribute="leading" secondItem="9HY-me-Dt4" secondAttribute="leading" constant="11" id="MqN-e6-9kR"/>
                                                 <constraint firstAttribute="trailing" secondItem="eZO-ek-sYQ" secondAttribute="trailing" constant="20" id="Ttk-w6-agD"/>
@@ -686,6 +715,7 @@
                                     <outlet property="campaignGoal" destination="DpV-bm-FZB" id="gW9-ew-jnV"/>
                                     <outlet property="campaignLocation" destination="Uae-FO-XXy" id="1ic-Kh-qIl"/>
                                     <outlet property="campaignPhoto" destination="tvZ-Lu-9Po" id="X2T-cS-p3Z"/>
+                                    <outlet property="campaignSpecies" destination="RMx-13-4go" id="8xW-14-ocu"/>
                                     <outlet property="campaignTitle" destination="sZq-Lc-Ihl" id="nhZ-sG-Ucg"/>
                                     <outlet property="editCampaignButton" destination="nHp-fr-5IT" id="fiR-G7-rg2"/>
                                     <outlet property="organizationPhoto" destination="Z21-3V-Id1" id="ROT-jW-Qfj"/>
@@ -704,8 +734,8 @@
                         <outlet property="allCampaignsButton" destination="7iZ-UU-PKl" id="1wq-l0-ma4"/>
                         <outlet property="myCampaignsButton" destination="17U-OS-Sys" id="tcC-k4-Tas"/>
                         <outlet property="searchTextField" destination="Pwf-2B-cEK" id="ww7-Mc-Rec"/>
-                        <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" id="0NY-5d-2Cu"/>
-                        <segue destination="XaX-mF-8mx" kind="presentation" identifier="PresentOnboarding" id="ynd-xa-iG1"/>
+                        <segue destination="gOz-Wm-NvE" kind="show" identifier="LoginViewModalSegue" animates="NO" id="0NY-5d-2Cu"/>
+                        <segue destination="XaX-mF-8mx" kind="show" identifier="PresentOnboarding" animates="NO" id="ynd-xa-iG1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wtn-pl-BAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -724,7 +754,6 @@
                                 <rect key="frame" x="20" y="64" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="428-TE-mYg"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="FeM-Od-myx"/>
                                     <constraint firstAttribute="height" constant="28" id="xrs-cS-HkY"/>
                                 </constraints>
                                 <state key="normal" image="Back"/>
@@ -733,9 +762,9 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Eb-Lp-TWT">
-                                <rect key="frame" x="8" y="112" width="398" height="40"/>
+                                <rect key="frame" x="8" y="116" width="398" height="40"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Vk4-vQ-hcI">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="Vk4-vQ-hcI">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="jDX-cu-fyI"/>
@@ -761,64 +790,83 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FpT-0r-wEd">
-                                <rect key="frame" x="0.0" y="162" width="414" height="276"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FpT-0r-wEd">
+                                <rect key="frame" x="0.0" y="166" width="414" height="276"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FpT-0r-wEd" secondAttribute="height" multiplier="3:2" id="Tsv-4r-hx2"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HSQ-rb-aXx">
-                                <rect key="frame" x="11" y="450" width="389" height="209"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HSQ-rb-aXx">
+                                <rect key="frame" x="11" y="454" width="389" height="200"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-5w-LuC">
-                                        <rect key="frame" x="0.0" y="0.0" width="242" height="33.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hjh-uE-phm">
+                                        <rect key="frame" x="0.0" y="0.0" width="389" height="33.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,100,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcz-9Z-LQg">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="33.5"/>
-                                                <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="24"/>
-                                                <color key="textColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of $2,000,000 goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z52-2g-yyZ">
-                                                <rect key="frame" x="120" y="11" width="122" height="19.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-5w-LuC">
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="33.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,100,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcz-9Z-LQg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="33.5"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="24"/>
+                                                        <color key="textColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of $2,000,000 goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z52-2g-yyZ">
+                                                        <rect key="frame" x="120" y="11" width="122" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                        <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 days to go" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9u-k3-Fo3">
+                                                <rect key="frame" x="250" y="7" width="139" height="19.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="83" id="9rs-lF-HKo"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                <color key="textColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline: 12 days to go" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9u-k3-Fo3">
-                                        <rect key="frame" x="0.0" y="41.5" width="148" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species: Sea Turtles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePk-xS-mqO">
+                                        <rect key="frame" x="0.0" y="38.5" width="127.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="r4l-bo-NIe">
-                                        <rect key="frame" x="0.0" y="69" width="148.5" height="19.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-pi-nSx">
+                                        <rect key="frame" x="0.0" y="63" width="380" height="75.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rq-OJ-Nhi">
-                                                <rect key="frame" x="0.0" y="0.0" width="64.5" height="19.5"/>
-                                                <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endangered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjs-lT-Oij">
-                                                <rect key="frame" x="69.5" y="0.0" width="79" height="19.5"/>
-                                                <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="r4l-bo-NIe">
+                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="19.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rq-OJ-Nhi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endangered" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjs-lT-Oij">
+                                                        <rect key="frame" x="69.5" y="0.0" width="79" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7Y-1K-NE0">
+                                                <rect key="frame" x="0.0" y="27.5" width="380" height="48"/>
+                                                <string key="text">Sea turtles throughout the world are severely reduced from historical levels. According to the World Conservation Union (IUCN) Red List of Threatened Species, persistent over-exploitation, especially of adult females on nesting...</string>
+                                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7Y-1K-NE0">
-                                        <rect key="frame" x="0.0" y="96.5" width="380" height="48"/>
-                                        <string key="text">Sea turtles throughout the world are severely reduced from historical levels. According to the World Conservation Union (IUCN) Red List of Threatened Species, persistent over-exploitation, especially of adult females on nesting...</string>
-                                        <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="jvy-SD-T6I">
-                                        <rect key="frame" x="0.0" y="152.5" width="389" height="56.5"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="389" height="56.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URJ-Lv-08i">
                                                 <rect key="frame" x="0.0" y="0.0" width="55.5" height="19.5"/>
@@ -832,15 +880,26 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I44-Zq-ahf">
                                                         <rect key="frame" x="0.0" y="0.0" width="274" height="30"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-Cz-KGE">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tbI-S2-mVv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="274" height="22"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="274" id="wrv-lN-3w3"/>
-                                                                </constraints>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03c-Y4-reE">
+                                                                        <rect key="frame" x="0.0" y="4" width="8" height="14"/>
+                                                                        <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-Cz-KGE">
+                                                                        <rect key="frame" x="8" y="4" width="266" height="14"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="274" id="wrv-lN-3w3"/>
+                                                                        </constraints>
+                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" name="SofiaProRegular" family="Sofia Pro" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG8-cf-2P9">
                                                                 <rect key="frame" x="0.0" y="27" width="274" height="3"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -879,6 +938,9 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="V9u-k3-Fo3" secondAttribute="trailing" id="XjR-hg-eaH"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -889,7 +951,7 @@
                             <constraint firstItem="FpT-0r-wEd" firstAttribute="top" secondItem="7Eb-Lp-TWT" secondAttribute="bottom" constant="10" id="Nfg-se-4JS"/>
                             <constraint firstItem="O88-ru-nHz" firstAttribute="trailing" secondItem="7Eb-Lp-TWT" secondAttribute="trailing" constant="8" id="SQ8-BS-mdy"/>
                             <constraint firstItem="FpT-0r-wEd" firstAttribute="trailing" secondItem="O88-ru-nHz" secondAttribute="trailing" id="U5Z-Yx-YKr"/>
-                            <constraint firstItem="7Eb-Lp-TWT" firstAttribute="top" secondItem="QOg-iJ-3Yk" secondAttribute="bottom" constant="20" id="VaK-qG-mUx"/>
+                            <constraint firstItem="7Eb-Lp-TWT" firstAttribute="top" secondItem="QOg-iJ-3Yk" secondAttribute="bottom" constant="24" id="VaK-qG-mUx"/>
                             <constraint firstItem="7Eb-Lp-TWT" firstAttribute="leading" secondItem="O88-ru-nHz" secondAttribute="leading" constant="8" id="ViD-dP-coE"/>
                             <constraint firstItem="FpT-0r-wEd" firstAttribute="centerX" secondItem="DUx-JV-nX5" secondAttribute="centerX" id="XIa-iB-zgK"/>
                             <constraint firstItem="HSQ-rb-aXx" firstAttribute="leading" secondItem="O88-ru-nHz" secondAttribute="leading" constant="11" id="bIa-bv-Lot"/>
@@ -906,6 +968,7 @@
                         <outlet property="campaignGoal" destination="z52-2g-yyZ" id="0Q0-Mm-OsX"/>
                         <outlet property="campaignLocation" destination="Mb7-DT-63T" id="9ou-we-NpU"/>
                         <outlet property="campaignPhoto" destination="FpT-0r-wEd" id="g2E-Cj-ASh"/>
+                        <outlet property="campaignSpecies" destination="ePk-xS-mqO" id="dm6-M0-s4D"/>
                         <outlet property="campaignTitle" destination="xoc-ds-eu6" id="bfs-Ki-Ija"/>
                         <outlet property="donationAmountTextField" destination="nZu-Cz-KGE" id="ocd-RB-gzZ"/>
                         <outlet property="organizationPhoto" destination="Vk4-vQ-hcI" id="mHh-Oa-il8"/>
@@ -942,7 +1005,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqv-9c-P17">
                                                 <rect key="frame" x="0.0" y="55" width="300" height="5"/>
@@ -973,7 +1036,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" textContentType="password"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vo-IB-3KP">
                                                 <rect key="frame" x="0.0" y="55" width="300" height="5"/>
@@ -990,7 +1053,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5Z-0g-29f">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5Z-0g-29f">
                                 <rect key="frame" x="57.5" y="349" width="299" height="60"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1035,8 +1098,10 @@
                         <viewLayoutGuide key="safeArea" id="8oC-qf-pR5"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="rt2-Eb-dCC" id="AP8-fZ-14F"/>
                         <outlet property="emailTextField" destination="KN9-3P-THa" id="n8O-37-oFC"/>
                         <outlet property="passwordTextField" destination="sKl-cW-bz7" id="cxw-6S-ty8"/>
+                        <outlet property="signInButton" destination="v5Z-0g-29f" id="hgX-5Z-CUH"/>
                         <segue destination="Mzo-BV-lEZ" kind="show" identifier="ShowFeed" id="Jhd-0e-aLU"/>
                     </connections>
                 </viewController>
@@ -1073,13 +1138,13 @@
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIi-cS-fwW">
-                                <rect key="frame" x="0.0" y="112" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="907"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YQ-9g-RtP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="907"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="q2d-kt-b2g">
-                                                <rect key="frame" x="37" y="20" width="340" height="601"/>
+                                                <rect key="frame" x="37" y="20" width="340" height="836"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lml-9T-DtD">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="55"/>
@@ -1112,24 +1177,66 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eKu-ot-hVr">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ncL-8g-1HY">
                                                         <rect key="frame" x="0.0" y="95" width="300" height="55"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funding Goal ($)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zic-XR-Ti8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="139.5" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iia-2E-nSB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="64" height="18"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-b7-ARI">
+                                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Species" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUC-LO-mzM">
                                                                 <rect key="frame" x="0.0" y="24" width="300" height="20"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="s7T-1f-85F"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="vUp-gg-Unz"/>
                                                                 </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IA-yg-faF">
+                                                                <rect key="frame" x="0.0" y="50" width="300" height="5"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="auR-w5-9Vq"/>
+                                                                    <constraint firstAttribute="height" constant="5" id="oU1-Pc-mdh"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eKu-ot-hVr">
+                                                        <rect key="frame" x="0.0" y="190" width="308" height="55"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funding Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zic-XR-Ti8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="18"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="18"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ht2-rv-5ik">
+                                                                <rect key="frame" x="0.0" y="24" width="308" height="20"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qML-b4-2Rm">
+                                                                        <rect key="frame" x="0.0" y="0.5" width="8" height="19.5"/>
+                                                                        <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-b7-ARI">
+                                                                        <rect key="frame" x="8" y="0.0" width="300" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="s7T-1f-85F"/>
+                                                                        </constraints>
+                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-Cv-p2o">
                                                                 <rect key="frame" x="0.0" y="50" width="300" height="5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1144,7 +1251,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YJ1-rC-jng">
-                                                        <rect key="frame" x="0.0" y="190" width="300" height="55"/>
+                                                        <rect key="frame" x="0.0" y="285" width="300" height="55"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline (days)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-ik-MVE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="130.5" height="18"/>
@@ -1159,7 +1266,7 @@
                                                                 </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="SofiaPro-SemiBold" family="Sofia Pro" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w61-34-bQ3">
                                                                 <rect key="frame" x="0.0" y="50" width="300" height="5"/>
@@ -1175,7 +1282,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7U9-Qv-aiy">
-                                                        <rect key="frame" x="0.0" y="285" width="300" height="118"/>
+                                                        <rect key="frame" x="0.0" y="380" width="300" height="118"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category (IUCN Red List)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbY-2Z-y2P">
                                                                 <rect key="frame" x="0.0" y="0.0" width="208" height="18"/>
@@ -1281,7 +1388,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mof-Ih-msA">
-                                                        <rect key="frame" x="0.0" y="443" width="327.5" height="56"/>
+                                                        <rect key="frame" x="0.0" y="538" width="327.5" height="56"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rux-M3-ChE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="139.5" height="56"/>
@@ -1312,7 +1419,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-K6-zNE">
-                                                        <rect key="frame" x="0.0" y="539" width="340" height="62"/>
+                                                        <rect key="frame" x="0.0" y="634" width="340" height="62"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weT-rc-nmo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="95.5" height="18"/>
@@ -1332,8 +1439,44 @@
                                                             <constraint firstAttribute="trailing" secondItem="Axe-3a-w4q" secondAttribute="trailing" id="X4r-NE-ZgM"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="sp0-c0-B3X">
+                                                        <rect key="frame" x="0.0" y="736" width="340" height="100"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-td-jHz">
+                                                                <rect key="frame" x="40" y="0.0" width="260" height="60"/>
+                                                                <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="IPb-mF-sib"/>
+                                                                    <constraint firstAttribute="height" constant="60" id="W2l-Dt-HGf"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
+                                                                <state key="normal" title="Save Campaign">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="saveCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="HuG-ET-CQh"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aa5-wB-TIW">
+                                                                <rect key="frame" x="113.5" y="74" width="113" height="26"/>
+                                                                <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
+                                                                <state key="normal" title="Delete Campaign">
+                                                                    <color key="titleColor" red="0.93333333333333335" green="0.37647058823529411" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="deleteCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="Akm-sT-lMc"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="sp0-c0-B3X" firstAttribute="centerX" secondItem="q2d-kt-b2g" secondAttribute="centerX" id="6Hk-Az-Ujk"/>
                                                     <constraint firstAttribute="trailing" secondItem="zn7-K6-zNE" secondAttribute="trailing" id="82o-mC-mfO"/>
                                                 </constraints>
                                             </stackView>
@@ -1356,50 +1499,11 @@
                                     <constraint firstAttribute="bottom" secondItem="3YQ-9g-RtP" secondAttribute="bottom" id="pHH-IJ-h12"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="sp0-c0-B3X">
-                                <rect key="frame" x="77" y="870" width="260" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" alpha="0.25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-td-jHz">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="60"/>
-                                        <color key="backgroundColor" red="0.3803921569" green="0.90588235289999997" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="IPb-mF-sib"/>
-                                            <constraint firstAttribute="height" constant="60" id="W2l-Dt-HGf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="24"/>
-                                        <state key="normal" title="Save Campaign">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="saveCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="HuG-ET-CQh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aa5-wB-TIW">
-                                        <rect key="frame" x="73.5" y="74" width="113" height="26"/>
-                                        <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="14"/>
-                                        <state key="normal" title="Delete Campaign">
-                                            <color key="titleColor" red="0.93333333333333335" green="0.37647058823529411" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="deleteCampaignButtonTapped:" destination="8Gn-MN-QWt" eventType="touchUpInside" id="Akm-sT-lMc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="9YJ-3B-RGj" secondAttribute="trailing" constant="20" id="ACh-cQ-pnK"/>
-                            <constraint firstAttribute="bottom" secondItem="sp0-c0-B3X" secondAttribute="bottom" constant="30" id="Ll1-OY-xhA"/>
                             <constraint firstItem="zIi-cS-fwW" firstAttribute="top" secondItem="9YJ-3B-RGj" secondAttribute="bottom" constant="20" id="NXy-OO-EZi"/>
-                            <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="sp0-c0-B3X" secondAttribute="trailing" constant="77" id="Odn-QK-IIf"/>
-                            <constraint firstItem="sp0-c0-B3X" firstAttribute="centerX" secondItem="z1t-WA-HA2" secondAttribute="centerX" id="Wq8-1c-ykI"/>
-                            <constraint firstItem="sp0-c0-B3X" firstAttribute="leading" secondItem="QX4-7w-ohw" secondAttribute="leading" constant="77" id="YYb-zA-QUo"/>
                             <constraint firstItem="zIi-cS-fwW" firstAttribute="leading" secondItem="z1t-WA-HA2" secondAttribute="leading" id="aXC-by-fp9"/>
                             <constraint firstItem="9YJ-3B-RGj" firstAttribute="top" secondItem="QX4-7w-ohw" secondAttribute="top" constant="20" id="eWh-rw-ckv"/>
                             <constraint firstItem="QX4-7w-ohw" firstAttribute="trailing" secondItem="zIi-cS-fwW" secondAttribute="trailing" id="lYe-rM-zgY"/>
@@ -1419,6 +1523,7 @@
                         <outlet property="nearThreatenedButton" destination="Lkn-5U-2Nb" id="Yyt-af-ZnW"/>
                         <outlet property="saveCampaignButton" destination="hPY-td-jHz" id="1os-di-RkH"/>
                         <outlet property="scrollView" destination="zIi-cS-fwW" id="RRp-lq-kpK"/>
+                        <outlet property="speciesTextField" destination="UUC-LO-mzM" id="2aD-Ea-rog"/>
                         <outlet property="titleLabel" destination="7R3-Ua-oCa" id="kae-qJ-0yy"/>
                         <outlet property="vulnerableButton" destination="56x-p4-o90" id="P7b-kS-AmX"/>
                     </connections>
@@ -1455,6 +1560,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Jhd-0e-aLU"/>
         <segue reference="AlE-aI-jnz"/>
-        <segue reference="lc5-UO-29l"/>
+        <segue reference="0NY-5d-2Cu"/>
     </inferredMetricsTieBreakers>
 </document>
